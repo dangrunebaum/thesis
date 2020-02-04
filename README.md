@@ -45,7 +45,7 @@
 	Visualizations: Choropleth encoding Asian communities across the US with filter for countries of origin.
  			Reference: Key facts about Asian Americans, a diverse and growing population (Pew) 
       
- ![alt test](screenshots/picturename)
+ ![alt Visualizing Asian America](/visualizing-asian-america.png)
 
 ## Major Studio 2 Assignments Research Exercise: Literature Review
 
