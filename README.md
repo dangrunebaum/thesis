@@ -2,7 +2,7 @@
 
 # Exercise 2: Form
 
-## [Japan Trending: Ten Japanese Concepts' Journey to the West]()
+## [Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
 
 # Visualizing Asian America 
 
