@@ -1,5 +1,9 @@
 # Masters Thesis
 
+# Exercise 2: Form
+
+## [Japan Trending: Ten Japanese Concepts' Journey to the West]()
+
 # Visualizing Asian America 
 
 ## Topic: Visualizing cultural migration and the rising influence of Asian culture on the US.
