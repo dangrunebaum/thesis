@@ -1,5 +1,11 @@
 # Masters Thesis
 
+# Exercise 2: Wireframes
+
+## 1. [Wireframe 1: Vertical Timeline](WIREFRAME-1-VERTICAL-TIMELINE.pdf)
+
+## 2. [Wireframe 2: One Column](WIREFRAME-2-ONE-COLUMN.pdf)
+
 # Exercise 2: Form
 
 ## [Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
