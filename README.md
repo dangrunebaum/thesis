@@ -1,6 +1,6 @@
 # Masters Thesis
 
-# Exercise 2: Wireframes
+[Exercise 2: Wireframes](#wireframes)
 
 ## 1. [Wireframe 1: Vertical Timeline](WIREFRAME-1-VERTICAL-TIMELINE.pdf)
 
