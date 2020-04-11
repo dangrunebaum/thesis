@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>The 3 Column Layout</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Faster+One&family=Taviraj:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Trade+Winds&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 class='japanese'>日本語のグローバリゼーション</h1>
+        <h1 class='title'>TURNING JAPANESE</h1>
+        <div class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The
+            Globalization of Japanese Language and Concepts</div>
+        <h2 class="blurb">
+            Tracing Japanese Loanwords through the Oxford English Dictionary, New York Times and Google Search
+        </h2>
+    </div>
+
+    <div class="container">
+
+        <timeline-div class="left-col">
+            <h2>Japan History Timeline</h2>
+            <!-- <div id="center-text"></div> -->
+        </timeline-div>
+
+        <word-div class="center-col">
+            <h2>100 Most Frequent Japanese Loanwords in the Oxford English Dictionary</h2>
+
+            <audio id="audioElement" src="/data/audio/soy--_us_1.mp3"></audio>
+            <!-- <div>
+  <button onclick="document.getElementById('audioElement').play()">Play tatami</button>
+</div> -->
+            <!-- <div>
+    <p onclick="document.getElementById('audioElement').play()">Play tatami</p>
+  </div> -->
+
+        </word-div>
+
+
+        <div id="right-col">
+            <h2>Visualizations</h2>
+            <container id="viz-container">
+
+                <h3>JAPANESE LOANWORD NATURALIZATION STAGES</h3>
+                <img src="stages-of-naturalization.svg" alt="Loanword Naturalization Stages">
+                <p>Linguists have developed measures to understand the naturalization process of loanwords. Researcher
+                    Schun Doi created this schematic to analyze Japanese loanwords in the Oxford English Dictionary, the
+                    world's most authoritative English lexicon. The schematic places loanwords on a continuum with three
+                    general stages in their transition from fully Japanese to full incorporation into the English
+                    lexicon.</p>
+                <div id="bars">
+                    <h3>{{ chartTitle }}</h3>
+                    <!-- <div>
+                    <p>Our inputs here</p>
+                    <input class="pink" type="number" placeholder="Edit me" v-model="data[0].val" />
+                    <input type="string" placeholder="Edit me" v-model="data[0].name" />
+                </div> -->
+                    <svg :width="svgWidth" :height="svgHeight">
+                        <g :transform="'translate(' + margin.left + ',' + margin.top + ')'">
+                            <g v-for="(element, index) in data">
+                                <rect :x="scale.x(element.name)" :y="scale.y(element.val)" :width="scale.x.bandwidth()"
+                                    :height="height - scale.y(element.val)" :fill="myFill(index)" />
+                                <text :x="scale.x(element.name) + 15" :y="scale.y(element.val) + 20"
+                                    :style="{fill: 'white', 'width': 'scale.x.bandwidth()'}">
+                                    {{ element.val }}
+                                </text>
+
+                            </g>
+                            <g v-axis:y="scale"></g>
+                            <g v-axis:x="scale" :transform="`translate(0, ${height})`"></g>
+                        </g>
+
+                    </svg>
+                </div>
+                <p>Japanese has contributed the second most loanwords to the Oxford English Dictionary among Asian
+                    languages. Japan's large contribution comes despite the nation's history of isolation and the fact
+                    that
+                    it was never colonized by an English-speaking country.</p>
+
+                <section id="bubbleChart">
+                    <h3>TOP CATEGORIES OF JAPANESE LOANWORDS IN THE OED</h3>
+                </section>
+
+                <p class="bubble-text">
+                    Food & Drink, Martial Arts and Arts & Crafts are the top three categories of Japanese words in the
+                    Oxford
+                    English Dictionary, indicating the impact of Japanese culture on the English-speaking world.
+                </p>
+
+                <div id="histogram">
+                    <h3>{{ chartTitle }}</h3>
+
+                    <!-- <div>
+                    <p>Our inputs here</p>
+                    <input class="pink" type="number" placeholder="Edit me" v-model="data[0].val" />
+                    <input type="string" placeholder="Edit me" v-model="data[0].name" />
+                </div> -->
+                    <svg :width="svgWidth" :height="svgHeight">
+                        <g :transform="'translate(' + margin.left + ',' + margin.top + ')'">
+                            <g v-for="(element, index) in data">
+                                <rect :x="scale.x(element.decade) - 3" :y="scale.y(element.val)"
+                                    :width="scale.x.bandwidth()" :height="height - scale.y(element.val)"
+                                    :fill="myFill()" />
+                                <!-- <text :x="scale.x(element.name) - 1" :y="scale.y(element.val) + 20"
+                                    :style="{fill: 'white', 'font-size': '8', 'width': 'scale.x.bandwidth()'}">
+                                    {{ element.val }}
+                                </text> -->
+
+                            </g>
+                            <g v-axis:y="scale"></g>
+                            <g v-axis:x="scale" :transform="`translate(0, ${height})`"></g>
+                        </g>
+
+                    </svg>
+                </div>
+                <p>
+                    Historians point to three waves of Japanophilia: the first in the late 1800s after Japan opened to
+                    the world and Westerners experienced Japanese arts and crafts at events like the 1876 Philadelphia
+                    Expo; the second after WWII when Westerners discovered Zen Buddhism and Japanese poetry; and the
+                    third, pop culture-driven wave currently underway. The addition of loanwords to the OED reflects
+                    these waves.
+                </p>
+
+                    <h3>JAPANESE LOANWORDS IN THE NEW YORK TIMES</h3>
+                    
+                <div id="my_dataviz"></div>
+                <p>
+                    Explore 12 Japanese terms from their first appearance in the New York Times to the present. The terms progress from older waves of Japanophilia to recent terms representing 'Cool Japan.'  
+                    <!-- Compare five words representing older waves of Japanophilia (above) to five words representing
+                    the current wave of Japanophilia (below), in the New York Times from 1851 to the present. -->
+                </p>
+
+                <div>
+                    <h3>FIVE NEW JAPANESE LOANWORDS VISUALIZED BY GOOGLE SEARCH INTEREST</h3>
+                    <p>
+                        Where do recent Japanese loanwords first find interest, and how do they spread over time? Using
+                        Google Search data from 2006-2014, map the global diffusion of five terms representing the
+                        latest wave of Japanophilia.
+                    </p>
+                </div>
+                <div>
+                    <h3>TRADITIONAL VS CONTEMPORARY JAPANOPHILIA</h3>
+                    <p>
+                        As new Japanese loanwords find global currency, how do terms signifying traditional views of
+                        Japan hold up? Five word-pairs map worldwide search interest in loanwords representing older and
+                        contemporary waves of Japanophilia.
+                    </p>
+                </div>
+
+            </container>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <!-- <p>&copy;All Rights Reserved.</p> -->
+        <a href="#top">Top</a>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+[
+  {
+    "Tag": "administrative units",
+    "Count": 2
+  },
+  {
+    "Tag": "greetings & chants",
+    "Count": 2
+  },
+  {
+    "Tag": "lineage & family",
+    "Count": 2
+  },
+  {
+    "Tag": "chemistry & physics",
+    "Count": 3
+  },
+  {
+    "Tag": "events",
+    "Count": 3
+  },
+  {
+    "Tag": "historical periods",
+    "Count": 3
+  },
+  {
+    "Tag": "residents & emigrants",
+    "Count": 3
+  },
+  {
+    "Tag": "bushido",
+    "Count": 4
+  },
+  {
+    "Tag": "mineralogy",
+    "Count": 4
+  },
+  {
+    "Tag": "music",
+    "Count": 5
+  },
+  {
+    "Tag": "transportation",
+    "Count": 5
+  },
+  {
+    "Tag": "zoology",
+    "Count": 5
+  },
+  {
+    "Tag": "games",
+    "Count": 6
+  },
+  {
+    "Tag": "literature",
+    "Count": 6
+  },
+  {
+    "Tag": "characters & letters",
+    "Count": 7
+  },
+  {
+    "Tag": "medicine",
+    "Count": 8
+  },
+  {
+    "Tag": "monetary",
+    "Count": 8
+  },
+  {
+    "Tag": "weaponry",
+    "Count": 8
+  },
+  {
+    "Tag": "others",
+    "Count": 10
+  },
+  {
+    "Tag": "customs",
+    "Count": 11
+  },
+  {
+    "Tag": "commodities",
+    "Count": 12
+  },
+  {
+    "Tag": "measurements",
+    "Count": 12
+  },
+  {
+    "Tag": "nature",
+    "Count": 12
+  },
+  {
+    "Tag": "social systems",
+    "Count": 12
+  },
+  {
+    "Tag": "clothing & footwear",
+    "Count": 13
+  },
+  {
+    "Tag": "housing",
+    "Count": 14
+  },
+  {
+    "Tag": "botany",
+    "Count": 18
+  },
+  {
+    "Tag": "economy & business",
+    "Count": 20
+  },
+  {
+    "Tag": "culture",
+    "Count": 22
+  },
+  {
+    "Tag": "entertainment",
+    "Count": 22
+  },
+  {
+    "Tag": "religion",
+    "Count": 29
+  },
+  {
+    "Tag": "professions & status",
+    "Count": 33
+  },
+  {
+    "Tag": "arts & crafts",
+    "Count": 45
+  },
+  {
+    "Tag": "sports & martial arts",
+    "Count": 63
+  },
+  {
+    "Tag": "food & drink",
+    "Count": 78
+  }
+]
