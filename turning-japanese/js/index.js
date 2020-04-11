@@ -199,8 +199,6 @@ d3.csv("data/100-frequent-words.csv", function (data) {
     }
 })
 
-
-
 // Visualizations: language frequency bar chart 
 var app = new Vue({
     // ID of referenced div-element
