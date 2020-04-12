@@ -193,7 +193,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         var pronunciation = document.getElementById('audioElement');
         pronunciation.setAttribute('src', 
 //         `https://dangrunebaum.github.io/data/audio/typhoon--_us_1.mp3`
-                                   `https://dangrunebaum.github.io/turning-japanese/data/audio/typhoon--_us_1.mp3`
+                                   `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
         // `/data/audio/${item.Loanword}--_us_1.mp3`
         );
         pronunciation.play()
