@@ -191,13 +191,18 @@ d3.csv("data/100-frequent-words.csv", function (data) {
     function mouseClick(item) {
         // console.log(item.Loanword);
         var pronunciation = document.getElementById('audioElement');
-        pronunciation.setAttribute('src', `/data/audio/${item.Loanword}--_us_1.mp3`);
+        pronunciation.setAttribute('src', 
+        `https://dangrunebaum.github.io/data/audio/${item.Loanword}--_us_1.mp3`
+        // `/data/audio/${item.Loanword}--_us_1.mp3`
+        );
         pronunciation.play()
         // console.log("mouseClick");
         //  pronunciation source 'https://ssl.gstatic.com/dictionary/static/sounds/oxford/tatami--_us_1.mp3
 
     }
 })
+
+
 
 // Visualizations: language frequency bar chart 
 var app = new Vue({
@@ -362,7 +367,7 @@ var bubble = d3.pack(dataset)
     .size([diameter, diameter])
     .padding(1.5);
 
-var CategoriesSvg = d3.select("section#bubbleChart")
+var CategoriesSvg = d3.select("div#bubbleChart")
     .append("svg")
     .attr("width", diameter)
     .attr("height", diameter)
@@ -736,7 +741,7 @@ var app2 = new Vue({
       allKeys = sumstat.map(function (d) { return d.key })
 
       // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
-      var nytSvg  = d3.select("#my_dataviz")
+      var nytSvg  = d3.select("#small_multiples")
         .selectAll("uniqueChart")
         .data(sumstat)
         .enter()
