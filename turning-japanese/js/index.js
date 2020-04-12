@@ -191,7 +191,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
     function mouseClick(item) {
         // console.log(item.Loanword);
         var pronunciation = document.getElementById('audioElement');
-        pronunciation.setAttribute('src', `/data/audio/${item.Loanword}--_us_1.mp3`);
+        pronunciation.setAttribute('src', `./data/audio/${item.Loanword}--_us_1.mp3`);
         pronunciation.play()
         // console.log("mouseClick");
         //  pronunciation source 'https://ssl.gstatic.com/dictionary/static/sounds/oxford/tatami--_us_1.mp3
