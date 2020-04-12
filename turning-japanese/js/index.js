@@ -191,11 +191,11 @@ d3.csv("data/100-frequent-words.csv", function (data) {
     function mouseClick(item) {
         // console.log(item.Loanword);
         var pronunciation = document.getElementById('audioElement');
-        var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
+        var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/${item.Loanword}--_us_1.mp3`
         console.log(url);
         pronunciation.setAttribute('src', url);
 //         `https://dangrunebaum.github.io/data/audio/typhoon--_us_1.mp3`
-                                   `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
+//                                    `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
         // `/data/audio/${item.Loanword}--_us_1.mp3`
 //         );
         pronunciation.play()
