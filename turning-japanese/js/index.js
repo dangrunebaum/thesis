@@ -7,7 +7,7 @@ clrs = ["red", "brown", "coral", "goldenrod", "maroon", "olive", "orchid", "toma
 var timelineSvg = d3.select("timeline-div").append("svg")
     .attr("class", "timeline")
     .attr("width", "95%")
-    .attr("height", "6000px")
+    .attr("height", "4300px")
 // Load timeline data and show year 
 d3.csv("data/timeline.csv", function (data) {
     // console.log(data);
@@ -75,7 +75,7 @@ d3.csv("data/timeline.csv", function (data) {
 var svg = d3.select("word-div").append("svg")
     .attr("class", "word")
     .attr("width", "95%")
-    .attr("height", "6000px")
+    .attr("height", "4300px")
 
 // Append background lines
 svg.append("line")
@@ -83,7 +83,7 @@ svg.append("line")
     .attr("x1", 50)
     .attr("x2", 50)
     .attr("y1", 40)
-    .attr("y2", 6000)
+    .attr("y2", 4300)
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
@@ -92,7 +92,7 @@ svg.append("line")
     .attr("x1", 160)
     .attr("x2", 160)
     .attr("y1", 40)
-    .attr("y2", 6000)
+    .attr("y2", 4300)
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
@@ -101,7 +101,7 @@ svg.append("line")
     .attr("x1", 270)
     .attr("x2", 270)
     .attr("y1", 40)
-    .attr("y2", 6000)
+    .attr("y2", 4300)
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
@@ -191,7 +191,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
     function mouseClick(item) {
         // console.log(item.Loanword);
         var pronunciation = document.getElementById('audioElement');
-        var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/${item.Loanword}--_us_1.mp3`
+        var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/${item.Loanword.toLowerCase()}--_us_1.mp3`
         console.log(url);
         pronunciation.setAttribute('src', url);
 //         `https://dangrunebaum.github.io/data/audio/typhoon--_us_1.mp3`
