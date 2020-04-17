@@ -5,9 +5,9 @@
 # Japan Trending
 ## Two proposals for wireframes, one as a vertical timeline and another as a one-column scrollytelling experience.
 
-## 1. Wireframe 1: Vertical Timeline ![Wireframe 1: Vertical Timeline](WIREFRAME-1-VERTICAL-TIMELINE.png)
+## 1. Vertical Timeline ![Wireframe 1: Vertical Timeline](WIREFRAME-1-VERTICAL-TIMELINE.png)
 
-## 2. Wireframe 2: One Column ![Wireframe 2: One Column](WIREFRAME-2-ONE-COLUMN.png)
+## 2. One Column ![Wireframe 2: One Column](WIREFRAME-2-ONE-COLUMN.png)
 
 # Exercise 2: Form
 
