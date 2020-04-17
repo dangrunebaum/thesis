@@ -1,6 +1,6 @@
 # Masters Thesis
 
-[Exercise 3: Prototyping](#wireframes)
+# Exercise 3: Prototyping
 
 # Japan Trending
 ## Two proposals for wireframes, one as a vertical timeline and another as a one-column scrollytelling experience.
@@ -11,7 +11,7 @@
 
 # Exercise 2: Form
 
-## [Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
+![Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
 ## Re-envisioned with a focus on the globalization of Japanese culture. 
 
 # Visualizing Asian America 
