@@ -136,6 +136,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .attr("font-size", function (d, i) { return data[i].Frequency * 5; })// font size based on frequency
         .style("cursor", "pointer")
         .attr("fill", "#7D1829")
+
         // .attr("fill", function (d, i) { return 
         // .attr("fill", function (d, i) {
         //     if (data[i].Frequency === '3') { return colors[0]; }
