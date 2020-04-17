@@ -17,13 +17,13 @@
 	.st11{font-family:'Montserrat-Medium';}
 	.st12{fill:none;stroke:#4B9191;stroke-width:5;stroke-miterlimit:10;}
 	.st13{fill:#5D7172;stroke:#5D7172;stroke-miterlimit:10;}
-	.st14{fill:#4E5557;stroke:#4E5557;stroke-width:5;stroke-miterlimit:10;}
+	.st14{fill:none;stroke:#4E5557;stroke-width:5;stroke-miterlimit:10;}
 	.st15{fill:none;stroke:#5D7172;stroke-width:5;stroke-miterlimit:10;}
-	.st16{fill:#5F8586;stroke:#5F8586;stroke-width:5;stroke-miterlimit:10;}
+	.st16{fill:none;stroke:#5F8586;stroke-width:5;stroke-miterlimit:10;}
 	.st17{fill:#5F8586;stroke:#5F8586;stroke-miterlimit:10;}
 	.st18{font-size:19.8px;}
-	.st19{fill:#F89D59;}
-	.st20{fill:none;}
+	.st19{fill:none;}
+	.st20{fill:#7D1829;}
 	.st21{font-size:14.3px;}
 	.st22{font-size:12.1535px;}
 </style>
@@ -97,18 +97,19 @@
 	</g>
 </g>
 <text transform="matrix(1 0 0 1 340.1577 145.0291)" class="st5 st6 st18">“</text>
-<text transform="matrix(1 0 0 1 347.6577 145.0291)" class="st19 st11 st18">Jiu-jitsu (wrestling)</text>
-<text transform="matrix(1 0 0 1 537.9578 145.0291)" class="st5 st6 st18"> is also taught, but not </text>
+<rect x="347.5" y="128.2" class="st19" width="192.4" height="22"/>
+<text transform="matrix(1 0 0 1 347.48 145.0291)" class="st20 st11 st18">Jiu-jitsu (wrestling)</text>
+<text transform="matrix(1 0 0 1 537.9578 145.0291)" class="st5 st6 st18">  is also taught, but not </text>
 <text transform="matrix(1 0 0 1 340.1577 168.829)" class="st5 st6 st18">much practised by gentlemen.”</text>
-<text transform="matrix(1.1766 0 0 1 346.9736 245.6875)" class="st5 st6 st18">“Their gymnasium is often visited by </text>
-<text transform="matrix(1.1766 0 0 1 346.9736 269.4873)" class="st19 st11 st18">ju-jitsu wrestlers</text>
+<text transform="matrix(1.1766 0 0 1 346.9741 245.6875)" class="st5 st6 st18">“Their gymnasium is often visited by </text>
+<text transform="matrix(1.1766 0 0 1 346.9741 269.4873)" class="st20 st11 st18">ju-jitsu wrestlers</text>
 <text transform="matrix(1.1766 0 0 1 540.7598 269.4873)" class="st5 st6 st18">.”</text>
-<rect x="343.9" y="324.7" class="st20" width="400.5" height="53.1"/>
+<rect x="343.9" y="324.7" class="st19" width="400.5" height="53.1"/>
 <text transform="matrix(1 0 0 1 343.9219 339.4071)" class="st5 st6 st18">“‘Revenge?’..‘I shall merely practise </text>
-<text transform="matrix(1 0 0 1 343.9219 363.2071)" class="st19 st11 st18">Moral Jiu-jitsu</text>
+<text transform="matrix(1 0 0 1 343.9219 363.2071)" class="st20 st11 st18">Moral Jiu-jitsu</text>
 <text transform="matrix(1 0 0 1 484.0219 363.2071)" class="st5 st6 st18">.’”</text>
 <text transform="matrix(1 0 0 1 657.207 171.8643)" class="st5 st6 st21">1875 Japan Mail</text>
 <text transform="matrix(1.1766 0 0 1 646.8525 270.7002)" class="st5 st6 st22">1905 Daily Chron.</text>
-<rect x="586.7" y="352.5" class="st20" width="177.7" height="15.7"/>
+<rect x="586.7" y="352.5" class="st19" width="177.7" height="15.7"/>
 <text transform="matrix(1 0 0 1 586.7402 363.0654)" class="st5 st6 st21">1928 F. ROMER Numbers </text>
 </svg>

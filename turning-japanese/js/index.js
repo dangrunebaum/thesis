@@ -1,3 +1,16 @@
+window.onscroll = function () { myFunction() };
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }
+}
+
 // Color array for OED 100 words visualization
 colors = ["rgb(100, 24, 41)", "rgb(187, 24, 41)", "rgb(255, 24, 41)"];
 // Color array for category visualization 
@@ -6,8 +19,8 @@ clrs = ["red", "brown", "coral", "goldenrod", "maroon", "olive", "orchid", "toma
 // Create timeline svg 
 var timelineSvg = d3.select("timeline-div").append("svg")
     .attr("class", "timeline")
-    .attr("width", "95%")
-    .attr("height", "4300px")
+    .attr("width", "98%")
+    .attr("height", "5000px")
 // Load timeline data and show year 
 d3.csv("data/timeline.csv", function (data) {
     // console.log(data);
@@ -18,7 +31,7 @@ d3.csv("data/timeline.csv", function (data) {
         // .attr("transform", "translate(0,20)")
         .attr("x", "15px")
         .style("font-weight", 600)// bold year 
-        .attr("y", function (d, i) { return data[i].year * 9.2 - 14460; })
+        .attr("y", function (d, i) { return data[i].year * 10 - 15760; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "18px")
         .attr("fill", "rgb(125, 24, 41)")
@@ -30,46 +43,13 @@ d3.csv("data/timeline.csv", function (data) {
         .append("text")
         // .attr("transform", "translate(0,20)")
         .attr("x", "70px")
-        .attr("y", function (d, i) { return data[i].year * 9.2 - 14460; })
+        .attr("y", function (d, i) { return data[i].year * 10 - 15760; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "16px")
         .attr("fill", "rgb(125, 24, 41)")
         .style("font-weight", 400)//normal font weight
         .text(function (d, i) { return data[i].event; })
 })
-
-// let timeline = document.getElementById("center-text")
-// data.forEach(element => {
-//     let tspan = document.createElement("span")
-//     span.setAttribute("transform", "translateY: " + element.year * 10 - 15840)
-//     // span.setAttribute("transformX", 10)
-//     span.innerText = (element.event)
-//     timeline.appendChild(span)
-// });
-
-// function wrap(text, width) {
-//     text.each(function() {
-//       var text = d3.select(this),
-//           words = text.text().split(/\s+/).reverse(),
-//           word,
-//           line = [],
-//           lineNumber = 0,
-//           lineHeight = 1.1, // ems
-//           y = text.attr("y"),
-//           dy = parseFloat(text.attr("dy")),
-//           tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-//       while (word = words.pop()) {
-//         line.push(word);
-//         tspan.text(line.join(" "));
-//         if (tspan.node().getComputedTextLength() > width) {
-//           line.pop();
-//           tspan.text(line.join(" "));
-//           line = [word];
-//           tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-//         }
-//       }
-//     });
-//   }
 
 // Create OED words SVG
 var svg = d3.select("word-div").append("svg")
@@ -121,14 +101,14 @@ svg.append('text')
     .style("fill", "rgb(20, 24, 41)")
     .text("3")
 svg.append('text')
-    .attr("x", 200)
+    .attr("x", 205)
     .attr("y", 40)
     .attr("font-size", "14")
     .attr("font-family", "'Montserrat', sans-serif")
     .style("fill", "rgb(20, 24, 41)")
     .text("4")
 svg.append('text')
-    .attr("x", 300)
+    .attr("x", 310)
     .attr("y", 40)
     .attr("font-size", "14")
     .style("fill", "rgb(20, 24, 41)")
@@ -150,7 +130,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .attr("class", "oedtext")
         .attr("transform", "translate(0,20)")
         .attr("x", function (d, i) { return data[i].Frequency * 110 - 280; })// xpos based on frequency
-        .attr("y", function (d, i) { return i * 41 + 40; })
+        .attr("y", function (d, i) { return i * 42 + 80; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-weight", function (d, i) { return data[i].Frequency * 100 + 200; })//font weight based on frequency
         .attr("font-size", function (d, i) { return data[i].Frequency * 5; })// font size based on frequency
@@ -194,10 +174,10 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/${item.Loanword.toLowerCase()}--_us_1.mp3`
         console.log(url);
         pronunciation.setAttribute('src', url);
-//         `https://dangrunebaum.github.io/data/audio/typhoon--_us_1.mp3`
-//                                    `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
+        //         `https://dangrunebaum.github.io/data/audio/typhoon--_us_1.mp3`
+        //                                    `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
         // `/data/audio/${item.Loanword}--_us_1.mp3`
-//         );
+        //         );
         pronunciation.play()
         // console.log("mouseClick");
         //  pronunciation source 'https://ssl.gstatic.com/dictionary/static/sounds/oxford/tatami--_us_1.mp3
@@ -264,27 +244,6 @@ var app = new Vue({
     },
     methods: {
         myFill(index) {
-            // if (index === 0) {
-            //     return "brown"
-            // } else if (index === 1) {
-            //     return "red"
-            // } else if (index === 2) {
-            //     return "coral"
-            // } else if (index === 3) {
-            //     return "goldenrod"
-            // } else if (index === 4) {
-            //     return "maroon"
-            // } else if (index === 5) {
-            //     return "olive"
-            // } else if (index === 6) {
-            //     return "orchid"
-            // } else if (index === 7) {
-            //     return "tomato"
-            // } else if (index === 8) {
-            //     return "peru"
-            // } else if (index === 9) {
-            //     return "plum"
-            // }
             if (index === 1) {
                 return "#7D1829"
             } else return "#638786" // "#96B83D"
@@ -292,8 +251,8 @@ var app = new Vue({
     },
     directives: {
         axis(el, binding) {
-            console.log(el); // this is the g
-            console.log(binding); // the scale object
+            // console.log(el); // this is the g
+            // console.log(binding); // the scale object
             const axis = binding.arg; // x or y
             // Line below defines an object and immediately calls
             // only the property for x or y
@@ -364,7 +323,7 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var color = d3.scaleOrdinal()
     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing"])
-    .range(["goldenrod", "lightsalmon", "olive", "plum", "salmon", "teal", "tan", "indigo", "LightSlateGray", "DarkTurquoise"]);
+    .range(["goldenrod", "lightsalmon", "olive", "plum", "salmon", "teal", "orangered", "indigo", "LightSlateGray", "DarkTurquoise"]);
 
 var bubble = d3.pack(dataset)
     .size([diameter, diameter])
@@ -436,7 +395,7 @@ node.append("text")
     })
     .attr("fill", "white")
 
-d3.select("center").style("background-color", "whitesmoke");
+d3.select("center").style("background-color", "white");
 
 var app2 = new Vue({
     // ID of referenced div-element
@@ -445,7 +404,7 @@ var app2 = new Vue({
         chartTitle: "JAPANESE LOANWORD ADDITIONS TO THE OED OVER TIME",
         svgHeight: 400,
         svgWidth: 800,
-        margin: { top: 25, left: 25, bottom: 25, right: 25 },
+        margin: { top: 25, left: 25, bottom: 50, right: 25 },
         data: [
             {
                 decade: "1570",
@@ -662,8 +621,8 @@ var app2 = new Vue({
     },
     directives: {
         axis(el, binding) {
-            console.log(el); // this is the g
-            console.log(binding); // the scale object
+            // console.log(el); // this is the g
+            // console.log(binding); // the scale object
             const axis = binding.arg; // x or y
             // Line below defines an object and immediately calls
             // only the property for x or y
@@ -698,18 +657,21 @@ var app2 = new Vue({
                     // .attr("dy", ".15em")
                     // .attr("transform", "rotate(-65)");
                     .call(d3[axisMethod](methodArg));
-                console.log(el);
+                // console.log(el);
                 d3.select(el)
                     .selectAll("text")
+                    .style("font-size", "10px")
+                    .style("font-family", "'Montserrat', sans-serif")
                     .style("text-anchor", "middle")
-                    .style("font-size", "8px")
                     .attr("dx", "-2em")
                     .attr("dy", "-5px")
                     .attr("transform", "rotate(-75)")
-                    d3.select(el)
+
+                d3.select(el)
                     .selectAll("line")
                     .attr("x1", "-3px")
-                    .attr("x2", "-3px");
+                    .attr("x2", "-3px")
+                    .attr("y2", "2");
             }
         }
     }
@@ -720,129 +682,160 @@ var app2 = new Vue({
 
 // NYT small multiples 
 
-  // set the dimensions and margins of the graph
-  var margin = { top: 20, right: 20, bottom: 20, left: 30 },
+// set the dimensions and margins of the graph
+var margin = { top: 20, right: 20, bottom: 20, left: 30 },
     width = 250 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom;
 
-  //Read the data
-  d3.csv("data/nyt-multiples.csv",
+//Read the data
+d3.csv("data/nyt-multiples.csv",
 
-    // When reading the csv, I must format variables:
+    // Format variables:
     function (d) {
-      return { date: d3.timeParse("%Y")(d.date), interest: d.interest, topic: d.topic }
+        return { date: d3.timeParse("%Y")(d.date), interest: d.interest, topic: d.topic }
     },
 
     function (data) {
-      // console.log(data);
-      // group the data: I want to draw one line per group
-      var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-        .key(function (d) { return d.topic; })
-        .entries(data);
+        // console.log(data);
+        // group the data: I want to draw one line per group
+        var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+            .key(function (d) { return d.topic; })
+            .entries(data);
 
-      // What is the list of groups?
-      allKeys = sumstat.map(function (d) { return d.key })
+        // What is the list of groups?
+        allKeys = sumstat.map(function (d) { return d.key })
 
-      // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
-      var nytSvg  = d3.select("#small_multiples")
-        .selectAll("uniqueChart")
-        .data(sumstat)
-        .enter()
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+        // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
+        var nytSvg = d3.select("#small_multiples")
+            .selectAll("uniqueChart")
+            .data(sumstat)
+            .enter()
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
 
-      // Add X axis --> it is a date format
-      var x = d3.scaleTime()
-        .domain(d3.extent(data, function (d) { return d.date; }))
-        .range([0, width]);
-      nytSvg 
-        .append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).ticks(5));
-      console.log(data.length, d3.max(data, function (d) { return +d.interest; }))
-      //Add Y axis
-      var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function (d) { return +d.interest; })])
-        .range([height, 0]);
-      nytSvg .append("g")
-        .call(d3.axisLeft(y).ticks(5));
+        // Add X axis --> date format
+        var x = d3.scaleTime()
+            .domain(d3.extent(data, function (d) { return d.date; }))
+            .range([0, width]);
+        nytSvg
+            .append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x).ticks(5));
+        // console.log(data.length, d3.max(data, function (d) { return +d.interest; }))
+        //Add Y axis
+        var y = d3.scaleLinear()
+            .domain([0, d3.max(data, function (d) { return +d.interest; })])
+            .range([height, 0]);
+        nytSvg.append("g")
+            .call(d3.axisLeft(y).ticks(5));
 
-      // color palette
-      var color = d3.scaleOrdinal()
-        .domain(allKeys)
-        .range(['#e41a1c', '#377eb8', '#6B8E23', '#984ea3', '#ff7f00', '#32CD32', '#a65628', '#f781bf', '#00b3b3', '#B8860B'])
+        // color palette
+        var color = d3.scaleOrdinal()
+            .domain(allKeys)
+            .range(['plum', 'teal', 'plum', 'orangered', 'goldenrod', 'goldenrod', 'orangered', 'goldenrod', 'teal', 'goldenrod', 'teal', 'orangered'])
+        //   .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing"])
+        // .range(["goldenrod", "lightsalmon", "olive", "plum", "salmon", "teal", "tan", "indigo", "LightSlateGray", "DarkTurquoise"]);
 
-      // Draw the line
-      nytSvg .append("path")
-        .attr("fill", "none")
-        .attr("stroke", function (d) { return color(d.key) })
-        .attr("stroke-width", 4.0)
-        .attr("d", function (d) {
-          return d3.line()
-            .x(function (d) { return x(d.date); })
-            .y(function (d) { return y(+d.interest); })
-            (d.values)
-        })
+        // Draw the line
+        nytSvg.append("path")
+            .attr("fill", "none")
+            .attr("stroke", function (d) { return color(d.key) })
+            .attr("stroke-width", 4.0)
+            .attr("d", function (d) {
+                return d3.line()
+                    .x(function (d) { return x(d.date); })
+                    .y(function (d) { return y(+d.interest); })
+                    (d.values)
+            })
 
-      // Add titles
-      nytSvg 
-        .append("text")
-        .attr("text-anchor", "start")
-        .attr("y", -5)
-        .attr("x", 0)
-        .text(function (d) { return (d.key) })
-        .style("font-size", "20px")
-        .style("fill", function (d) { return color(d.key) })
+        // Add titles
+        nytSvg.append("text")
+            .attr("text-anchor", "start")
+            .attr("y", -5)
+            .attr("x", 0)
+            .text(function (d) { return (d.key) })
+            .style("font-size", "20px")
+            .style("fill", function (d) { return color(d.key) })
 
-//try to append bisect line 
-    //     g.append("path")
-    //     .datum(data)
-    //     .attr("class", "line")
-    //     .attr("d", line);
-    //     var focus = g.append("g")
-    //     .attr("class", "focus")
-    //     .style("display", "none");
 
-    // focus.append("line")
-    //     .attr("class", "x-hover-line hover-line")
-    //     .attr("y1", 0)
-    //     .attr("y2", height);
+        //Append rollover materials 
+        // Find the closest X index of the mouse:
+        var bisect = d3.bisector(function (d) { return d.date; }).left;
 
-    // focus.append("line")
-    //     .attr("class", "y-hover-line hover-line")
-    //     .attr("x1", width)
-    //     .attr("x2", width);
+        // Create circle that travels along the curve of chart
+        // var focus = nytSvg
+        //     .append('g')
+        //     .append('circle')
+        //     .style("fill", "none")
+        //     .attr("stroke", "black")
+        //     .attr('r', 5)
+        //     .style("opacity", 0)
 
-    // focus.append("circle")
-    //     .attr("r", 7.5);
+        // Create text that travels along the curve of chart
+        var focusText = nytSvg
+            .append('g')
+            .append('text')
+            .style("opacity", 0)
+            .attr("text-anchor", "left")
+            .attr("alignment-baseline", "middle")
 
-    // focus.append("text")
-    //     .attr("x", 15)
-    //   	.attr("dy", ".31em");
+        // Create a rect on top of the svg area that rectangle recovers mouse position
+        nytSvg
+            .append('rect')
+            .style("fill", "none")
+            .style("pointer-events", "all")
+            .attr('width', width)
+            .attr('height', height)
+            .on('mouseover', mouseover)
+            .on('mousemove', mousemove)
+            .on('mouseout', mouseout)
+            .append('text')
+            .attr('word', function (d) { return d.key });//add word attr for topic
 
-    // svg.append("rect")
-    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-    //     .attr("class", "overlay")
-    //     .attr("width", width)
-    //     .attr("height", height)
-    //     .on("mouseover", function() { focus.style("display", null); })
-    //     .on("mouseout", function() { focus.style("display", "none"); })
-    //     .on("mousemove", mousemove);
+        // What happens when the mouse move -> show the annotations at the right positions.
+        function mouseover() {
+            focus.style("opacity", 1)
+            focusText.style("opacity", 1)
+        }
 
-    //     function mousemove() {
-    //         var x0 = x.invert(d3.mouse(this)[0]),
-    //             i = bisectDate(data, x0, 1),
-    //             d0 = data[i - 1],
-    //             d1 = data[i],
-    //             d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-    //         focus.attr("transform", "translate(" + x(d.date) + "," + y(d.value) + ")");
-    //         focus.select("text").text(function() { return d.interest; });
-    //         focus.select(".x-hover-line").attr("y2", height - y(d.interest));
-    //         focus.select(".y-hover-line").attr("x2", width + width);
-    //       }
+        function mousemove() {
+            // console.log(d3.select(this).attr('word'))
+            const thisWord = d3.select(this).attr('word')
+
+            // get coordinate we need
+            var x0 = x.invert(d3.mouse(this)[0]);
+            var i = bisect(data.filter(
+                d => d.key === "thisWord"
+            ), x0, 1);
+            selectedData = data[i]
+            console.log(thisWord);
+            // console.log(selectedData);
+            // var topic = selectedData.topic;
+            // console.log(topic);
+            // if (topic === "geisha")
+            // focus
+            //     .attr("cx", x(selectedData.date))
+            //     .attr("cy", y(selectedData.interest))
+            d3.select(`text[word=${selectedData.topic}]`)//search for text object with attribute being word that has selected topic
+                .html(selectedData.interest)
+                .attr("x", x(selectedData.date))
+                .attr("y", y(selectedData.interest))
+        }
+        function mouseout() {
+            focus.style("opacity", 0)
+            focusText.style("opacity", 0)
+        }
 
     })
+
+function openSingle() {
+    window.open("index1.html", "_blank");
+}
+
+function openPairs() {
+    window.open("index2.html", "_blank");
+}

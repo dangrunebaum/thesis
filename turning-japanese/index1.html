@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="css/styles1.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-slider-component@latest/theme/default.css">
+</head>
+
+<body>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <div class="words">
+            <p>Google Search interest over time:&nbsp;&nbsp;</p>
+            <p class="firstword">{{titleWord}}</p>
+        </div>
+        <select class="wordchoice" v-on:change="wordchoice">
+            <option>cosplay</option>
+            <option>emoji</option>
+            <option value='hello-kitty'>hello kitty</option>
+            <option>kawaii</option>
+            <option>ramen</option>
+ 
+        </select>
+        <span class="yearcount"><span>{{yearInterest}}</span></span>
+        <p class="explainer">View Google Search interest across the world for five recent Japanese loanwords. A value of 100 is the peak popularity for the term. The tooltip shows country search interest on a 0-1 scale. Data from <a href="https://trends.google.com/trends/"> Google Trends</a>.</p>
+        <map/>
+        <!-- default props -->
+        <div class="controls">
+
+            <vue-slider id="slider" ref="slider" v-model="value" v-bind="options" v-on:change="update">
+                <span class="button" v-on:click="play">&#9658;</span>
+            </vue-slider>
+        </div>
+        <!-- <h1>{{ value }}</h1> -->
+        <!-- <a target="_blank" href="https://nightcatsama.github.io/vue-slider-component">Document</a> -->
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/vue-slider-component@latest/dist/vue-slider-component.umd.min.js"></script>
+    <script src="js/index1.js"></script>
+</body>
+
+</html>

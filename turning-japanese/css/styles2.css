@@ -1,0 +1,161 @@
+body {
+    background-color: rgb(254, 251, 239);
+}
+
+/* .names {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+} */
+
+/* Tooltip CSS */
+
+/* .d3-tip {
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "avenir next", Arial, sans-serif;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFA500;
+    border-radius: 1px;
+    pointer-events: none;
+} */
+.d3-tip {
+    position: absolute;
+    line-height: 100%;
+    text-align: left;
+    width: 225px;
+    max-height: fit-content;
+    padding: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    background: white;
+    color: rgb(125, 24, 41);
+    border: 1px solid black;
+    border-radius: 4px;
+    pointer-events: none;
+}
+/* Creates a small triangle extender for the tooltip */
+
+/* .d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 8px;
+    width: 100%;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    pointer-events: none;
+} */
+
+/* Northward tooltips */
+
+/* .d3-tip.n:after {
+    content: "\25BC";
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+    text-align: center;
+} */
+
+/* Eastward tooltips */
+
+/* .d3-tip.e:after {
+    content: "\25C0";
+    margin: -4px 0 0 0;
+    top: 50%;
+    left: -8px;
+} */
+
+/* Southward tooltips */
+
+/* .d3-tip.s:after {
+    content: "\25B2";
+    margin: 0 0 1px 0;
+    top: -8px;
+    left: 0;
+    text-align: center;
+} */
+
+/* Westward tooltips */
+
+/* .d3-tip.w:after {
+    content: "\25B6";
+    margin: -4px 0 0 -1px;
+    top: 50%;
+    left: 100%;
+} */
+
+/* .details {
+    color:  #FFA500;
+} */
+
+map {
+    display: block !important;
+    margin-left: 150px;
+}
+
+#slider {
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: -40px;
+    margin-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+    margin-left: -100px;
+    font-size: 30px;
+    position: relative;
+    top: -18px;
+}
+
+.button:hover {
+    color: #D90404;
+}
+
+.firstword {
+    color: rgb(255, 25, 0);
+}
+
+.secondword {
+    color: rgb(0, 25, 255);
+}
+
+.words {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgb(125, 24, 41);
+}
+
+select {
+    margin-left: 100px;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: rgb(125, 24, 41);
+    position: relative;
+    top: -15px;
+}
+.wordchoice {
+    font-size: 20px;
+}
+
+.explainer {
+    position: absolute;
+    left: 100px;
+    bottom: -100px;
+    width: 500px;
+    height: 250px;
+    margin: 8px, 8px;
+    padding: 8px;
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(125, 24, 41);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="css/styles2.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-slider-component@latest/theme/default.css">
+</head>
+
+<body>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <div class="words">
+            <p>Google search interest over time:&nbsp;&nbsp;</p>
+            <p class="firstword">{{wordOne}}</p>
+            <p>&nbsp; vs &nbsp;</p>
+            <p class="secondword">{{wordTwo}}</p>
+        </div>
+        <select class="wordchoice" v-on:change="wordchoice">
+            <option>kimono vs cosplay</option>
+            <option>kanji vs emoji</option>
+            <option>samurai vs hello kitty</option>
+            <option>geisha vs kawaii</option>
+            <option>soba vs ramen</option>
+        </select>
+
+        <p class="explainer"> As new Japanese loanwords find global currency, how do terms signifying traditional views of Japan hold up? Five word-pairs map worldwide search interest in loanwords representing older and contemporary waves of Japanophilia.</p>
+
+        <map />
+        <!-- default props -->
+        <div class="controls">
+
+            <vue-slider id="slider" ref="slider" v-model="value" v-bind="options" v-on:change="update">
+                <span class="button" v-on:click="play">&#9658;</span>
+            </vue-slider>
+        </div>
+        <!-- <h1>{{ value }}</h1> -->
+        <!-- <a target="_blank" href="https://nightcatsama.github.io/vue-slider-component">Document</a> -->
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/vue-slider-component@latest/dist/vue-slider-component.umd.min.js"></script>
+    <script src="js/index2.js"></script>
+</body>
+
+</html>

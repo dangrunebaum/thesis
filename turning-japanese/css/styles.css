@@ -1,22 +1,20 @@
 body {
     margin: 0;
     background-color: rgb(254, 251, 239);
+    font-family: 'Taviraj', serif;
 }
 
 h1 {
     font-family: 'Taviraj', serif;
+    font-size: 140px;
     font-weight: 300;
-    text-shadow: 2px 2px 4px lightgray;
+    /* text-shadow: 2px 2px 4px lightgray; */
 }
 
 h2 {
     color: #7D1829;
-    /* font-family: 'Taviraj', serif; */
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
     font-size: 25px;
 }
 
@@ -30,22 +28,84 @@ h3 {
 p {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 19px;
     padding: 20px;
     text-align: justify;
     /* font: 200 20px/1.5 Helvetica, Verdana, sans-serif; */
 }
 
-.header {
-    /* background-color: rgb(253, 249, 234); */
-    /* background-color: rgb(235, 236, 236); */
-    height: 300px;
-    font-size: 40px;
-    font-weight: 300;
+.top-container {
+    /* background-color: rgb(254, 251, 239); */
+    height: 1080px;
+    width: 100%;
     text-align: center;
     color: #D90404;
-    padding: 1px;
+    /* padding: 30px; */
+    font-family: 'Taviraj', serif;
+    text-align: center;
+    /* background: url("./images/japan-map-1874.jpg") no-repeat fixed;
+    background-size: cover;
+    background-repeat: no-repeat; */
 }
+
+.header {
+    font-family: 'Montserrat', sans-serif;
+    background: rgb(254, 251, 239);
+    width: 100%;
+    padding: 50px 16px;
+    text-align: center;
+    /* background: #555; */
+    color: #7D1829;
+    opacity: 0.98;
+    z-index: 3;
+    /* box-shadow: 0px 0px 10px 0px lightgray; */
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.content {
+    padding-top: 102px;
+}
+
+span.left {
+    font-family: 'Montserrat', sans-serif;
+    color: #7D1829;
+    position: absolute;
+    left: 100px;
+}
+
+span.center {
+    font-family: 'Montserrat', sans-serif;
+    color: #7D1829;
+    position: absolute;
+    left: 500px;
+}
+
+span.right {
+    font-family: 'Montserrat', sans-serif;
+    color: #7D1829;
+    position: absolute;
+    left: 1150px;
+}
+
+span {
+    font-size: 25px;
+}
+/* .japan-map {
+    top: 300px;
+    position: absolute;
+    width: 600px;
+    /* margin: auto; */
+
+/* }  */
 
 /* img {
     right: 20px;
@@ -54,14 +114,6 @@ p {
     max-width: 800px;
 } */
 
-img {
-    height: auto;
-    width: auto;
-    max-width: 1500px;
-    margin-left: 50px;
-    /* max-height: 300px; */
-}
-
 /* img:hover {
         box-shadow: 0px 0px 10px 0px lightgray;
         border-radius: 5px;
@@ -69,42 +121,38 @@ img {
     } */
 
 .title {
-    position: absolute;
+    /* position: absolute; */
+    /* width: 80%; */
+    font-family: 'Taviraj', serif;
+    font-size: 146px;
+    font-weight: 300;
     text-align: center;
-    left: 80px;
-    top: 35px;
 }
 
 .subtitle {
-    position: relative;
-    font-size: 0.8em;
-    text-align: center;
-    margin-right: -820px;
-    top: 30px;
-    /* overflow :hidden;
-      white-space: nowrap; */
-    /* overflow-wrap: normal; */
-    /* letter-spacing: 3px; */
-    /* word-wrap: normal; */
+    /* width: 8%; */
+    font-size: 55px;
+    text-align: cen0ter;
 }
 
 .blurb {
-    /* position: absolute; */
-    /* width: 90%; */
-    /* top: 170px; */
+    position: relative;
+    width: 83%;
+    /* top: 50px; */
     color: #D90404;
     font-family: 'Taviraj', serif;
-    font-size: 15px;
+    font-size: 32px;
     font-weight: 300;
     font-style: italic;
     text-align: center;
-    margin-right: -885px;
-    margin-top: 35px;
+    margin: auto;
+    /* margin-right: -885px; */
+    /* margin-top: 35px; */
     /* text-shadow: black ;  */
 }
 
 .japanese {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 300;
     opacity: 0.2;
 }
@@ -116,18 +164,30 @@ img {
 }
 
 .left-col {
+    position: relative;
     color: #7D1829;
     width: 25%;
     float: left;
-    box-shadow: 0px 0px 10px 0px lightgray;
+    /* box-shadow: 0px 0px 10px 0px lightgray; */
+    height: 5000px;
     /* border-right: 1px solid black; */
 }
 
+#sourcing {
+    position: absolute;
+    top: 4700px;
+    font-family: 'Montserrat', sans-serif;
+    /*   right: 0; */
+}
+
 .center-col {
+    position: relative;
     color: #7D1829;
     width: 25%;
     float: left;
-    box-shadow: 0px 0px 10px 0px lightgray;
+    /* box-shadow: 0px 0px 10px 0px lightgray; */
+    height: 5000px;
+    box-shadow: 8px 0px 6px -6px lightgray;
     /* border-left: 1px solid black; */
     /* position: absolute; */
 }
@@ -140,19 +200,17 @@ img {
 } */
 
 #right-col {
-    /* position: absolute; */
-    /* top: 200;
-    right: 0; */
     color: #7D1829;
-    /* height: 6000px; */
+    height: 5000px;
     width: 50%;
     /* margin: 0 auto; */
     float: left;
-    font-family: 'Taviraj', serif;
+    /* font-family: 'Taviraj', serif; */
     font-weight: 700;
     text-align: center;
     font-size: 15px;
-    box-shadow: 0px 0px 10px 0px lightgray;
+    /* box-shadow: 8px 0px 6px -6px lightgray; */
+    /* box-shadow: 0 8px 6px -6px black; */
     /* height: 100%; */
     /* overflow: scroll; */
     /* border-left: 1px solid black; */
@@ -160,12 +218,21 @@ img {
 
 svg {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    /* display: block;
+    font-weight: 400;
+}
+/* svg.timeline {
+    position: relative;
+    top: -100px;
+}
+
+svg.word {
+    position: relative;
+    top: -100px;
+} */
+/* display: block;
     margin-left: auto;
     margin-right: auto;
     height: auto; */
-}
 
 /* svg:hover {
     box-shadow: 0px 0px 10px 0px lightgray;
@@ -178,6 +245,13 @@ svg {
     top: 60px;
 }
 
+.naturalization {
+    height: auto;
+    max-width: 700px;
+    margin-left: 30px;
+    /* max-height: 300px; */
+}
+
 .bubble-text {
     position: relative;
     bottom: 150px;
@@ -185,9 +259,9 @@ svg {
 
 .footer {
     clear: both;
-    font-family: 'Taviraj', serif;
+    font-family: 'Montserrat', sans-serif;
     /* background-color: rgb(216, 221, 222); */
-    background-color: lightgray;
+    /* background-color: lightgray; */
     color: #D90404;
     text-align: center;
     height: 50px;
@@ -244,7 +318,6 @@ li a:hover {
 
 /* } */
 
-
 /* #bars {
         background-color: white;
     } */
@@ -271,27 +344,34 @@ div.tooltip {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: 780px;
 }
 
-#my_dataviz {
+/* #my_dataviz {
     margin-top: 50px;
     margin-left: 50px;
     margin-bottom: 50px;
     overflow: scroll;
-  }
- /* .node {
-    fill: #7D1829;
-    shape-rendering: crispEdges;
-} */
+  } */
 
-/* .node.active {
-    fill: #D90404;
-    border: 1px black;
-} */
+.word-map-img {
+    width: 700px;
+    box-shadow: 0px 0px 10px 0px lightgray;
+    /* border: 1px solid lightgray; */
+}
 
-/* .timeline {
-        color: aqua;
-    } */
+button {
+    /* margin-left: -100px; */
+    font-size: 25px;
+    position: relative;
+    top: -18px;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(125, 24, 41);
+}
+
+button:hover {
+    color: #D90404;
+}
 
 .grid line {
     stroke: lightgrey;
@@ -301,4 +381,31 @@ div.tooltip {
 
 .grid path {
     stroke-width: 0;
+}
+
+.overlay {
+    fill: none;
+    stroke: none;
+    pointer-events: all;
+}
+
+.focus circle {
+    fill: steelblue;
+}
+
+.focus text {
+    font-size: 14px;
+    font-family: Comfortaa;
+}
+
+.focus circle {
+    fill: #F1F3F3;
+    stroke: rgb(255, 87, 51);
+    stroke-width: 5px;
+}
+
+.hover-line {
+    stroke: rgb(255, 87, 51);
+    stroke-width: 2px;
+    stroke-dasharray: 2, 4;
 }
