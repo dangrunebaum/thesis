@@ -11,8 +11,8 @@
 
 # Exercise 2: Form
 
-![Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
-## Re-envisioned with a focus on the globalization of Japanese culture. 
+# [Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
+## Re-envisioned thesis concept with a focus on the globalization of Japanese culture. 
 
 # Visualizing Asian America 
 
