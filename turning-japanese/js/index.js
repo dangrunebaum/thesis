@@ -768,13 +768,13 @@ d3.csv("data/nyt-multiples.csv",
         var bisect = d3.bisector(function (d) { return d.date; }).left;
 
         // Create circle that travels along the curve of chart
-        // var focus = nytSvg
-        //     .append('g')
-        //     .append('circle')
-        //     .style("fill", "none")
-        //     .attr("stroke", "black")
-        //     .attr('r', 5)
-        //     .style("opacity", 0)
+        var focus = nytSvg
+            .append('g')
+            .append('circle')
+            .style("fill", "none")
+            .attr("stroke", "black")
+            .attr('r', 5)
+            .style("opacity", 0)
 
         // Create text that travels along the curve of chart
         var focusText = nytSvg
