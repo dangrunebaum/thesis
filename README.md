@@ -1,4 +1,5 @@
 # Masters Thesis
+## MS in Data Visualization, Parsons School of Design
 
 # Exercise 4: Conceptualizing your Thesis 
 
