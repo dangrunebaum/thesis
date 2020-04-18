@@ -247,7 +247,7 @@ var app = new Vue({
         myFill(index) {
             if (index === 1) {
                 return "#7D1829"
-            } else return "#638786" // "#96B83D"
+            } else return "#3C8A9E" // "#96B83D"
         }
     },
     directives: {
@@ -618,7 +618,7 @@ var app2 = new Vue({
         }
     },
     methods: {
-        myFill(index) { return "#638786" }
+        myFill(index) { return "#3C8A9E" }
     },
     directives: {
         axis(el, binding) {
