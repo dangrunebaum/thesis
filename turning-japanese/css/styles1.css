@@ -186,3 +186,12 @@ a {
       overflow-x: hidden;
       overflow-x: auto; 
       text-align: justify; */
+
+      .loading {
+          position: absolute;
+          top: 500px;
+          left: 50%;
+          font-size: 30px;
+          font-family: 'Montserrat', sans-serif;
+          opacity: 50%;
+      }

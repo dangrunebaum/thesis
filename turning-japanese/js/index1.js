@@ -258,7 +258,8 @@ function ready(error, data, interest) {
                 .style("stroke", "white")
                 .style("stroke-width", 0.3);
         });
-
+        d3.select('.loading')
+        .remove()
     svg.append("path")//check this later 
         .datum(topojson.mesh(data.features,
             function (a, b) { return a.id !== b.id; }))

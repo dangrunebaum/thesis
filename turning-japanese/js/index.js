@@ -318,7 +318,7 @@ dataset = {
     ]
 };
 
-var diameter = 700;
+var diameter = 600;
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -798,10 +798,10 @@ d3.csv("data/nyt-multiples.csv",
             .attr('word', function (d) { return d.key });//add word attr for topic
 
         // What happens when the mouse move -> show the annotations at the right positions.
-        function mouseover() {
-            focus.style("opacity", 1)
-            focusText.style("opacity", 1)
-        }
+        // function mouseover() {
+        //     focus.style("opacity", 1)
+        //     focusText.style("opacity", 1)
+        // }
 
         function mousemove() {
             // console.log(d3.select(this).attr('word'))

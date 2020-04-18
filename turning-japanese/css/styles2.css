@@ -159,3 +159,11 @@ select {
     font-weight: 300;
     color: rgb(125, 24, 41);
 }
+.loading {
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 50%;
+}
