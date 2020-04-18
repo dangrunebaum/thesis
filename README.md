@@ -1,6 +1,6 @@
 # Masters Thesis
 
-# Exercise 4: Introduction 
+# Exercise 4: Conceptualizing your Thesis 
 
 Abstract
  
@@ -47,6 +47,7 @@ Finally, by comparing different sets of keywords, I will assess to what extent t
 # [Japan Trending: Ten Japanese Concepts' Journey to the West](thesis-storyboard-v2.pdf)
 ## Re-envisioned thesis concept with a focus on the globalization of Japanese culture. 
 
+# Exercise 1: Research Question 
 # Visualizing Asian America 
 
 ## Topic: Visualizing cultural migration and the rising influence of Asian culture on the US.
