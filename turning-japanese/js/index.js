@@ -196,7 +196,7 @@ var app = new Vue({
         chartTitle: "TOP ASIAN LANGUAGES IN THE OED BY LOANWORD",
         svgHeight: 400,
         svgWidth: 750,
-        margin: { top: 25, left: 25, bottom: 25, right: 25 },
+        margin: { top: 25, left: 35, bottom: 25, right: 25 },
         data: [
             { name: "Hindi", val: 537 },
             { name: "Japanese", val: 530 },
