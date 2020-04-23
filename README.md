@@ -1,6 +1,6 @@
 # Turning Japanese 
 ## MS in Data Visualization, Parsons School of Design
-![Preview Image](preview.png)
+[![Preview Image](preview.png)](https://dangrunebaum.github.io/thesis/turning-japanese/index.html)
 # Exercise 4: Conceptualizing your Thesis 
 
 Abstract
