@@ -1,6 +1,6 @@
-# Masters Thesis
+# Turning Japanese 
 ## MS in Data Visualization, Parsons School of Design
-
+![Preview Image](preview.png)
 # Exercise 4: Conceptualizing your Thesis 
 
 Abstract
