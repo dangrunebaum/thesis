@@ -1,34 +1,73 @@
 window.onscroll = function () { myFunction() };
 
-// const backupData = {
-//     geisha: {
-//         url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
-//         headline: '',
-//         abstract: '',
-//         pubDate: ''
-//     },
-//     judo: {'https://static01.nyt.com/images/2013/02/17/sports/dog-FUKUDA-obit/dog-FUKUDA-obit-thumbWide.jpg',
-//     headline: '',
-//     abstract: '',
-//     pubDate: ''
-// },
-//     kabuki: {'https://static01.nyt.com/images/2020/04/10/business/00japan-kabuki-promo/00japan-kabuki-promo-articleLarge-v2.jpg',
-//     headline: '',
-//     abstract: '',
-//     pubDate: ''},
-//     shogun: {'https://static01.nyt.com/images/2012/04/17/arts/DIVINE/DIVINE-articleLarge.jpg',
-//     headline: 'Early Works in Church Setting, With a Japanese Twist',
-//     abstract: 'Anthonello, the Japanese early-music ensemble, mixed Japanese and Western styles at St. John the Divine.',
-//     pubDate: '2012-04-16T22:13:22+0000'},
-//     soba: 'https://static01.nyt.com/images/2014/03/31/dining/hot-sour-soba-salad/hot-sour-soba-salad-watch308-v2.jpg',
-//     soy: 'https://static01.nyt.com/images/2012/06/17/magazine/17wmt/17wmt-articleLarge.jpg',
-//     kawaii: 'https://static01.nyt.com/images/2016/06/06/world/what-in-the-world/WIT_JAPAN-KAWAII/WIT_JAPAN-KAWAII-watch308.jpg',
-//     ramen: 'https://static01.nyt.com/images/2019/03/20/arts/ramen1/merlin_152238174_1a266208-fc5a-4d3b-9cc2-1d0209517c10-articleLarge.jpg',
-//     anime: 'https://static01.nyt.com/images/2009/03/13/arts/design/MangaPROMO12.jpg',
-//     umami: 'https://static01.nyt.com/images/2019/03/20/dining/15appe5/15appe5-articleLarge.jpg',
-//     'hello kitty': 'https://static01.nyt.com/images/2015/06/27/travel/27intransit-kittyphoto/27intransit-kittyphoto-watch308-v2.jpg',
-//     emoji: 'https://static01.nyt.com/images/2017/01/20/technology/personaltech/20techtipwebART/20techtipwebART-square320-v2.jpg'
-// }
+const backupData = {
+    geisha: {
+        url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
+        headline: 'Memoirs of a Geisha',
+        abstract: 'Memoirs of a Geisha A political Scheherazade, Jackie Kennedy spins mesmerizing, and often unsparing, tales of life with J.F.K.',
+        pubDate: '2011-09'
+    },
+    judo: {
+        url: 'https://static01.nyt.com/images/2013/02/17/sports/dog-FUKUDA-obit/dog-FUKUDA-obit-thumbWide.jpg',
+        headline: 'Keiko Fukuda, a Trailblazer in Judo, Dies at 99',
+        abstract: 'Dies at 99 Ms. Fukuda learned judo from its founder and went on to become the sport’s highest-ranked woman.',
+        pubDate: '2-13-02'
+    },
+    kabuki: {
+        url: 'https://static01.nyt.com/images/2020/04/10/business/00japan-kabuki-promo/00japan-kabuki-promo-articleLarge-v2.jpg',
+        headline: 'In Rural Japan, a 370-Year-Old Tradition Falls to One Child',
+        abstract: 'Every year, students in a mountain village spend months preparing for an elaborate Kabuki performance. An aging society has put their show — and their school — in jeopardy.',
+        pubDate: '2020-04'
+    },
+    shogun: {
+        url: 'https://static01.nyt.com/images/2012/04/17/arts/DIVINE/DIVINE-articleLarge.jpg',
+        headline: 'Early Works in Church Setting, With a Japanese Twist',
+        abstract: 'Anthonello, the Japanese early-music ensemble, mixed Japanese and Western styles at St. John the Divine.',
+        pubDate: '2012-04'
+    },
+    soba: {
+        url: 'https://static01.nyt.com/images/2014/03/31/dining/hot-sour-soba-salad/hot-sour-soba-salad-watch308-v2.jpg',
+        headline: 'Soba Salad',
+        abstract: 'Mark Bittman makes a noodle salad with miso, carrots, edamame and spinach.',
+        pubDate: '2009-09'
+    },
+    soy: {
+        url: 'https://static01.nyt.com/images/2012/06/17/magazine/17wmt/17wmt-articleLarge.jpg',
+        headline: 'Ask Well: Is It Safe to Eat Soy?',
+        abstract: 'Concerns have been raised about possible health risks from eating soy. Anahad O’Connor responds.',
+        pubDate: '2013-09'
+    },
+    kawaii: {
+        url: 'https://static01.nyt.com/images/2016/06/06/world/what-in-the-world/WIT_JAPAN-KAWAII/WIT_JAPAN-KAWAII-watch308.jpg',
+        headline: 'Reviving a Centuries-Old Japanese Confectionery Art',
+        abstract: 'Amezaiku, a candy-making technique that calls for sculpting molten sugar syrup, nearly went extinct. Now, it’s seeing new life among a dedicated group of Tokyo craftsmen.',
+        pubDate: '2018-08',
+    },
+    ramen: {
+        url: 'https://static01.nyt.com/images/2019/03/20/arts/ramen1/merlin_152238174_1a266208-fc5a-4d3b-9cc2-1d0209517c10-articleLarge.jpg',
+        headline: 'Totto Ramen and Hide-Chan Ramen',
+        abstract: 'A pair of new ramen shops owned by Bobby Munekata on opposite ends of 52nd Street join the recent run of workaday noodle houses in the city.',
+        pubDate: '2010-10',
+    },
+    anime: {
+        url: 'https://static01.nyt.com/images/2009/03/13/arts/design/MangaPROMO12.jpg',
+    headline: 'Anime House',
+    abstract: 'Fashion glossies may be in the doldrums, but you’d never know it at the Magazine Alive shop.',
+    pubDate: '2009-06',
+    },
+    umami: 'https://static01.nyt.com/images/2019/03/20/dining/15appe5/15appe5-articleLarge.jpg',
+    headline: 'Umami Burger',
+    abstract: 'Inside the burger chain’s new restaurant in Greenwich Village.',
+    pubDate: '2013-10',
+    'hello kitty': 'https://static01.nyt.com/images/2015/06/27/travel/27intransit-kittyphoto/27intransit-kittyphoto-watch308-v2.jpg',
+    headline: 'Hello Kitty and Barbie, Round 1',
+    abstract: 'Hello Kitty is taking on Barbie for the title of most fashionable plaything.',
+    pubDate: '2009-02',
+    emoji: 'https://static01.nyt.com/images/2017/01/20/technology/personaltech/20techtipwebART/20techtipwebART-square320-v2.jpg',
+    headline: 'Emojis Meet Hieroglyphs: If King Tut Could Text',
+    abstract: 'An Israel Museum exhibition explores the complicated relationship between the hieroglyphs of antiquity and emoji, the lingua franca of the digital age.',
+    pubDate: '2020-01',
+}
 
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
@@ -129,7 +168,7 @@ svg.append('text')
     .text("Frequency Band")
 
 svg.append('text')
-    .attr("x", 310)
+    .attr("x", 340)
     .attr("y", 20)
     .attr("font-size", "10")
     .style("fill", "rgb(75, 75, 75)")
@@ -864,8 +903,6 @@ d3.csv("data/nyt-multiples.csv",
             .on('mouseover', wordOver)
             .on('mouseout', mouseout);
 
-
-
         function wordOver(e) {
             const { pageX, pageY } = d3.event;
             let thisWord = d3.select(this).attr('word')
@@ -888,21 +925,22 @@ d3.csv("data/nyt-multiples.csv",
                 // console.log(data.response.docs[0].abstract)
 
                 if (request.status >= 200 && request.status < 400) {
-                //access JSON data 
-                var data = JSON.parse(this.response)
+                    //access JSON data 
+                    var data = JSON.parse(this.response)
 
                     const doc = data.response.docs.find(
                         (doc) => doc.multimedia.length !== 0);
                     const nytImageUrl = doc.multimedia[0].url
 
-                    console.log(nytTerm, nytImageUrl)
+                    console.log(nytTerm, nytImageUrl);
+
                     // [0].multimedia[0].url;//image url 
                     // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
 
                     const headline = doc.headline.main;//article headline  
                     const abstract = doc.abstract;//article abstract
                     const pubDate = doc.pub_date.substring(0, 7);
-                    console.log(pubDate);
+                    console.log(headline, abstract, pubDate);
 
                     card.transition()
                         .duration(200)
@@ -919,21 +957,21 @@ d3.csv("data/nyt-multiples.csv",
                         .style("top", (pageY - 255) + "px")
 
                 } else {
-                    const {url, headline, abstract, pubDate} = backupData[nytTerm];
+                    const { url, headline, abstract, pubDate } = backupData[nytTerm];
                     const nytImageUrl = url;
                     card.transition()
-                    .duration(200)
-                    .style("opacity", .95);
-                // div.text
-                // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
-                card.html(
-                    `<img class="card" src="${nytImageUrl}">
-                    <div>${headline}</div>
-                    <div>${abstract}</div>
-                    <div>${pubDate}</div>`
-                )
-                    .style("left", (pageX - 360) + "px")
-                    .style("top", (pageY - 255) + "px")
+                        .duration(200)
+                        .style("opacity", .95);
+                    // div.text
+                    // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
+                    card.html(
+                        `<img class="card" src="${nytImageUrl}">
+                    <div class="card-headline">${headline}</div>
+                    <div class="card-abstract">${abstract}</div>
+                    <div class="card-pubDate">NYT ${pubDate}</div>`
+                    )
+                        .style("left", (pageX - 360) + "px")
+                        .style("top", (pageY - 255) + "px")
                 }
             }
 
@@ -946,31 +984,6 @@ d3.csv("data/nyt-multiples.csv",
                 .duration(500)
                 .style("opacity", 0);
         }
-
-        // function mousemove() {
-        //     // console.log(d3.select(this).attr('word'))
-        //     const thisWord = d3.select(this).attr('word')
-        //     d3.select(this).classed("active", true);
-        //     // get coordinate we need
-        //     // var x0 = x.invert(d3.mouse(this)[0]);
-        //     // var i = bisect(data.filter(
-        //     //     d => d.key === "thisWord"
-        //     // ), x0, 1);
-        //     // selectedData = data[i]
-        //     console.log(thisWord);
-        //     // console.log(selectedData);
-        //     // var topic = selectedData.topic;
-        //     // console.log(topic);
-        //     // if (topic === "geisha")
-        //     // focus
-        //     //     .attr("cx", x(selectedData.date))
-        //     //     .attr("cy", y(selectedData.interest))
-        //     d3.select(`text[word=${selectedData.topic}]`)//search for text object with attribute being word that has selected topic
-        //         .html(selectedData.interest)
-        //         .attr("x", x(selectedData.date))
-        //         .attr("y", y(selectedData.interest))
-        // }
-
 
     })
 

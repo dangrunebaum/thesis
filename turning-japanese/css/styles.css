@@ -1,6 +1,6 @@
 html {
-        /* color: rgb(62, 11, 19); */
-        color: rgb(rgb(75, 75, 75));
+    /* color: rgb(62, 11, 19); */
+    color: rgb(rgb(75, 75, 75));
 }
 
 body {
@@ -41,6 +41,12 @@ p {
 
 .top-container {
     /* background-color: rgb(254, 251, 239); */
+    /* background-image: url('./images/japan-flag.jpg');
+    background-position: center;
+    /* Center the image */
+    /* background-repeat: no-repeat; */
+    /* Do not repeat the image */
+    /* background-size: cover; */
     height: 1080px;
     width: 100%;
     text-align: center;
@@ -52,6 +58,23 @@ p {
     background-size: cover;
     background-repeat: no-repeat; */
 }
+
+.flag {
+    position: absolute;
+    top: 420px;
+    width: 5%;
+    /* opacity: 0.8; */
+}
+
+/* .top-container::after {
+    content: "";
+    background: url(./images/japan-flag.jpg);
+    opacity: 0.5;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+} */
 
 .header {
     font-family: 'Montserrat', sans-serif;
@@ -69,7 +92,9 @@ p {
 .content {
     padding: 16px;
 }
+
 /* sticky header */
+
 .sticky {
     position: fixed;
     top: 0;
@@ -81,29 +106,27 @@ p {
 }
 
 span.left {
-    font-family: 'Montserrat', sans-serif;
-    /* color: #7D1829; */
-    position: absolute;
-    left: 100px;
+    position: relative;
+    width: 25%;
+    float: left;
 }
 
 span.center {
-    font-family: 'Montserrat', sans-serif;
-    /* color: #7D1829; */
-    position: absolute;
-    left: 500px;
+    position: relative;
+    width: 25%;
+    float: left;
 }
 
 span.right {
-    font-family: 'Montserrat', sans-serif;
-    /* color: #7D1829; */
-    position: absolute;
-    left: 1150px;
+    position: relative;
+    width: 50%;
+    float: left;
 }
 
 span {
     font-size: 25px;
 }
+
 /* .japan-map {
     top: 300px;
     position: absolute;
@@ -142,7 +165,8 @@ span {
 
 .blurb {
     position: relative;
-    width: 83%;
+    top: 20px;
+    width: 80%;
     /* top: 50px; */
     color: #D90404;
     font-family: 'Taviraj', serif;
@@ -225,6 +249,7 @@ svg {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
+
 /* svg.timeline {
     position: relative;
     top: -100px;
@@ -234,6 +259,7 @@ svg.word {
     position: relative;
     top: -100px;
 } */
+
 /* display: block;
     margin-left: auto;
     margin-right: auto;
@@ -280,20 +306,21 @@ a {
 }
 
 .oedtext {
-    fill: #7D1829;
+    /* fill: #7D1829; */
     shape-rendering: crispEdges;
 }
 
 .oedtext.active {
-    /* fill: #D90404; */
+    fill: black !important;
     /* text-decoration: underline; */
-    text-shadow: 1px 1px 5px gray;
-    color: rgb(75, 75, 75);
+    /* text-shadow: 1px 1px 5px gray;
+    color: rgb(75, 75, 75); */
 }
 
 .nyt-word.active {
-    text-shadow: 1px 1px 5px gray;
-} 
+    /* text-shadow: 1px 1px 5px gray; */
+    fill: black !important;
+}
 
 div.tooltip {
     position: absolute;
@@ -319,7 +346,7 @@ div.tooltip {
 .div.tooltip:hover {
     box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
     transform: translate3D(0, -2px, 0);
-  }
+}
 
 #bubbleChart {
     /* margin-top: 1.5%; */
@@ -389,7 +416,7 @@ div.card {
     pointer-events: none;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, .1);
     border-radius: 12px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .card-img {
@@ -416,5 +443,5 @@ div.card {
 
 .card-pubDate {
     padding: 0 1rem 1rem;
-    margin: 0;  
+    margin: 0;
 }
