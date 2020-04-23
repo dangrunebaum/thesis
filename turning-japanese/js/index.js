@@ -1,5 +1,35 @@
 window.onscroll = function () { myFunction() };
 
+// const backupData = {
+//     geisha: {
+//         url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
+//         headline: '',
+//         abstract: '',
+//         pubDate: ''
+//     },
+//     judo: {'https://static01.nyt.com/images/2013/02/17/sports/dog-FUKUDA-obit/dog-FUKUDA-obit-thumbWide.jpg',
+//     headline: '',
+//     abstract: '',
+//     pubDate: ''
+// },
+//     kabuki: {'https://static01.nyt.com/images/2020/04/10/business/00japan-kabuki-promo/00japan-kabuki-promo-articleLarge-v2.jpg',
+//     headline: '',
+//     abstract: '',
+//     pubDate: ''},
+//     shogun: {'https://static01.nyt.com/images/2012/04/17/arts/DIVINE/DIVINE-articleLarge.jpg',
+//     headline: 'Early Works in Church Setting, With a Japanese Twist',
+//     abstract: 'Anthonello, the Japanese early-music ensemble, mixed Japanese and Western styles at St. John the Divine.',
+//     pubDate: '2012-04-16T22:13:22+0000'},
+//     soba: 'https://static01.nyt.com/images/2014/03/31/dining/hot-sour-soba-salad/hot-sour-soba-salad-watch308-v2.jpg',
+//     soy: 'https://static01.nyt.com/images/2012/06/17/magazine/17wmt/17wmt-articleLarge.jpg',
+//     kawaii: 'https://static01.nyt.com/images/2016/06/06/world/what-in-the-world/WIT_JAPAN-KAWAII/WIT_JAPAN-KAWAII-watch308.jpg',
+//     ramen: 'https://static01.nyt.com/images/2019/03/20/arts/ramen1/merlin_152238174_1a266208-fc5a-4d3b-9cc2-1d0209517c10-articleLarge.jpg',
+//     anime: 'https://static01.nyt.com/images/2009/03/13/arts/design/MangaPROMO12.jpg',
+//     umami: 'https://static01.nyt.com/images/2019/03/20/dining/15appe5/15appe5-articleLarge.jpg',
+//     'hello kitty': 'https://static01.nyt.com/images/2015/06/27/travel/27intransit-kittyphoto/27intransit-kittyphoto-watch308-v2.jpg',
+//     emoji: 'https://static01.nyt.com/images/2017/01/20/technology/personaltech/20techtipwebART/20techtipwebART-square320-v2.jpg'
+// }
+
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
 
@@ -12,9 +42,13 @@ function myFunction() {
 }
 
 // Color array for OED 100 words visualization
-colors = ["rgb(100, 24, 41)", "rgb(187, 24, 41)", "rgb(255, 24, 41)"];
+// colors = ["rgb(100, 24, 41)", "rgb(187, 24, 41)", "rgb(255, 24, 41)"];
 // Color array for category visualization 
-clrs = ["red", "brown", "coral", "goldenrod", "maroon", "olive", "orchid", "tomato", "peru", "plum", "salmon", "teal", "tan", "thistle", "indigo", "black", "lime", "aqua"];
+// clrs = ["red", "brown", "coral", "goldenrod", "maroon", "olive", "orchid", "tomato", "peru", "plum", "salmon", "teal", "tan", "thistle", "indigo", "black", "lime", "aqua"];
+
+var color = d3.scaleOrdinal()
+    .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
+    .range(["goldenrod", "lightsalmon", "olive", "plum", "CornflowerBlue", "teal", "DarkSeaGreen", "indigo", "Chocolate", "DarkTurquoise", "rgb(100,100,100)"]);
 
 // Create timeline svg 
 var timelineSvg = d3.select("timeline-div").append("svg")
@@ -34,7 +68,7 @@ d3.csv("data/timeline.csv", function (data) {
         .attr("y", function (d, i) { return data[i].year * 10 - 15760; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "18px")
-        .attr("fill", "rgb(125, 24, 41)")
+        .attr("fill", "rgb(75, 75, 75)")
         .text(function (d, i) { return data[i].year; })
     // Load timeline data and show event 
     timelineSvg.selectAll("timelineText")
@@ -46,7 +80,7 @@ d3.csv("data/timeline.csv", function (data) {
         .attr("y", function (d, i) { return data[i].year * 10 - 15760; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "16px")
-        .attr("fill", "rgb(125, 24, 41)")
+        .attr("fill", "rgb(75, 75, 75)")
         .style("font-weight", 400)//normal font weight
         .text(function (d, i) { return data[i].event; })
 })
@@ -88,30 +122,41 @@ svg.append("line")
 // Append chart text 
 svg.append('text')
     .attr("x", 150)
-    .attr("y", 20)
+    .attr("y", 10)
     .attr("font-size", "14")
-    .style("fill", "rgb(20, 24, 41)")
+    .style("fill", "rgb(75, 75, 75)")
     .attr("font-family", "'Montserrat', sans-serif")
     .text("Frequency Band")
+
+svg.append('text')
+    .attr("x", 310)
+    .attr("y", 20)
+    .attr("font-size", "10")
+    .style("fill", "rgb(75, 75, 75)")
+    .attr("font-family", "'Montserrat', sans-serif")
+    .text("Click for audio")
+
 svg.append('text')
     .attr("x", 100)
     .attr("y", 40)
     .attr("font-size", "14")
     .attr("font-family", "'Montserrat', sans-serif")
-    .style("fill", "rgb(20, 24, 41)")
+    .style("fill", "rgb(75, 75, 75)")
     .text("3")
+
 svg.append('text')
     .attr("x", 205)
     .attr("y", 40)
     .attr("font-size", "14")
     .attr("font-family", "'Montserrat', sans-serif")
-    .style("fill", "rgb(20, 24, 41)")
+    .style("fill", "rgb(75, 75, 75)")
     .text("4")
+
 svg.append('text')
     .attr("x", 310)
     .attr("y", 40)
     .attr("font-size", "14")
-    .style("fill", "rgb(20, 24, 41)")
+    .style("fill", "rgb(75, 75, 75)")
     .text("5")
 
 // Append Div for tooltip to SVG
@@ -119,6 +164,13 @@ var tooltipDiv = d3.select("body")
     .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
+
+// Append div for NYT hover
+var card = d3.select("body")
+    .append("div")
+    .attr("class", "card")
+    .style("opacity", 0);
+
 // Load words csv
 d3.csv("data/100-frequent-words.csv", function (data) {
     // console.log(data);
@@ -132,12 +184,22 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .attr("x", function (d, i) { return data[i].Frequency * 110 - 280; })// xpos based on frequency
         .attr("y", function (d, i) { return i * 42 + 80; })
         .attr("font-family", "'Montserrat', sans-serif")
-        .attr("font-weight", function (d, i) { return data[i].Frequency * 100 + 200; })//font weight based on frequency
+        .attr("font-weight", function (d, i) { return data[i].Frequency * 200 - 100; })//font weight based on frequency
         .attr("font-size", function (d, i) { return data[i].Frequency * 5; })// font size based on frequency
         .style("cursor", "pointer")
-        .attr("fill", "#7D1829")
+        // .attr("fill", "#7D1829")
+        .style("fill", function (d, i) {
+            // console.log(d.Category) 
+            { return color(d.Category); }
+        })
 
-        // .attr("fill", function (d, i) { return 
+
+        // .style("fill", function (d, i) {
+        //     // console.log(d.Category) 
+        //     if (data[i].Category = color.domain(5))
+        //     { return color(d.Category); }
+        // })
+
         // .attr("fill", function (d, i) {
         //     if (data[i].Frequency === '3') { return colors[0]; }
         //     else if (data[i].Frequency === '4') { return colors[1]; }
@@ -147,10 +209,10 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         // Show word meaning on mouseover 
         .on("mouseover", function (d) {
             // var citation = d.Citation; // year of first citation 
-            var meaning = d.Meaning;
+            var meaning = `${d.Meaning} Category: ${d.Category}`;
             tooltipDiv.transition()
                 .duration(200)
-                .style("opacity", .9);
+                .style("opacity", .95);
             // div.text
             tooltipDiv.html(meaning)
                 .style("left", (d3.event.pageX + 60) + "px")
@@ -320,11 +382,6 @@ dataset = {
 
 var diameter = 600;
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
-
-var color = d3.scaleOrdinal()
-    .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing"])
-    .range(["goldenrod", "lightsalmon", "olive", "plum", "salmon", "teal", "orangered", "indigo", "LightSlateGray", "DarkTurquoise"]);
 
 var bubble = d3.pack(dataset)
     .size([diameter, diameter])
@@ -360,7 +417,7 @@ node.append("circle")
     .attr("r", function (d) {
         return d.r;
     })
-    .style("fill", function (d, i) {
+    .style("fill", function (d) {
         // console.log(d)
         return color(d.data.Tag);
     })
@@ -737,9 +794,8 @@ d3.csv("data/nyt-multiples.csv",
         // color palette
         var color = d3.scaleOrdinal()
             .domain(allKeys)
-            .range(['plum', 'teal', 'plum', 'orangered', 'goldenrod', 'goldenrod', 'orangered', 'goldenrod', 'teal', 'goldenrod', 'teal', 'orangered'])
-        //   .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing"])
-        // .range(["goldenrod", "lightsalmon", "olive", "plum", "salmon", "teal", "tan", "indigo", "LightSlateGray", "DarkTurquoise"]);
+            .range(["plum", "lightsalmon", "teal", "plum", "goldenrod", "goldenrod", "DarkSeaGreen", "goldenrod", "teal", "goldenrod", "teal", "DarkSeaGreen"]);
+        //     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
 
         // Draw the line
         nytSvg.append("path")
@@ -752,15 +808,6 @@ d3.csv("data/nyt-multiples.csv",
                     .y(function (d) { return y(+d.interest); })
                     (d.values)
             })
-
-        // Add titles
-        nytSvg.append("text")
-            .attr("text-anchor", "start")
-            .attr("y", -5)
-            .attr("x", 0)
-            .text(function (d) { return (d.key) })
-            .style("font-size", "20px")
-            .style("fill", function (d) { return color(d.key) })
 
 
         //Append rollover materials 
@@ -791,11 +838,11 @@ d3.csv("data/nyt-multiples.csv",
             .style("pointer-events", "all")
             .attr('width', width)
             .attr('height', height)
-            .on('mouseover', mouseover)
-            .on('mousemove', mousemove)
-            .on('mouseout', mouseout)
+            // .on('mouseover', mouseover)
+            // .on('mousemove', mousemove)
+            // .on('mouseout', mouseout)
             .append('text')
-            .attr('word', function (d) { return d.key });//add word attr for topic
+        // .attr('word', function (d) { return d.key });//add word attr for topic
 
         // What happens when the mouse move -> show the annotations at the right positions.
         // function mouseover() {
@@ -803,33 +850,127 @@ d3.csv("data/nyt-multiples.csv",
         //     focusText.style("opacity", 1)
         // }
 
-        function mousemove() {
-            // console.log(d3.select(this).attr('word'))
-            const thisWord = d3.select(this).attr('word')
+        // Add titles
+        nytSvg.append("text")
+            .attr("text-anchor", "start")
+            .attr("y", -5)
+            .attr("x", 0)
+            .text(function (d) { return (d.key) })
+            .style("font-size", "20px")
+            .style("fill", function (d) { return color(d.key) })
+            .attr('word', function (d) { return d.key })
+            .attr("class", "nyt-word")
+            .style("cursor", "pointer")
+            .on('mouseover', wordOver)
+            .on('mouseout', mouseout);
 
-            // get coordinate we need
-            var x0 = x.invert(d3.mouse(this)[0]);
-            var i = bisect(data.filter(
-                d => d.key === "thisWord"
-            ), x0, 1);
-            selectedData = data[i]
+
+
+        function wordOver(e) {
+            const { pageX, pageY } = d3.event;
+            let thisWord = d3.select(this).attr('word')
+            d3.select(this).classed("active", true)
             console.log(thisWord);
-            // console.log(selectedData);
-            // var topic = selectedData.topic;
-            // console.log(topic);
-            // if (topic === "geisha")
-            // focus
-            //     .attr("cx", x(selectedData.date))
-            //     .attr("cy", y(selectedData.interest))
-            d3.select(`text[word=${selectedData.topic}]`)//search for text object with attribute being word that has selected topic
-                .html(selectedData.interest)
-                .attr("x", x(selectedData.date))
-                .attr("y", y(selectedData.interest))
+
+            // const urlParams = new URLSearchParams(window.location.search);
+            // let w1 = urlParams.get(thisWord);
+            const nytTerm = thisWord || 'geisha'//word variable 
+
+            //API call 
+            var request = new XMLHttpRequest()
+
+
+            request.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${nytTerm}&api-key=8A8qBswiq0XnSX221vWlreyWRcAvhMbf`, true)
+            request.onload = function () {
+
+
+
+                // console.log(data.response.docs[0].abstract)
+
+                if (request.status >= 200 && request.status < 400) {
+                //access JSON data 
+                var data = JSON.parse(this.response)
+
+                    const doc = data.response.docs.find(
+                        (doc) => doc.multimedia.length !== 0);
+                    const nytImageUrl = doc.multimedia[0].url
+
+                    console.log(nytTerm, nytImageUrl)
+                    // [0].multimedia[0].url;//image url 
+                    // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
+
+                    const headline = doc.headline.main;//article headline  
+                    const abstract = doc.abstract;//article abstract
+                    const pubDate = doc.pub_date.substring(0, 7);
+                    console.log(pubDate);
+
+                    card.transition()
+                        .duration(200)
+                        .style("opacity", .95);
+                    // div.text
+                    // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
+                    card.html(
+                        `<img class="card-img" src="https://static01.nyt.com/${nytImageUrl}">
+                        <div class="card-headline">${headline}</div><br>
+                        <div class="card-abstract">${abstract}</div>
+                        <div class="card-pubDate">NYT ${pubDate}</div>`
+                    )
+                        .style("left", (pageX - 360) + "px")
+                        .style("top", (pageY - 255) + "px")
+
+                } else {
+                    const {url, headline, abstract, pubDate} = backupData[nytTerm];
+                    const nytImageUrl = url;
+                    card.transition()
+                    .duration(200)
+                    .style("opacity", .95);
+                // div.text
+                // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
+                card.html(
+                    `<img class="card" src="${nytImageUrl}">
+                    <div>${headline}</div>
+                    <div>${abstract}</div>
+                    <div>${pubDate}</div>`
+                )
+                    .style("left", (pageX - 360) + "px")
+                    .style("top", (pageY - 255) + "px")
+                }
+            }
+
+            request.send()
         }
+
         function mouseout() {
-            focus.style("opacity", 0)
-            focusText.style("opacity", 0)
+            d3.select(this).classed("active", false)
+            card.transition()
+                .duration(500)
+                .style("opacity", 0);
         }
+
+        // function mousemove() {
+        //     // console.log(d3.select(this).attr('word'))
+        //     const thisWord = d3.select(this).attr('word')
+        //     d3.select(this).classed("active", true);
+        //     // get coordinate we need
+        //     // var x0 = x.invert(d3.mouse(this)[0]);
+        //     // var i = bisect(data.filter(
+        //     //     d => d.key === "thisWord"
+        //     // ), x0, 1);
+        //     // selectedData = data[i]
+        //     console.log(thisWord);
+        //     // console.log(selectedData);
+        //     // var topic = selectedData.topic;
+        //     // console.log(topic);
+        //     // if (topic === "geisha")
+        //     // focus
+        //     //     .attr("cx", x(selectedData.date))
+        //     //     .attr("cy", y(selectedData.interest))
+        //     d3.select(`text[word=${selectedData.topic}]`)//search for text object with attribute being word that has selected topic
+        //         .html(selectedData.interest)
+        //         .attr("x", x(selectedData.date))
+        //         .attr("y", y(selectedData.interest))
+        // }
+
 
     })
 

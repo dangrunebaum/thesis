@@ -1,6 +1,11 @@
+html {
+        /* color: rgb(62, 11, 19); */
+        color: rgb(rgb(75, 75, 75));
+}
+
 body {
     margin: 0;
-    background-color: rgb(254, 251, 239);
+    background-color: rgb(253, 251, 246);
     font-family: 'Taviraj', serif;
 }
 
@@ -12,7 +17,7 @@ h1 {
 }
 
 h2 {
-    color: #7D1829;
+    /* color: #7D1829; */
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 25px;
@@ -50,12 +55,12 @@ p {
 
 .header {
     font-family: 'Montserrat', sans-serif;
-    background: rgb(254, 251, 239);
+    background-color: rgb(253, 251, 246);
     width: 100%;
     padding: 50px 16px;
     text-align: center;
     /* background: #555; */
-    color: #7D1829;
+    /* color: #7D1829; */
     opacity: 0.98;
     z-index: 3;
     /* box-shadow: 0px 0px 10px 0px lightgray; */
@@ -64,7 +69,7 @@ p {
 .content {
     padding: 16px;
 }
-
+/* sticky header */
 .sticky {
     position: fixed;
     top: 0;
@@ -77,21 +82,21 @@ p {
 
 span.left {
     font-family: 'Montserrat', sans-serif;
-    color: #7D1829;
+    /* color: #7D1829; */
     position: absolute;
     left: 100px;
 }
 
 span.center {
     font-family: 'Montserrat', sans-serif;
-    color: #7D1829;
+    /* color: #7D1829; */
     position: absolute;
     left: 500px;
 }
 
 span.right {
     font-family: 'Montserrat', sans-serif;
-    color: #7D1829;
+    /* color: #7D1829; */
     position: absolute;
     left: 1150px;
 }
@@ -132,7 +137,7 @@ span {
 .subtitle {
     /* width: 8%; */
     font-size: 55px;
-    text-align: cen0ter;
+    text-align: center;
 }
 
 .blurb {
@@ -165,7 +170,7 @@ span {
 
 .left-col {
     position: relative;
-    color: #7D1829;
+    /* color: #7D1829; */
     width: 25%;
     float: left;
     /* box-shadow: 0px 0px 10px 0px lightgray; */
@@ -182,7 +187,7 @@ span {
 
 .center-col {
     position: relative;
-    color: #7D1829;
+    /* color: #7D1829; */
     width: 25%;
     float: left;
     /* box-shadow: 0px 0px 10px 0px lightgray; */
@@ -200,7 +205,7 @@ span {
 } */
 
 #right-col {
-    color: #7D1829;
+    /* color: #7D1829; */
     height: 5000px;
     width: 50%;
     /* margin: 0 auto; */
@@ -275,53 +280,20 @@ a {
 }
 
 .oedtext {
-    /* fill: #7D1829; */
+    fill: #7D1829;
     shape-rendering: crispEdges;
 }
 
 .oedtext.active {
-    fill: #D90404;
-    text-decoration: underline;
+    /* fill: #D90404; */
+    /* text-decoration: underline; */
+    text-shadow: 1px 1px 5px gray;
+    color: rgb(75, 75, 75);
 }
 
-/* ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
-    margin-left: 10px;
-    /* border-bottom: 1px solid #ccc; */
-
-/* }
-
-li:last-child {
-    border: none;
-}
-
-li a {
-    text-decoration: none;
-    color: rgb(125, 24, 41);
-    display: block;
-    width: 200px;
-    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-    transition: font-size 0.3s ease, background-color 0.3s ease;
-}
-
-li a:hover {
-    font-size: 25px;
-    /* background: #f6f6f6; */
-
-/* } */
-
-/* #bars {
-        background-color: white;
-    } */
+.nyt-word.active {
+    text-shadow: 1px 1px 5px gray;
+} 
 
 div.tooltip {
     position: absolute;
@@ -329,15 +301,25 @@ div.tooltip {
     text-align: left;
     width: 250px;
     max-height: fit-content;
-    padding: 4px;
+    padding: 8px;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     background: white;
-    color: rgb(125, 24, 41);
-    border: 1px solid black;
-    border-radius: 4px;
+    color: black;
+    /* color: rgb(100, 100, 100); */
+    /* color: rgb(125, 24, 41); */
+    /* border: .5px solid black; */
+    /* border-radius: 4px; */
     pointer-events: none;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
 }
+
+.div.tooltip:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+  }
 
 #bubbleChart {
     /* margin-top: 1.5%; */
@@ -348,12 +330,10 @@ div.tooltip {
     max-height: 780px;
 }
 
-/* #my_dataviz {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-bottom: 50px;
-    overflow: scroll;
-  } */
+.categories {
+    position: relative;
+    top: 50px;
+}
 
 .word-map-img {
     width: 700px;
@@ -366,12 +346,17 @@ button {
     font-size: 25px;
     position: relative;
     top: -18px;
+    border-radius: 6px;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(125, 24, 41);
+    color: rgb(rgb(75, 75, 75))
+    /* color: rgb(125, 24, 41); */
 }
 
 button:hover {
-    color: #D90404;
+    /* box-shadow: 0px 0px 10px 0px lightgray; */
+    /* color: #D90404; */
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
 }
 
 .grid line {
@@ -390,23 +375,46 @@ button:hover {
     pointer-events: all;
 }
 
-.focus circle {
-    fill: steelblue;
+div.card {
+    position: absolute;
+    line-height: 100%;
+    text-align: left;
+    width: 300px;
+    max-height: fit-content;
+    padding: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    background: white;
+    color: black;
+    pointer-events: none;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden; 
 }
 
-.focus text {
-    font-size: 14px;
-    font-family: Comfortaa;
+.card-img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 250px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, .1);
+    border-radius: 12px;
 }
 
-.focus circle {
-    fill: #F1F3F3;
-    stroke: rgb(255, 87, 51);
-    stroke-width: 5px;
+.card-headline {
+    text-align: center;
+    padding: 1rem 1rem;
+    background-image: linear-gradient(120deg, rgb(125, 24, 41) 0%, #D90404 100%);
+    margin: 0 0 2rem 0;
+    font-size: 1.2rem;
+    color: white;
 }
 
-.hover-line {
-    stroke: rgb(255, 87, 51);
-    stroke-width: 2px;
-    stroke-dasharray: 2, 4;
+.card-abstract {
+    padding: 0 1rem 1rem;
+    margin: 0;
+}
+
+.card-pubDate {
+    padding: 0 1rem 1rem;
+    margin: 0;  
 }

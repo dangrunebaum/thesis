@@ -55,7 +55,8 @@
 
             <!-- <div id="center-text"></div> -->
 
-            <p id="sourcing">Timeline data: Japan Ministry of Foreign Affairs, BBC and Wikipedia</p>
+            <p id="sourcing">Timeline data: Japan Ministry of Foreign Affairs, Japan Guide, World Bank, BBC and
+                Wikipedia</p>
 
         </timeline-div>
 
@@ -73,13 +74,36 @@
                     href="http://oed.com">Oxford English Dictionary</a>. On a 1-8 scale, Band 3 contains words which
                 occur
                 between 0.01 and 0.1 times per million words in typical modern English usage. Band 4 words occur between
-                0.1 and 1.0 times per million words, and Band 5 words between 1 and 10 times per million words.</p>
+                0.1 and 1.0 times per million words, and Band 5 words between 1 and 10 times per million words. The most
+                recent Japanese loanword in the OED is Sudoku, added in 2000.</p>
 
         </word-div>
 
         <div id="right-col">
             <!-- <h2>Visualizations</h2> -->
+
+            <div id="bubbleChart">
+                <h3 class="categories">TOP TEN CATEGORIES OF JAPANESE LOANWORDS IN THE OED</h3>
+            </div>
+
+            <p class="bubble-text">
+                Food & Drink, Martial Arts and Arts & Crafts are the top three categories of Japanese words in the
+                Oxford
+                English Dictionary, indicating the impact of different aspects of Japanese culture on the
+                English-speaking world.
+            </p>
+
             <container id="viz-container">
+
+                <h3>JAPANESE LOANWORD NATURALIZATION STAGES</h3>
+                <img src="./images/stages-of-naturalization-v9.png" alt="Loanword Naturalization Stages"
+                    class="naturalization">
+                <p>Linguists have developed measures to understand the naturalization process of loanwords. Kinjo Gakuin
+                    University researcher
+                    Schun Doi created this schematic to analyze Japanese loanwords in the Oxford English Dictionary, the
+                    world's most authoritative English lexicon. The schematic places loanwords on a continuum with three
+                    general stages in their transition from totally Japanese to full incorporation into the English
+                    lexicon.</p>
 
                 <div id="bars">
                     <h3>{{ chartTitle }}</h3>
@@ -110,27 +134,6 @@
                     that
                     it was never colonized by an English-speaking country.</p>
 
-
-                <h3>JAPANESE LOANWORD NATURALIZATION STAGES</h3>
-                <img src="./images/stages-of-naturalization-v9.png" alt="Loanword Naturalization Stages"
-                    class="naturalization">
-                <p>Linguists have developed measures to understand the naturalization process of loanwords. Kinjo Gakuin
-                    University researcher
-                    Schun Doi created this schematic to analyze Japanese loanwords in the Oxford English Dictionary, the
-                    world's most authoritative English lexicon. The schematic places loanwords on a continuum with three
-                    general stages in their transition from totally Japanese to full incorporation into the English
-                    lexicon.</p>
-
-                <div id="bubbleChart">
-                    <h3>TOP CATEGORIES OF JAPANESE LOANWORDS IN THE OED</h3>
-                </div>
-
-                <p class="bubble-text">
-                    Food & Drink, Martial Arts and Arts & Crafts are the top three categories of Japanese words in the
-                    Oxford
-                    English Dictionary, indicating the impact of different aspects of Japanese culture on the
-                    English-speaking world.
-                </p>
 
                 <div id="histogram">
                     <h3>{{ chartTitle }}</h3>
@@ -163,7 +166,9 @@
                 <p>
                     Explore 12 Japanese loanwords ordered from their first appearance in the New York Times to the
                     present. The terms progress from older waves of Japanophilia to recent terms representing the 'Cool
-                    Japan' boom.
+                    Japan' boom. Spikes in interest can be observed, such as one for 'geisha' in the 2000s following the
+                    release of
+                    the book and film Memoirs of a Geisha.
                     <!-- Compare five words representing older waves of Japanophilia (above) to five words representing
                     the current wave of Japanophilia (below), in the New York Times from 1851 to the present. -->
                 </p>
@@ -212,6 +217,7 @@
             </a>
         </div>
     </map-div> -->
+    <div id="root"></div>
 
     <div class="footer">
         <!-- <p>&copy;All Rights Reserved.</p> -->
