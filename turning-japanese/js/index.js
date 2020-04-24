@@ -41,32 +41,38 @@ const backupData = {
         url: 'https://static01.nyt.com/images/2016/06/06/world/what-in-the-world/WIT_JAPAN-KAWAII/WIT_JAPAN-KAWAII-watch308.jpg',
         headline: 'Reviving a Centuries-Old Japanese Confectionery Art',
         abstract: 'Amezaiku, a candy-making technique that calls for sculpting molten sugar syrup, nearly went extinct. Now, it’s seeing new life among a dedicated group of Tokyo craftsmen.',
-        pubDate: '2018-08',
+        pubDate: '2018-08'
     },
     ramen: {
         url: 'https://static01.nyt.com/images/2019/03/20/arts/ramen1/merlin_152238174_1a266208-fc5a-4d3b-9cc2-1d0209517c10-articleLarge.jpg',
         headline: 'Totto Ramen and Hide-Chan Ramen',
         abstract: 'A pair of new ramen shops owned by Bobby Munekata on opposite ends of 52nd Street join the recent run of workaday noodle houses in the city.',
-        pubDate: '2010-10',
+        pubDate: '2010-10'
     },
     anime: {
         url: 'https://static01.nyt.com/images/2009/03/13/arts/design/MangaPROMO12.jpg',
-    headline: 'Anime House',
-    abstract: 'Fashion glossies may be in the doldrums, but you’d never know it at the Magazine Alive shop.',
-    pubDate: '2009-06',
+        headline: 'Anime House',
+        abstract: 'Fashion glossies may be in the doldrums, but you’d never know it at the Magazine Alive shop.',
+        pubDate: '2009-06'
     },
-    umami: 'https://static01.nyt.com/images/2019/03/20/dining/15appe5/15appe5-articleLarge.jpg',
-    headline: 'Umami Burger',
-    abstract: 'Inside the burger chain’s new restaurant in Greenwich Village.',
-    pubDate: '2013-10',
-    'hello kitty': 'https://static01.nyt.com/images/2015/06/27/travel/27intransit-kittyphoto/27intransit-kittyphoto-watch308-v2.jpg',
-    headline: 'Hello Kitty and Barbie, Round 1',
-    abstract: 'Hello Kitty is taking on Barbie for the title of most fashionable plaything.',
-    pubDate: '2009-02',
-    emoji: 'https://static01.nyt.com/images/2017/01/20/technology/personaltech/20techtipwebART/20techtipwebART-square320-v2.jpg',
-    headline: 'Emojis Meet Hieroglyphs: If King Tut Could Text',
-    abstract: 'An Israel Museum exhibition explores the complicated relationship between the hieroglyphs of antiquity and emoji, the lingua franca of the digital age.',
-    pubDate: '2020-01',
+    umami: {
+        url: 'https://static01.nyt.com/images/2019/03/20/dining/15appe5/15appe5-articleLarge.jpg',
+        headline: 'Umami Burger',
+        abstract: 'Inside the burger chain’s new restaurant in Greenwich Village.',
+        pubDate: '2013-10'
+    },
+    'hello kitty': {
+        url: 'https://static01.nyt.com/images/2015/06/27/travel/27intransit-kittyphoto/27intransit-kittyphoto-watch308-v2.jpg',
+        headline: 'Hello Kitty and Barbie, Round 1',
+        abstract: 'Hello Kitty is taking on Barbie for the title of most fashionable plaything.',
+        pubDate: '2009-02'
+    },
+    emoji: {
+        url: 'https://static01.nyt.com/images/2017/01/20/technology/personaltech/20techtipwebART/20techtipwebART-square320-v2.jpg',
+        headline: 'Emojis Meet Hieroglyphs: If King Tut Could Text',
+        abstract: 'An Israel Museum exhibition explores the complicated relationship between the hieroglyphs of antiquity and emoji, the lingua franca of the digital age.',
+        pubDate: '2020-01'
+    }
 }
 
 var header = document.getElementById("myHeader");
@@ -122,6 +128,11 @@ d3.csv("data/timeline.csv", function (data) {
         .attr("fill", "rgb(75, 75, 75)")
         .style("font-weight", 400)//normal font weight
         .text(function (d, i) { return data[i].event; })
+
+        .filter(function (d, i) { return i === 1; })
+        console.log(data[1]);
+        // put all your operations on the second element, e.g.
+        timelineSvg.append('h1').text('foo');
 })
 
 // Create OED words SVG
@@ -168,7 +179,7 @@ svg.append('text')
     .text("Frequency Band")
 
 svg.append('text')
-    .attr("x", 340)
+    .attr("x", 300)
     .attr("y", 20)
     .attr("font-size", "10")
     .style("fill", "rgb(75, 75, 75)")
@@ -924,39 +935,40 @@ d3.csv("data/nyt-multiples.csv",
 
                 // console.log(data.response.docs[0].abstract)
 
-                if (request.status >= 200 && request.status < 400) {
-                    //access JSON data 
-                    var data = JSON.parse(this.response)
+                // if (request.status >= 200 && request.status < 400) {
+                //     //access JSON data 
+                //     var data = JSON.parse(this.response)
 
-                    const doc = data.response.docs.find(
-                        (doc) => doc.multimedia.length !== 0);
-                    const nytImageUrl = doc.multimedia[0].url
+                //     const doc = data.response.docs.find(
+                //         (doc) => doc.multimedia.length !== 0);
+                //     const nytImageUrl = doc.multimedia[0].url
 
-                    console.log(nytTerm, nytImageUrl);
+                //     console.log(nytTerm, nytImageUrl);
 
-                    // [0].multimedia[0].url;//image url 
-                    // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
+                //     // [0].multimedia[0].url;//image url 
+                //     // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
 
-                    const headline = doc.headline.main;//article headline  
-                    const abstract = doc.abstract;//article abstract
-                    const pubDate = doc.pub_date.substring(0, 7);
-                    console.log(headline, abstract, pubDate);
+                //     const headline = doc.headline.main;//article headline  
+                //     const abstract = doc.abstract;//article abstract
+                //     const pubDate = doc.pub_date.substring(0, 7);
+                //     console.log(headline, abstract, pubDate);
 
-                    card.transition()
-                        .duration(200)
-                        .style("opacity", .95);
-                    // div.text
-                    // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
-                    card.html(
-                        `<img class="card-img" src="https://static01.nyt.com/${nytImageUrl}">
-                        <div class="card-headline">${headline}</div><br>
-                        <div class="card-abstract">${abstract}</div>
-                        <div class="card-pubDate">NYT ${pubDate}</div>`
-                    )
-                        .style("left", (pageX - 360) + "px")
-                        .style("top", (pageY - 255) + "px")
+                //     card.transition()
+                //         .duration(200)
+                //         .style("opacity", .95);
+                //     // div.text
+                //     // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
+                //     card.html(
+                //         `<img class="card-img" src="https://static01.nyt.com/${nytImageUrl}">
+                //         <div class="card-headline">${headline}</div><br>
+                //         <div class="card-abstract">${abstract}</div>
+                //         <div class="card-pubDate">NYT ${pubDate}</div>`
+                //     )
+                //         .style("left", (pageX - 360) + "px")
+                //         .style("top", (pageY - 255) + "px")
 
-                } else {
+                // } else 
+                {
                     const { url, headline, abstract, pubDate } = backupData[nytTerm];
                     const nytImageUrl = url;
                     card.transition()
@@ -965,10 +977,10 @@ d3.csv("data/nyt-multiples.csv",
                     // div.text
                     // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
                     card.html(
-                        `<img class="card" src="${nytImageUrl}">
+                        `<img class="card-img" src="${nytImageUrl}">
                     <div class="card-headline">${headline}</div>
                     <div class="card-abstract">${abstract}</div>
-                    <div class="card-pubDate">NYT ${pubDate}</div>`
+                    <div class="card-pubDate"> NYT ${pubDate}</div>`
                     )
                         .style("left", (pageX - 360) + "px")
                         .style("top", (pageY - 255) + "px")
