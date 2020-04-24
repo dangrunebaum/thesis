@@ -1,4 +1,4 @@
-# Turning Japanese 
+# Turning Japanese: The Globalization of Japanese Language and Concepts  
 ## MS in Data Visualization, Parsons School of Design
 [![Preview Image](preview.png)](https://dangrunebaum.github.io/thesis/turning-japanese/index.html)
 # Exercise 4: Conceptualizing your Thesis 
