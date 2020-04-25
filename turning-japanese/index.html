@@ -143,6 +143,9 @@
                         <g :transform="'translate(' + margin.left + ',' + margin.top + ')'">
                             <g v-for="(element, index) in data">
                                 <rect :x="scale.x(element.decade) - 3" :y="scale.y(element.val)"
+                                :value="element.val"
+                                @mouseover="barover"
+                                @mouseleave="barleave"
                                     :width="scale.x.bandwidth()" :height="height - scale.y(element.val)"
                                     :fill="myFill()" />
 

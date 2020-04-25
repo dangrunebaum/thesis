@@ -95,6 +95,7 @@ var color = d3.scaleOrdinal()
     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
     .range(["goldenrod", "lightsalmon", "olive", "plum", "CornflowerBlue", "teal", "DarkSeaGreen", "indigo", "Chocolate", "DarkTurquoise", "rgb(100,100,100)"]);
 
+
 // Create timeline svg 
 var timelineSvg = d3.select("timeline-div").append("svg")
     .attr("class", "timeline")
@@ -103,6 +104,7 @@ var timelineSvg = d3.select("timeline-div").append("svg")
 // Load timeline data and show year 
 d3.csv("data/timeline.csv", function (data) {
     // console.log(data);
+
     timelineSvg.selectAll("timelineText")
         .data(data)
         .enter()
@@ -110,7 +112,7 @@ d3.csv("data/timeline.csv", function (data) {
         // .attr("transform", "translate(0,20)")
         .attr("x", "15px")
         .style("font-weight", 600)// bold year 
-        .attr("y", function (d, i) { return data[i].year * 10 - 15760; })
+        .attr("y", function (d, i) { return data[i].year * 10 - 15800; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "18px")
         .attr("fill", "rgb(75, 75, 75)")
@@ -122,18 +124,35 @@ d3.csv("data/timeline.csv", function (data) {
         .append("text")
         // .attr("transform", "translate(0,20)")
         .attr("x", "70px")
-        .attr("y", function (d, i) { return data[i].year * 10 - 15760; })
+        .attr("y", function (d, i) { return data[i].year * 10 - 15800; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "16px")
         .attr("fill", "rgb(75, 75, 75)")
         .style("font-weight", 400)//normal font weight
         .text(function (d, i) { return data[i].event; })
+        .attr("description", function (d) { return d.description })
+        .style("cursor", "pointer")
 
-        .filter(function (d, i) { return i === 1; })
-        console.log(data[1]);
-        // put all your operations on the second element, e.g.
-        timelineSvg.append('h1').text('foo');
+        .on("mouseover", function () {
+            let text = d3.select(this).attr("description")
+            if (text !== '') {
+                tooltipDiv.transition()
+                    .duration(200)
+                    .style("opacity", .95);
+                // div.text
+                tooltipDiv.html(text)
+                    .style("left", (d3.event.pageX + 60) + "px")
+                    .style("top", (d3.event.pageY - 55) + "px")
+            }
+        })
+        .on("mouseout", function () {
+            tooltipDiv.transition()
+                .duration(500)
+                .style("opacity", 0)
+        })
 })
+// function in fill attribute returns 'state' object with a key = selected year 
+// mouse over updates state, mouseout returns 
 
 // Create OED words SVG
 var svg = d3.select("word-div").append("svg")
@@ -232,7 +251,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .attr("class", "oedtext")
         .attr("transform", "translate(0,20)")
         .attr("x", function (d, i) { return data[i].Frequency * 110 - 280; })// xpos based on frequency
-        .attr("y", function (d, i) { return i * 42 + 80; })
+        .attr("y", function (d, i) { return i * 46 + 80; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-weight", function (d, i) { return data[i].Frequency * 200 - 100; })//font weight based on frequency
         .attr("font-size", function (d, i) { return data[i].Frequency * 5; })// font size based on frequency
@@ -725,8 +744,29 @@ var app2 = new Vue({
         }
     },
     methods: {
-        myFill(index) { return "#3C8A9E" }
+        myFill(index) { return "#3C8A9E" },
+        barover(e) {
+            let bar = e.target;
+            let rect = d3.select(bar);
+            let x = rect.attr("x"), y = rect.attr("y"), value = rect.attr("value");
+            let g = d3.select(bar.parentNode);
+            g.append("text")
+                .attr("x", +x)
+                .attr("y", +y - 5)
+                .html(value.length === 1 ? "&nbsp;" + value : value)
+            console.log(x, y, value)
+            e.target.style.fill = "#59B1D9"
+            // "#1C4C61"
+            // "rgb(125, 24, 41)"
+        },
+        barleave(e) {
+            let bar = e.target;
+            let g = d3.select(bar.parentNode);
+            g.select("text").remove()
+            e.target.style.fill = "#3C8A9E"
+        }
     },
+
     directives: {
         axis(el, binding) {
             // console.log(el); // this is the g
@@ -925,66 +965,66 @@ d3.csv("data/nyt-multiples.csv",
             const nytTerm = thisWord || 'geisha'//word variable 
 
             //API call 
-            var request = new XMLHttpRequest()
+            // var request = new XMLHttpRequest()
 
 
-            request.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${nytTerm}&api-key=8A8qBswiq0XnSX221vWlreyWRcAvhMbf`, true)
-            request.onload = function () {
+            // request.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${nytTerm}&api-key=8A8qBswiq0XnSX221vWlreyWRcAvhMbf`, true)
+            // request.onload = function () 
 
 
 
-                // console.log(data.response.docs[0].abstract)
 
-                // if (request.status >= 200 && request.status < 400) {
-                //     //access JSON data 
-                //     var data = JSON.parse(this.response)
+            // console.log(data.response.docs[0].abstract)
 
-                //     const doc = data.response.docs.find(
-                //         (doc) => doc.multimedia.length !== 0);
-                //     const nytImageUrl = doc.multimedia[0].url
+            // if (request.status >= 200 && request.status < 400) {
+            //     //access JSON data 
+            //     var data = JSON.parse(this.response)
 
-                //     console.log(nytTerm, nytImageUrl);
+            //     const doc = data.response.docs.find(
+            //         (doc) => doc.multimedia.length !== 0);
+            //     const nytImageUrl = doc.multimedia[0].url
 
-                //     // [0].multimedia[0].url;//image url 
-                //     // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
+            //     console.log(nytTerm, nytImageUrl);
 
-                //     const headline = doc.headline.main;//article headline  
-                //     const abstract = doc.abstract;//article abstract
-                //     const pubDate = doc.pub_date.substring(0, 7);
-                //     console.log(headline, abstract, pubDate);
+            //     // [0].multimedia[0].url;//image url 
+            //     // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
 
-                //     card.transition()
-                //         .duration(200)
-                //         .style("opacity", .95);
-                //     // div.text
-                //     // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
-                //     card.html(
-                //         `<img class="card-img" src="https://static01.nyt.com/${nytImageUrl}">
-                //         <div class="card-headline">${headline}</div><br>
-                //         <div class="card-abstract">${abstract}</div>
-                //         <div class="card-pubDate">NYT ${pubDate}</div>`
-                //     )
-                //         .style("left", (pageX - 360) + "px")
-                //         .style("top", (pageY - 255) + "px")
+            //     const headline = doc.headline.main;//article headline  
+            //     const abstract = doc.abstract;//article abstract
+            //     const pubDate = doc.pub_date.substring(0, 7);
+            //     console.log(headline, abstract, pubDate);
 
-                // } else 
-                {
-                    const { url, headline, abstract, pubDate } = backupData[nytTerm];
-                    const nytImageUrl = url;
-                    card.transition()
-                        .duration(200)
-                        .style("opacity", .95);
-                    // div.text
-                    // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
-                    card.html(
-                        `<img class="card-img" src="${nytImageUrl}">
+            //     card.transition()
+            //         .duration(200)
+            //         .style("opacity", .95);
+            //     // div.text
+            //     // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
+            //     card.html(
+            //         `<img class="card-img" src="https://static01.nyt.com/${nytImageUrl}">
+            //         <div class="card-headline">${headline}</div><br>
+            //         <div class="card-abstract">${abstract}</div>
+            //         <div class="card-pubDate">NYT ${pubDate}</div>`
+            //     )
+            //         .style("left", (pageX - 360) + "px")
+            //         .style("top", (pageY - 255) + "px")
+
+            // } else 
+            {
+                const { url, headline, abstract, pubDate } = backupData[nytTerm];
+                const nytImageUrl = url;
+                card.transition()
+                    .duration(100)
+                    .style("opacity", .95);
+                // div.text
+                // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
+                card.html(
+                    `<img class="card-img" src="${nytImageUrl}">
                     <div class="card-headline">${headline}</div>
                     <div class="card-abstract">${abstract}</div>
                     <div class="card-pubDate"> NYT ${pubDate}</div>`
-                    )
-                        .style("left", (pageX - 360) + "px")
-                        .style("top", (pageY - 255) + "px")
-                }
+                )
+                    .style("left", (pageX - 360) + "px")
+                    .style("top", (pageY - 255) + "px")
             }
 
             request.send()
@@ -992,12 +1032,16 @@ d3.csv("data/nyt-multiples.csv",
 
         function mouseout() {
             d3.select(this).classed("active", false)
-            card.transition()
-                .duration(500)
-                .style("opacity", 0);
+            closeCard();
         }
 
     })
+
+function closeCard() {
+    card.transition()
+        .duration(100)
+        .style("opacity", 0);
+}
 
 function openSingle() {
     window.open("index1.html", "_blank");
@@ -1006,3 +1050,4 @@ function openSingle() {
 function openPairs() {
     window.open("index2.html", "_blank");
 }
+d3.select('body').on('click', closeCard)
