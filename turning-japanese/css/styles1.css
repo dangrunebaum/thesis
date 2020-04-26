@@ -21,7 +21,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     background: white;
-    color: rgb(125, 24, 41);
+    /* color: rgb(125, 24, 41); */
+    color: rgb(rgb(75, 75, 75))
     border: 1px solid black;
     border-radius: 4px;
     pointer-events: none;
@@ -124,7 +125,7 @@ map {
     font-size: 50px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    color: rgb(125, 24, 41);
+    color: rgb(75, 75, 75);
 }
 
 select {
@@ -132,7 +133,7 @@ select {
     z-index: 10;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: rgb(125, 24, 41);
+    color: rgb(75, 75, 75);
     position: relative;
     top: -15px;
 }
@@ -167,7 +168,7 @@ select {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 300;
-    color: rgb(125, 24, 41);
+    color: rgb(75, 75, 75);
 }
 
 a {

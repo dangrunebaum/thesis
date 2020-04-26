@@ -207,13 +207,13 @@ span {
     width: 25%;
     float: left;
     /* box-shadow: 0px 0px 10px 0px lightgray; */
-    height: 5000px;
+    height: 5200px;
     /* border-right: 1px solid black; */
 }
 
 #sourcing {
     position: absolute;
-    top: 4700px;
+    top: 4835px;
     font-family: 'Montserrat', sans-serif;
     /*   right: 0; */
 }
@@ -224,7 +224,7 @@ span {
     width: 25%;
     float: left;
     /* box-shadow: 0px 0px 10px 0px lightgray; */
-    height: 5000px;
+    height: 5200px;
     box-shadow: 8px 0px 6px -6px lightgray;
     /* border-left: 1px solid black; */
     /* position: absolute; */
@@ -239,7 +239,7 @@ span {
 
 #right-col {
     /* color: #7D1829; */
-    height: 5000px;
+    height: 5200px;
     width: 50%;
     /* margin: 0 auto; */
     float: left;
@@ -304,8 +304,8 @@ svg.word {
     /* background-color: lightgray; */
     color: #D90404;
     text-align: center;
-    height: 50px;
-    padding-top: 10px;
+    height: 100px;
+    padding: 50px;
     box-sizing: border-box;
 }
 
@@ -457,3 +457,26 @@ div.card {
 #ground {
     fill: lightgreen;
   }
+
+  .category.active {
+   font-weight: bold !important; 
+  }
+
+  /* .description {
+    /* transition: all .3s ease-out; */
+  /* } */ 
+  .description.active {
+    /* font-weight: 500 !important; */
+    fill: black !important;
+    /* transform: scale(1.1); */
+  }
+  /* .website div {
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+}
+
+.website:hover div {
+  transform: scale(1.5);
+  transition: transform 0s;
+}
+ */

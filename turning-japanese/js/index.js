@@ -112,7 +112,7 @@ d3.csv("data/timeline.csv", function (data) {
         // .attr("transform", "translate(0,20)")
         .attr("x", "15px")
         .style("font-weight", 600)// bold year 
-        .attr("y", function (d, i) { return data[i].year * 10 - 15800; })
+        .attr("y", function (d, i) { return data[i].year * 10.8 - 17050; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "18px")
         .attr("fill", "rgb(75, 75, 75)")
@@ -124,7 +124,7 @@ d3.csv("data/timeline.csv", function (data) {
         .append("text")
         // .attr("transform", "translate(0,20)")
         .attr("x", "70px")
-        .attr("y", function (d, i) { return data[i].year * 10 - 15800; })
+        .attr("y", function (d, i) { return data[i].year * 10.8 - 17050; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "16px")
         .attr("fill", "rgb(75, 75, 75)")
@@ -132,6 +132,7 @@ d3.csv("data/timeline.csv", function (data) {
         .text(function (d, i) { return data[i].event; })
         .attr("description", function (d) { return d.description })
         .style("cursor", "pointer")
+        .attr('class', 'description')
 
         .on("mouseover", function () {
             let text = d3.select(this).attr("description")
@@ -144,11 +145,13 @@ d3.csv("data/timeline.csv", function (data) {
                     .style("left", (d3.event.pageX + 60) + "px")
                     .style("top", (d3.event.pageY - 55) + "px")
             }
+            d3.select(this).classed("active", true);
         })
         .on("mouseout", function () {
             tooltipDiv.transition()
                 .duration(500)
                 .style("opacity", 0)
+                d3.select(this).classed("active", false);
         })
 })
 // function in fill attribute returns 'state' object with a key = selected year 
@@ -158,7 +161,7 @@ d3.csv("data/timeline.csv", function (data) {
 var svg = d3.select("word-div").append("svg")
     .attr("class", "word")
     .attr("width", "95%")
-    .attr("height", "4300px")
+    .attr("height", "4800px")
 
 // Append background lines
 svg.append("line")
@@ -166,7 +169,7 @@ svg.append("line")
     .attr("x1", 50)
     .attr("x2", 50)
     .attr("y1", 40)
-    .attr("y2", 4300)
+    .attr("y2", 4800)
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
@@ -175,7 +178,7 @@ svg.append("line")
     .attr("x1", 160)
     .attr("x2", 160)
     .attr("y1", 40)
-    .attr("y2", 4300)
+    .attr("y2", 4800)
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
@@ -184,7 +187,7 @@ svg.append("line")
     .attr("x1", 270)
     .attr("x2", 270)
     .attr("y1", 40)
-    .attr("y2", 4300)
+    .attr("y2", 4800)
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
@@ -477,10 +480,10 @@ var node = CategoriesSvg.selectAll(".node")
         return "translate(" + d.x + "," + d.y + ")";
     });
 
-node.append("title")
-    .text(function (d) {
-        return d.Tag + ": " + d.Count;
-    });
+// node.append("title")
+//     .text(function (d) {
+//         return d.Tag + ": " + d.Count;
+//     });
 
 node.append("circle")
     .attr("r", function (d) {
@@ -490,13 +493,8 @@ node.append("circle")
         // console.log(d)
         return color(d.data.Tag);
     })
-// .on("mouseover", function (d) {
-//     d3.select(this).classed("active", true) 
-//     console.log('mouseover')
-// })
-// .on("mouseout", function (d) {
-//  d3.select(this).classed("active", false)   
-// })
+
+ 
 
 node.append("text")
     .attr("dy", ".05em")
@@ -508,7 +506,11 @@ node.append("text")
     .attr("font-size", function (d) {
         return d.r / 4;
     })
-    .attr("fill", "white");
+    .attr("fill", "white")
+    .attr('category', function (d) { return d.data.Tag})
+    .attr("class", "category")
+    .on('mouseover', catOver)
+    .on('mouseout', catOut);;
 
 node.append("text")
     .attr("dy", "1.0em")
@@ -524,6 +526,17 @@ node.append("text")
 
 d3.select("center").style("background-color", "white");
 
+function catOver(e) {
+    let thisCat = d3.select(this).attr('category')
+    d3.select(this).classed("active", true)
+            // console.log(thisCat);
+}
+
+function catOut() {
+    d3.select(this).classed("active", false)
+}
+
+//Loanword histogram 
 var app2 = new Vue({
     // ID of referenced div-element
     el: '#histogram',
@@ -949,8 +962,8 @@ d3.csv("data/nyt-multiples.csv",
             .style("font-size", "20px")
             .style("fill", function (d) { return color(d.key) })
             .attr('word', function (d) { return d.key })
-            .attr("class", "nyt-word")
             .style("cursor", "pointer")
+            .attr("class", "nyt-word")
             .on('mouseover', wordOver)
             .on('mouseout', mouseout);
 
@@ -1050,4 +1063,4 @@ function openSingle() {
 function openPairs() {
     window.open("index2.html", "_blank");
 }
-d3.select('body').on('click', closeCard)
+d3.select('body').on('click', closeCard);

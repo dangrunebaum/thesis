@@ -1,5 +1,4 @@
 ﻿Loanword,Frequency,Citation,Meaning,Category
-typhoon,4,1588,A violent cyclonic storm occurring in East Asia 台風 Stage: 3,other
 bonze,3,1588,A Buddhist clergyman 法師 Stage: 3,religion
 tatami,4,1614,A rush-covered straw mat floor-covering in Japan 畳 Stage: 2,housing
 shogun,4,1615,Hereditary commander of feudal Japan 将軍 Stage: 3,jobs & status
@@ -78,15 +77,17 @@ zaibatsu,4,1937,An industrial conglomerate or cartel 財閥 Stage: 1,business
 basho,3,1940,a Sumo wrestling tournament 場所 Stage: 1,martial arts
 dan,5,1941,A degree of proficiency in judo 段 Stage: 2,martial arts
 dojo,3,1942,A judo training gym 道場 Stage: 2,martial arts
+honcho,3,1945,the leader of a small group or squad 班長 Stage: 3, jobs & status 
 koan,4,1946,A paradox put to a student to stimulate his mind in Zen Buddhism 公案 Stage: 1,religion
 bonsai,4,1950,A miniature potted tree 盆栽 Stage: 3,culture
 manga,4,1951,A Japanese genre of cartoons and comic books 漫画 Stage: 3,entertainment
-edamame,3,1951,Fresh green soybeans, typically boiled or steamed 枝豆 Stage: 3,food & drink
+edamame,3,1951,Fresh green soybeans; typically boiled or steamed 枝豆 Stage: 3,food & drink
 Sohyo,4,1953,The General Council of Trade Unions of Japan 総評 Stage: 1,business
 kata,4,1954,A system of basic exercises used to teach the execution of judo techniques 型 Stage: 1,martial arts
 origami,4,1956,The Japanese art of folding paper into intricate decorative designs 折り紙 Stage: 3,arts & crafts
 aikido,3,1956,The Japanese art of self-defence 合気道 Stage: 2,martial arts
-Nanga,4,1958,An expressive style of Japanese painting Stage: 2,arts & crafts
+Nanga,4,1958,An expressive style of Japanese painting Stage: 2,arts & craft
+ramen,3,1962,Chinese-style wheat-flour noodles served fresh in a broth ラーメン Stage: 2,food & drink
 dashi,3,1963,Japanese cooking stock or broth 出汁 Stage: 1,food & drink
 ninja,4,1964,A Japanese warrior trained in the art of ninjutsu 忍者 Stage: 3,culture
 yakuza,3,1964,A Japanese gangster or racketeer ヤクザ Stage: 2,jobs & status
@@ -96,5 +97,5 @@ Shinkansen,4,1968,A railway system carrying high-speed passenger trains 新幹�
 Nikkei,4,1974,The relative price of representative shares on the Tokyo Stock Exchange 日経,business
 Betamax,3,1975,A proprietary name for the videocassette format ベータマックス Stage: 3,other
 kanban,4,1977,A card displaying a set of manufacturing specifications 看板 Stage: 2,business
-tamari,4,1977,A variety of rich soy sauce 溜まり Stage: 1 ,food & drink
-karaoke,4,1979,A sing-along machine; a form of entertainment using such machine カラオケ Stage: 3 ,entertainment
+tamari,4,1977,A variety of rich soy sauce 溜まり Stage: 1,food & drink
+karaoke,4,1979,A sing-along machine; a form of entertainment using such machine カラオケ Stage: 3,entertainment
