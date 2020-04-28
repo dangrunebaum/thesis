@@ -99,7 +99,7 @@ var color = d3.scaleOrdinal()
 // Create timeline svg 
 var timelineSvg = d3.select("timeline-div").append("svg")
     .attr("class", "timeline")
-    .attr("width", "98%")
+    .attr("width", "100%")
     .attr("height", "5000px")
 // Load timeline data and show year 
 d3.csv("data/timeline.csv", function (data) {
@@ -114,8 +114,8 @@ d3.csv("data/timeline.csv", function (data) {
         .style("font-weight", 600)// bold year 
         .attr("y", function (d, i) { return data[i].year * 10.8 - 17050; })
         .attr("font-family", "'Montserrat', sans-serif")
-        .attr("font-size", "18px")
-        .attr("fill", "rgb(75, 75, 75)")
+        .attr("font-size", "14px")
+        .attr("fill", "rgb(100, 100, 100)")
         .text(function (d, i) { return data[i].year; })
     // Load timeline data and show event 
     timelineSvg.selectAll("timelineText")
@@ -123,11 +123,11 @@ d3.csv("data/timeline.csv", function (data) {
         .enter()
         .append("text")
         // .attr("transform", "translate(0,20)")
-        .attr("x", "70px")
+        .attr("x", "65px")
         .attr("y", function (d, i) { return data[i].year * 10.8 - 17050; })
         .attr("font-family", "'Montserrat', sans-serif")
-        .attr("font-size", "16px")
-        .attr("fill", "rgb(75, 75, 75)")
+        .attr("font-size", "14px")
+        .attr("fill", "rgb(100, 100, 100)")
         .style("font-weight", 400)//normal font weight
         .text(function (d, i) { return data[i].event; })
         .attr("description", function (d) { return d.description })
@@ -160,14 +160,14 @@ d3.csv("data/timeline.csv", function (data) {
 // Create OED words SVG
 var svg = d3.select("word-div").append("svg")
     .attr("class", "word")
-    .attr("width", "95%")
+    .attr("width", "100%")
     .attr("height", "4800px")
 
 // Append background lines
 svg.append("line")
     .attr("class", "line")
-    .attr("x1", 50)
-    .attr("x2", 50)
+    .attr("x1", 30)
+    .attr("x2", 30)
     .attr("y1", 40)
     .attr("y2", 4800)
     .style("stroke-dasharray", "5,5")
@@ -175,8 +175,8 @@ svg.append("line")
 
 svg.append("line")
     .attr("class", "line")
-    .attr("x1", 160)
-    .attr("x2", 160)
+    .attr("x1", 140)
+    .attr("x2", 140)
     .attr("y1", 40)
     .attr("y2", 4800)
     .style("stroke-dasharray", "5,5")
@@ -184,8 +184,8 @@ svg.append("line")
 
 svg.append("line")
     .attr("class", "line")
-    .attr("x1", 270)
-    .attr("x2", 270)
+    .attr("x1", 250)
+    .attr("x2", 250)
     .attr("y1", 40)
     .attr("y2", 4800)
     .style("stroke-dasharray", "5,5")
@@ -193,7 +193,7 @@ svg.append("line")
 
 // Append chart text 
 svg.append('text')
-    .attr("x", 150)
+    .attr("x", 140)
     .attr("y", 10)
     .attr("font-size", "14")
     .style("fill", "rgb(75, 75, 75)")
@@ -201,7 +201,7 @@ svg.append('text')
     .text("Frequency Band")
 
 svg.append('text')
-    .attr("x", 300)
+    .attr("x", 280)
     .attr("y", 20)
     .attr("font-size", "10")
     .style("fill", "rgb(75, 75, 75)")
@@ -209,7 +209,7 @@ svg.append('text')
     .text("Click for audio")
 
 svg.append('text')
-    .attr("x", 100)
+    .attr("x", 80)
     .attr("y", 40)
     .attr("font-size", "14")
     .attr("font-family", "'Montserrat', sans-serif")
@@ -217,7 +217,7 @@ svg.append('text')
     .text("3")
 
 svg.append('text')
-    .attr("x", 205)
+    .attr("x", 185)
     .attr("y", 40)
     .attr("font-size", "14")
     .attr("font-family", "'Montserrat', sans-serif")
@@ -225,7 +225,7 @@ svg.append('text')
     .text("4")
 
 svg.append('text')
-    .attr("x", 310)
+    .attr("x", 290)
     .attr("y", 40)
     .attr("font-size", "14")
     .style("fill", "rgb(75, 75, 75)")
@@ -253,11 +253,11 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .append("text")
         .attr("class", "oedtext")
         .attr("transform", "translate(0,20)")
-        .attr("x", function (d, i) { return data[i].Frequency * 110 - 280; })// xpos based on frequency
+        .attr("x", function (d, i) { return d.Frequency * 110 - 300; })// xpos based on frequency
         .attr("y", function (d, i) { return i * 46 + 80; })
         .attr("font-family", "'Montserrat', sans-serif")
-        .attr("font-weight", function (d, i) { return data[i].Frequency * 200 - 100; })//font weight based on frequency
-        .attr("font-size", function (d, i) { return data[i].Frequency * 5; })// font size based on frequency
+        .attr("font-weight", function (d, i) { return d.Frequency * 200 - 100; })//font weight based on frequency
+        .attr("font-size", function (d, i) { return d.Frequency * 5; })// font size based on frequency
         .style("cursor", "pointer")
         // .attr("fill", "#7D1829")
         .style("fill", function (d, i) {
@@ -277,16 +277,16 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         //     else if (data[i].Frequency === '4') { return colors[1]; }
         //     else { return colors[2]; }
         // }) //font color based on frequency
-        .text(function (d, i) { return data[i].Loanword; })
+        .text(function (d, i) { return d.Loanword; })
         // Show word meaning on mouseover 
         .on("mouseover", function (d) {
             // var citation = d.Citation; // year of first citation 
-            var meaning = `${d.Meaning} Category: ${d.Category}`;
+            var tipText = `${d.Meaning} <br> Category: ${d.Category} <br> First Citation: ${d.Citation}`;
             tooltipDiv.transition()
                 .duration(200)
                 .style("opacity", .95);
             // div.text
-            tooltipDiv.html(meaning)
+            tooltipDiv.html(tipText)
                 .style("left", (d3.event.pageX + 60) + "px")
                 .style("top", (d3.event.pageY - 55) + "px")
             d3.select(this).classed("active", true);
@@ -308,19 +308,10 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         var pronunciation = document.getElementById('audioElement');
         var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/${item.Loanword.toLowerCase()}--_us_1.mp3`
         console.log(url);
-        pronunciation.setAttribute('src', url);
-        //         `https://dangrunebaum.github.io/data/audio/typhoon--_us_1.mp3`
-        //                                    `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/typhoon--_us_1.mp3`
-        // `/data/audio/${item.Loanword}--_us_1.mp3`
-        //         );
+        pronunciation.setAttribute('src', url)
         pronunciation.play()
-        // console.log("mouseClick");
-        //  pronunciation source 'https://ssl.gstatic.com/dictionary/static/sounds/oxford/tatami--_us_1.mp3
-
     }
 })
-
-
 
 // Visualizations: language frequency bar chart 
 var app = new Vue({
@@ -543,7 +534,7 @@ var app2 = new Vue({
     data: {
         chartTitle: "JAPANESE LOANWORD ADDITIONS TO THE OED OVER TIME",
         svgHeight: 400,
-        svgWidth: 800,
+        svgWidth: 750,
         margin: { top: 25, left: 25, bottom: 50, right: 25 },
         data: [
             {

@@ -160,6 +160,11 @@ select {
     font-weight: 300;
     color: rgb(75, 75, 75);
 }
+
+a {
+    color: #D90404;
+}
+
 .loading {
     position: absolute;
     top: 500px;
