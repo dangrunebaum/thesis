@@ -472,7 +472,7 @@ div.card {
 }
 
 figure {
-    margin: 20;
+    margin: 0;
     font-family: 'Taviraj', serif;
     background-color: rgb(253, 251, 246);
     color: #D90404;
