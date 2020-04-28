@@ -144,7 +144,7 @@ span {
 .japanese {
     position: absolute;
     top: 30px;
-    width: 98%; 
+    width: 98%;
     font-size: 40px;
     font-weight: 300;
     opacity: 0.2;
@@ -173,13 +173,13 @@ span {
     /* margin: auto; */
 }
 
-
 .flag {
     position: absolute;
     top: 410px;
     width: 8%;
     /* opacity: 0.1; */
 }
+
 .blurb {
     position: absolute;
     top: 580px;
@@ -458,20 +458,22 @@ div.card {
     padding: 0 1rem 1rem;
     margin: 0;
 }
+
 #ground {
     fill: lightgreen;
-  }
+}
 
-  .category.active {
-   font-weight: bold !important; 
-  }
+.category.active {
+    font-weight: bold !important;
+}
 
-  .description.active {
+.description.active {
     fill: black !important;
-  }
+}
 
-  figure {
-      font-family: 'Taviraj', serif;
+figure {
+    margin: 20;
+    font-family: 'Taviraj', serif;
     background-color: rgb(253, 251, 246);
     color: #D90404;
 }

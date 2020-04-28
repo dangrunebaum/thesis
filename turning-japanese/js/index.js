@@ -1,5 +1,16 @@
 window.onscroll = function () { myFunction() };
 
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }
+}
+
 const backupData = {
     geisha: {
         url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
@@ -75,22 +86,7 @@ const backupData = {
     }
 }
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-
-function myFunction() {
-    if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-}
-
-// Color array for OED 100 words visualization
-// colors = ["rgb(100, 24, 41)", "rgb(187, 24, 41)", "rgb(255, 24, 41)"];
-// Color array for category visualization 
-// clrs = ["red", "brown", "coral", "goldenrod", "maroon", "olive", "orchid", "tomato", "peru", "plum", "salmon", "teal", "tan", "thistle", "indigo", "black", "lime", "aqua"];
-
+// Color array for OED 100 words and category visualizations
 var color = d3.scaleOrdinal()
     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
     .range(["goldenrod", "lightsalmon", "olive", "plum", "CornflowerBlue", "teal", "DarkSeaGreen", "indigo", "Chocolate", "DarkTurquoise", "rgb(100,100,100)"]);
