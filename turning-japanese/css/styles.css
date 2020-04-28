@@ -54,9 +54,74 @@ p {
     /* padding: 30px; */
     font-family: 'Taviraj', serif;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     /* background: url("./images/japan-map-1874.jpg") no-repeat fixed;
     background-size: cover;
     background-repeat: no-repeat; */
+}
+
+.japanese {
+    position: absolute;
+    top: 30px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 300;
+    opacity: 0.2;
+}
+
+.title {
+    /* position: absolute; */
+    width: 98%;
+    position: absolute;
+    top: 100px;
+    font-family: 'Taviraj', serif;
+    font-size: 140px;
+    font-weight: 300;
+    margin: 0 auto;
+    /* text-align: center; */
+    /* margin: auto; */
+}
+
+.subtitle {
+    position: absolute;
+    top: 300px;
+    font-size: 50px;
+    /* text-align: center; */
+    width: 98%;
+    margin: 0 auto;
+    /* margin: auto; */
+}
+
+.flag {
+    position: relative;
+    top: 335px;
+    width: 8%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* opacity: 0.1; */
+}
+
+.blurb {
+    position: absolute;
+    top: 580px;
+    /* width: 100%; */
+    /* top: 50px; */
+    color: #D90404;
+    font-family: 'Taviraj', serif;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    /* margin-right: -885px; */
+    /* margin-top: 35px; */
+    /* text-shadow: black ;  */
 }
 
 /* .top-container::after {
@@ -141,62 +206,6 @@ span {
         transition: all .5s;
     } */
 
-.japanese {
-    position: absolute;
-    top: 30px;
-    width: 98%;
-    font-size: 40px;
-    font-weight: 300;
-    opacity: 0.2;
-}
-
-.title {
-    /* position: absolute; */
-    width: 98%;
-    position: absolute;
-    top: 100px;
-    font-family: 'Taviraj', serif;
-    font-size: 140px;
-    font-weight: 300;
-    margin: 0 auto;
-    /* text-align: center; */
-    /* margin: auto; */
-}
-
-.subtitle {
-    position: absolute;
-    top: 300px;
-    font-size: 50px;
-    /* text-align: center; */
-    width: 100%;
-    margin: 0 auto;
-    /* margin: auto; */
-}
-
-.flag {
-    position: absolute;
-    top: 410px;
-    width: 8%;
-    /* opacity: 0.1; */
-}
-
-.blurb {
-    position: absolute;
-    top: 580px;
-    /* width: 100%; */
-    /* top: 50px; */
-    color: #D90404;
-    font-family: 'Taviraj', serif;
-    font-size: 32px;
-    font-weight: 300;
-    font-style: italic;
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px;
-    /* margin-right: -885px; */
-    /* margin-top: 35px; */
-    /* text-shadow: black ;  */
-}
 
 .container div {
     /* padding: 1%; */
