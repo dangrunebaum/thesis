@@ -367,7 +367,7 @@ var app = new Vue({
     methods: {
         myFill(index) {
             if (index === 1) {
-                return "#7D1829"
+                return "#D90404"
             } else return "#3C8A9E" // "#96B83D"
         }
     },
