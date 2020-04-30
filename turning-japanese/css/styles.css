@@ -1,5 +1,4 @@
 html {
-    /* color: rgb(62, 11, 19); */
     color: rgb(rgb(75, 75, 75));
 }
 
@@ -13,11 +12,9 @@ h1 {
     font-family: 'Taviraj', serif;
     font-size: 140px;
     font-weight: 300;
-    /* text-shadow: 2px 2px 4px lightgray; */
 }
 
 h2 {
-    /* color: #7D1829; */
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 25px;
@@ -36,29 +33,17 @@ p {
     font-size: 19px;
     padding: 20px;
     text-align: justify;
-    /* font: 200 20px/1.5 Helvetica, Verdana, sans-serif; */
 }
 
 .top-container {
-    /* background-color: rgb(254, 251, 239); */
-    /* background-image: url('./images/japan-flag.jpg');
-    background-position: center;
-    /* Center the image */
-    /* background-repeat: no-repeat; */
-    /* Do not repeat the image */
-    /* background-size: cover; */
     height: 1080px;
     width: 98%;
     text-align: center;
     color: #D90404;
-    /* padding: 30px; */
     font-family: 'Taviraj', serif;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    /* background: url("./images/japan-map-1874.jpg") no-repeat fixed;
-    background-size: cover;
-    background-repeat: no-repeat; */
 }
 
 .japanese {
@@ -74,7 +59,6 @@ p {
 }
 
 .title {
-    /* position: absolute; */
     width: 98%;
     position: absolute;
     top: 100px;
@@ -82,23 +66,19 @@ p {
     font-size: 140px;
     font-weight: 300;
     margin: 0 auto;
-    /* text-align: center; */
-    /* margin: auto; */
 }
 
 .subtitle {
     position: absolute;
     top: 300px;
     font-size: 50px;
-    /* text-align: center; */
     width: 98%;
     margin: 0 auto;
-    /* margin: auto; */
 }
 
 .flag {
     position: relative;
-    top: 335px;
+    top: 420px;
     width: 8%;
     display: block;
     margin-left: auto;
@@ -119,36 +99,15 @@ p {
     text-align: center;
     margin: 0 auto;
     padding: 20px;
-    /* margin-right: -885px; */
-    /* margin-top: 35px; */
-    /* text-shadow: black ;  */
 }
-
-/* .top-container::after {
-    content: "";
-    background: url(./images/japan-flag.jpg);
-    opacity: 0.5;
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    z-index: -1;
-} */
 
 .header {
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(253, 251, 246);
-    width: 98%;
-    padding: 50px 16px;
+    padding: 45px 0px;
     text-align: center;
-    /* background: #555; */
-    /* color: #7D1829; */
     opacity: 0.98;
     z-index: 3;
-    /* box-shadow: 0px 0px 10px 0px lightgray; */
-}
-
-.content {
-    padding: 16px;
 }
 
 /* sticky header */
@@ -156,17 +115,21 @@ p {
 .sticky {
     position: fixed;
     top: 0;
-    width: 98%;
+    width: 100%;
 }
 
 .sticky+.content {
     padding-top: 102px;
 }
 
+span {
+    font-size: 25px;
+}
+
 span.left {
     position: relative;
-    width: 25%;
     float: left;
+    width: 25%;
 }
 
 span.center {
@@ -181,36 +144,9 @@ span.right {
     float: left;
 }
 
-span {
-    font-size: 25px;
-}
-
-/* .japan-map {
-    top: 300px;
-    position: absolute;
-    width: 600px;
-    /* margin: auto; */
-
-/* }  */
-
-/* img {
-    right: 20px;
-    height: auto;
-    width: auto;
-    max-width: 800px;
-} */
-
-/* img:hover {
-        box-shadow: 0px 0px 10px 0px lightgray;
-        border-radius: 5px;
-        transition: all .5s;
-    } */
-
-
-.container div {
-    /* padding: 1%; */
-    box-sizing: border-box;
-    min-height: 500px;
+.content {
+    padding: 16px;
+    /* text-align: center; */
 }
 
 .left-col {

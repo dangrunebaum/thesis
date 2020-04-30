@@ -1,4 +1,9 @@
-window.onscroll = function () { myFunction() };
+
+$(window).scroll(function(){
+    $(".top-container").css("opacity", 1 - $(window).scrollTop() / 500);
+  });
+  
+  window.onscroll = function () { myFunction() };
 
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
@@ -755,7 +760,7 @@ var app2 = new Vue({
                 .attr("y", +y - 5)
                 .html(value.length === 1 ? "&nbsp;" + value : value)
             console.log(x, y, value)
-            e.target.style.fill = "#59B1D9"
+            bar.style.fill = "#D90404"
             // "#1C4C61"
             // "rgb(125, 24, 41)"
         },
