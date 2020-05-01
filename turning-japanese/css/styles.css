@@ -154,9 +154,8 @@ span.right {
     /* color: #7D1829; */
     width: 25%;
     float: left;
-    /* box-shadow: 0px 0px 10px 0px lightgray; */
+    /* box-shadow: 8px 0px 6px -6px lightgray; */
     height: 5200px;
-    /* border-right: 1px solid black; */
 }
 
 #sourcing {
