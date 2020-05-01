@@ -20,13 +20,13 @@ const backupData = {
     geisha: {
         url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
         headline: 'Memoirs of a Geisha',
-        abstract: 'Memoirs of a Geisha A political Scheherazade, Jackie Kennedy spins mesmerizing, and often unsparing, tales of life with J.F.K.',
+        abstract: 'A political Scheherazade, Jackie Kennedy spins mesmerizing, and often unsparing, tales of life with J.F.K.',
         pubDate: '2011-09'
     },
     judo: {
         url: 'https://static01.nyt.com/images/2013/02/17/sports/dog-FUKUDA-obit/dog-FUKUDA-obit-thumbWide.jpg',
         headline: 'Keiko Fukuda, a Trailblazer in Judo, Dies at 99',
-        abstract: 'Dies at 99 Ms. Fukuda learned judo from its founder and went on to become the sport’s highest-ranked woman.',
+        abstract: 'Ms. Fukuda learned judo from its founder and went on to become the sport’s highest-ranked woman.',
         pubDate: '2-13-02'
     },
     kabuki: {
@@ -113,7 +113,7 @@ d3.csv("data/timeline.csv", function (data) {
         // .attr("transform", "translate(0,20)")
         .attr("x", "15px")
         .style("font-weight", 600)// bold year 
-        .attr("y", function (d, i) { return data[i].year * 10.8 - 17050; })
+        .attr("y", function (d, i) { return data[i].year * 10.1 - 15550; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "14px")
         .attr("fill", "rgb(100, 100, 100)")
@@ -125,7 +125,7 @@ d3.csv("data/timeline.csv", function (data) {
         .append("text")
         // .attr("transform", "translate(0,20)")
         .attr("x", "65px")
-        .attr("y", function (d, i) { return data[i].year * 10.8 - 17050; })
+        .attr("y", function (d, i) { return data[i].year * 10.1 - 15550; })
         .attr("font-family", "'Montserrat', sans-serif")
         .attr("font-size", "14px")
         .attr("fill", "rgb(100, 100, 100)")
@@ -282,7 +282,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         // Show word meaning on mouseover 
         .on("mouseover", function (d) {
             // var citation = d.Citation; // year of first citation 
-            var tipText = `${d.Meaning} <br> Category: ${d.Category} <br> First Citation: ${d.Citation}`;
+            var tipText = `${d.Meaning} <br> Category: ${d.Category} <br> First Citation: ${d.Citation} <br> ${d.Stage} `;
             tooltipDiv.transition()
                 .duration(200)
                 .style("opacity", .95);

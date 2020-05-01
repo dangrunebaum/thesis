@@ -2,8 +2,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const hasw1 =urlParams.get('w1');
 let path, svg, projection;
-let w1 = hasw1 || 'kimono';
-let w2 = urlParams.get('w2') || 'cosplay';
+let w1 = hasw1 || 'kanji';
+let w2 = urlParams.get('w2') || 'emoji';
 document.title = `${w1} vs ${w2}`
 // set selector's current value
 
