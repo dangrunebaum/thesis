@@ -263,26 +263,13 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         // .attr("fill", "#7D1829")
         .style("fill", function (d, i) {
             // console.log(d.Category) 
-            { return color(d.Category); }
+            { return color(d.Category); }//color based on category 
         })
-
-
-        // .style("fill", function (d, i) {
-        //     // console.log(d.Category) 
-        //     if (data[i].Category = color.domain(5))
-        //     { return color(d.Category); }
-        // })
-
-        // .attr("fill", function (d, i) {
-        //     if (data[i].Frequency === '3') { return colors[0]; }
-        //     else if (data[i].Frequency === '4') { return colors[1]; }
-        //     else { return colors[2]; }
-        // }) //font color based on frequency
-        .text(function (d, i) { return d.Loanword; })
+        .text(function (d, i) { return d.Loanword; })//print loanword 
         // Show word meaning on mouseover 
         .on("mouseover", function (d) {
             // var citation = d.Citation; // year of first citation 
-            var tipText = `${d.Meaning} <br> Category: ${d.Category} <br> First Citation: ${d.Citation} <br> ${d.Stage} `;
+            var tipText = `${d.Meaning} <br> Japanese: ${d.Japanese} <br> Category: ${d.Category} <br> ${d.Stage} `;// <br> First Citation: ${d.Citation}
             tooltipDiv.transition()
                 .duration(200)
                 .style("opacity", .95);
