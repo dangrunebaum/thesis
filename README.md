@@ -7,7 +7,7 @@ In August 1945, Japan lay a smoldering ruin, its military defeated, and great ci
 [![Preview Image](preview.png)](https://dangrunebaum.github.io/thesis/turning-japanese/index.html) 
 
 # Acknowledgements
-This thesis would not have been possible without the guidance of the Parsons MSDV faculty. Special thanks are due to Daniel Sauter, Aaron Hill, Richard The, Alec Barrett, Alvin Chang, Jonathan Thirkield and Christian Swinehart. In addition, invaluable programming assistance was provided by Robert Abarbanel, and linguistic expertise by Schun Doi. 
+This thesis would not have been possible without the guidance of the Parsons MSDV faculty. Special thanks are due to Daniel Sauter, Aaron Hill, Richard The, Alec Barrett, Alvin Chang, Jonathan Thirkield and Christian Swinehart. In addition, invaluable programming assistance was provided by Robert Abarbanel, and linguistic expertise by Schun Doi. Finally, I am grateful to the Parsons MSDV classes 2019 and 2020 for their encouragement and intellectual exchange, and to my family for their unwavering support. 
 
 # Exercise 3: Prototyping
 
