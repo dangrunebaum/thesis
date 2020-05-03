@@ -1,38 +1,13 @@
 # Turning Japanese: The Globalization of Japanese Language and Concepts  
 ## MS in Data Visualization, Parsons School of Design
-[![Preview Image](preview.png)](https://dangrunebaum.github.io/thesis/turning-japanese/index.html)
-# Introduction 
 
-Abstract
- 
+# Abstract
 In August 1945, Japan lay a smoldering ruin, its military defeated, and great cities bombed to oblivion. Yet within one generation, the nation was the world’s number two economy, and within two, a global soft power. This thesis investigates the process whereby Japan became a cultural giant, what it means for the world, for the West in particular, and also for Japan itself. For the world, Japan can provide signals on what the economic rise of other Asian nations portends in terms of their own soft power. At a time when Asia represents two-thirds of global economic growth and Asians are the United States’ fastest growing immigrant group, the stakes are high.  For Asians, opportunities arise for governments to leverage soft power, and for culture industries to increase their reach worldwide. For Westerners, opportunities come in the form of enriched experiences in every sector from food to film, accompanied by risks of misunderstanding as Western societies turn inward and Western culture becomes less preeminent. With these shifts in mind, this thesis uses language as a vector to explore Japanese soft power, probing how publicly available textual data can be mined to quantify and visualize shifting cultural influence, a technique it is hoped can provide insight not only into the question of Asian soft power, but into the larger problem of how to understand cultural interactions.
- 
 
+[![Preview Image](preview.png)](https://dangrunebaum.github.io/thesis/turning-japanese/index.html) 
 
-Introduction
- 
-At the current moment in 2020, it seems as soon as one Japanese boom ends another rises to take its place. Whether it’s the billion-dollar Pokémon Go franchise, the ramen noodle explosion, or author Marie Kondo’s bestselling “spark joy” revolution, culture emanating from this once-insular island nation has the world in its spell.
- 
-As a journalist and translator who lived in Japan for two decades, observing trending Japanese culture has been fascinating. It’s a phenomenon Douglas McGray chronicled in the influential article Japan’s Gross National Cool (Foreign Policy 2002). “Japan is reinventing superpower,” he noted. “From pop music to consumer electronics, architecture to fashion, and animation to cuisine, Japan looks more like a cultural superpower today than it did in the 1980s, when it was an economic one.” 
- 
-The evidence for Japan’s soft power is all around us and easy to describe, but it’s hard to grasp the process whereby Japan exerts its influence. By quantifying and visualizing the globalization of Japanese culture at a time when Asian economies and cultures play a growing role in Westerners’ lives, I hope Westerners will better understand and be better prepared for the growing influence of Asia in what many believe to be the oncoming Asian century. 
- 
-Quantifying and visualizing the movement of “fuzzy” culture through time and geosocial space presents diverse challenges.  But the web has not only driven cultural interplay to light speed, it also provides new digital data points for understanding these interactions. In the process of creating a generation of Japanophiles, vectors like search, social media and streaming offer mountains of data to sift through for signs of interest in Japanese trends—signals that can be quantified and visualized. 
- 
-Despite the numerous quantifiable data streams the internet provides as the dominant platform for cultural content, however, quantifying culture remains problematic. First, we must define culture, break it down into its constituent parts, and subject each to analysis. Given the scale of this task, it makes sense for the purposes of this project to focus on only one aspect of culture. 
- 
-I will focus on language as a vector for understanding Japan’s emergent global soft power for two reasons. First, language literally speaks to all aspects of culture, serving as a proxy for culture in its entirety. And second, language best tells the history of Japan’s globalization from its first interactions with the West up to the present moment. This project will thus try to understand how Japanese culture has and continues to impact the world, and how its growing soft power affects Japan itself. 
- 
-Attempting to visualize language is by definition a reductionist undertaking. Still, I believe that quantifying and visualizing Japanese loanwords’ diffusion into English can help us grasp the rise of one Asian culture at a time when the “Asianization” of the world, and the growth of the Asian-America population, is gathering speed.  
- 
-A large body of thought and literature on Japanese culture, trade and political science provides a context for understanding the nation’s globalization. For Japanese language expertise, I will utilize linguist Schun Doi’s dissertation Japanese Loanwords in the Oxford English Dictionary and in the English version of Kæmpfer’s the History of Japan. Recent materials on quantitative approaches to language and the humanities will also be consulted, as will literature on visualization methods for language.
- 
-This project will employ several methods and corpora to understand Japan’s globalization through the transmission of Japanese language into English. Using a chronological approach, I will first investigate the Oxford English Dictionary’s corpus of Japanese loanwords. The OED is the definitive record of the English language, offering an unparalleled view of Japan’s first interchanges with the West up to the present day.   Specifically, I will compare the semantic categories of Japanese loanwords in the OED to try to understand in which spheres Japanese culture has most impacted the West, and how this has changed over time. I will also attempt to understand how perceptions of Japan have shifted by analyzing what kind of words find greatest usage in the OED. Finally, I will compare Japanese loanwords in the OED with other Asian languages to visualize Japan’s inordinate impact on the West. 
- 
-Due to the subjective nature of the OED’s word selection and its paucity of recent  data, I will employ two further corpora, while still relying on it to provide a reference point for understanding subsequent textual datasets. First, I will utilize The New York Times’ API to examine the frequency of key Japanese loanwords in the United States’ newspaper of record. Second, I will employ Google Trends to analyze the globalization of Japanese concepts since the advent of the web. As Google Trends provides information on the geographic frequency of searches, I will use Trends data to try to locate where in the English-speaking world Japanese concepts first find currency, and the process whereby they spread. 
- 
-Finally, by comparing different sets of keywords, I will assess to what extent traditional conceptions of Japan are being supplanted by contemporary conceptions of ‘Cool Japan’ in the global conversation and consider how Japanese soft power has helped launch a tourism boom and benefitted Japan geopolitically. 
-
+# Acknowledgement
+This thesis would not have been possible without the guidance of the Parsons MSDV faculty. Special thanks are due to Daniel Sauter, Aaron Hill, Richard The, Alec Barrett, Alvin Chang, Jonathan Thirkield and Christian Swinehart. In addition, invaluable programming assistance was provided by Robert Abarbanel, and linguistic expertise by Schun Doi. 
 
 # Exercise 3: Prototyping
 
