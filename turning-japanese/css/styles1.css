@@ -3,14 +3,6 @@ body {
     color: rgb(rgb(75, 75, 75));
 }
 
-/* .names {
-    fill: none;
-    stroke: #fff;
-    stroke-linejoin: round;
-} */
-
-/* Tooltip CSS */
-
 .d3-tip {
     position: absolute;
     line-height: 100%;
@@ -22,71 +14,11 @@ body {
     font-size: 18px;
     background: white;
     /* color: rgb(125, 24, 41); */
-    color: rgb(rgb(75, 75, 75))
-    border: 1px solid black;
+    color: rgb(rgb(75, 75, 75));
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, .1);
     border-radius: 4px;
     pointer-events: none;
 }
-
-/* Creates a small triangle extender for the tooltip */
-
-/* .d3-tip:after {
-    position: absolute;
-    line-height: 100%;
-    text-align: left;
-    width: 250px;
-    max-height: fit-content;
-    padding: 4px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    background: white;
-    color: rgb(125, 24, 41);
-    border: 1px solid black;
-    border-radius: 4px;
-    pointer-events: none;
-} */
-
-/* Northward tooltips */
-
-/* .d3-tip.n:after {
-    content: "\25BC";
-    margin: -1px 0 0 0;
-    top: 100%;
-    left: 0;
-    text-align: center;
-} */
-
-/* Eastward tooltips */
-
-/* .d3-tip.e:after {
-    content: "\25C0";
-    margin: -4px 0 0 0;
-    top: 50%;
-    left: -8px;
-} */
-
-/* Southward tooltips */
-
-/* .d3-tip.s:after {
-    content: "\25B2";
-    margin: 0 0 1px 0;
-    top: -8px;
-    left: 0;
-    text-align: center;
-} */
-
-/* Westward tooltips */
-
-/* .d3-tip.w:after {
-    content: "\25B6";
-    margin: -4px 0 0 -1px;
-    top: 50%;
-    left: 100%;
-}
-
-.details {
-    color:  #FFA500;
-} */
 
 map {
     display: block !important;
@@ -114,7 +46,7 @@ map {
 }
 
 .firstword {
-    color: rgb(35,139,69);
+    color: rgb(35, 139, 69);
     font-size: 50px;
 }
 
@@ -137,6 +69,7 @@ select {
     position: relative;
     top: -15px;
 }
+
 .wordchoice {
     font-size: 20px;
 }
@@ -153,7 +86,7 @@ select {
 .yearcount span {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: rgb(35,139,69);
+    color: rgb(35, 139, 69);
 }
 
 .explainer {
@@ -175,25 +108,11 @@ a {
     color: #D90404;
 }
 
-/* position: absolute;
-      right: 200;
-      top: 250;
-      background-color: rgb(234, 227, 216);
-      font-family: Albertina;
-      font-size: 22px;
-      width: 350px;
-      height: 1180px;
-      margin: 8px, 8px;
-      padding: 8px;
-      overflow-x: hidden;
-      overflow-x: auto; 
-      text-align: justify; */
-
-      .loading {
-          position: absolute;
-          top: 500px;
-          left: 50%;
-          font-size: 30px;
-          font-family: 'Montserrat', sans-serif;
-          opacity: 50%;
-      }
+.loading {
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 50%;
+}

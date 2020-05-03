@@ -13,7 +13,7 @@ document.title = `${w1} search interest`
 
 const YEARS = {
     min: 2006,
-    max: 2020 //add 2020 later 
+    max: 2020 
 }
 // function returns array of years 
 const AXIS = (() => {
@@ -40,9 +40,8 @@ function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 const GREYVALUE = -1;
 const GREYCOLOR = 'rgb(225,225,225)';
-// var format = d3.format(",");
 
-// tooltip shows country and search interest for each word pair
+//tooltip shows country and search interest for each word pair
 let tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
@@ -287,7 +286,7 @@ function colorByYear(year) {
     )
     myData.features.forEach(function (d) { d.interestOne = interestOneByISO[d.properties.ISO_A3] });
 
-    d3.selectAll('.countries > path') // already drawn so just select paths and set style depending on data values
+    d3.selectAll('.countries > path') // already drawn so select paths and set style depending on data values
         .transition()
         .duration(1000)
         .style("fill", function (d) {
