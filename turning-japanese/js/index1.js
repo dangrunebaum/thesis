@@ -5,17 +5,17 @@ multiply each january 1 figure against each year's annual figure in the main res
 use final to create color 
 */
 //examine url to check for new query params 
-const urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search)
 let path, svg, projection;
+//w1 is the word that drives this display, default is cosplay 
 let w1 = urlParams.get('w1') || 'cosplay';
 document.title = `${w1} search interest`
-// let w2 = urlParams.get('w2') || 'emoji';
-
+// Range of years for display 
 const YEARS = {
     min: 2006,
     max: 2020 
 }
-// function returns array of years 
+// Axis is an array of year values in order  
 const AXIS = (() => {
     const arr = [];
     for (let y = YEARS.min; y <= YEARS.max; y++) {
@@ -23,7 +23,8 @@ const AXIS = (() => {
     }
     return arr;
 })();
-// show data for all years 
+// Asynchronous function that redraws map with values for each year
+// Invoked by click on play button   
 const playYears = async function (v) {
     for (let i = YEARS.min; i <= YEARS.max; i++) {
         v.value = i;
@@ -33,9 +34,9 @@ const playYears = async function (v) {
     }
 }
 
-let myVue; // Vue instance 
+let myVue; // Vue instance for slider 
 
-
+// Provide for pausing as slider moves to new years 
 function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 const GREYVALUE = -1;
@@ -130,7 +131,6 @@ function main(w1) {
         },
         methods: {
             update: () => {//color by year 
-                console.log(myVue.value)
                 void colorByYear(myVue.value)
             },
             play: () => {
@@ -239,7 +239,6 @@ function ready(error, data, interest) {
         .style("stroke", "white")
         .style('stroke-width', 0.3)
         .on('mouseover', function (d) {
-            console.log(d3.event);
             tip.show(d);
             d3.select(".d3-tip")
                 .style("left", (d3.event.clientX + 20) + "px")

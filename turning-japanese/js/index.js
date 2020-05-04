@@ -1,12 +1,14 @@
-
-$(window).scroll(function(){
+//Make top container transparent on scroll (contains title, subtitle etc.)
+$(window).scroll(function () {
     $(".top-container").css("opacity", 1 - $(window).scrollTop() / 500);
-  });
-  
-  window.onscroll = function () { myFunction() };
+});
+////////////////////////
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+//Column headers stay atop page on scroll 
+window.onscroll = function () { myFunction() };
+
+const header = document.getElementById("myHeader");
+const sticky = header.offsetTop;
 
 function myFunction() {
     if (window.pageYOffset > sticky) {
@@ -15,7 +17,9 @@ function myFunction() {
         header.classList.remove("sticky");
     }
 }
+////////////////////////
 
+//Data to populate hovers for NYT keywords 
 const backupData = {
     geisha: {
         url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
@@ -91,26 +95,18 @@ const backupData = {
     }
 }
 
-// Color array for OED 100 words and category visualizations
-var color = d3.scaleOrdinal()
-    .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
-    .range(["goldenrod", "lightsalmon", "olive", "plum", "CornflowerBlue", "teal", "DarkSeaGreen", "indigo", "Chocolate", "DarkTurquoise", "rgb(100,100,100)"]);
-
-
-// Create timeline svg 
+// Create Japan History Timeline svg in left column, contains year,event,description 
 var timelineSvg = d3.select("timeline-div").append("svg")
     .attr("class", "timeline")
     .attr("width", "100%")
     .attr("height", "5000px")
 // Load timeline data and show year 
 d3.csv("data/timeline.csv", function (data) {
-    // console.log(data);
 
     timelineSvg.selectAll("timelineText")
         .data(data)
         .enter()
         .append("text")
-        // .attr("transform", "translate(0,20)")
         .attr("x", "15px")
         .style("font-weight", 600)// bold year 
         .attr("y", function (d, i) { return data[i].year * 10.1 - 15550; })
@@ -123,7 +119,6 @@ d3.csv("data/timeline.csv", function (data) {
         .data(data)
         .enter()
         .append("text")
-        // .attr("transform", "translate(0,20)")
         .attr("x", "65px")
         .attr("y", function (d, i) { return data[i].year * 10.1 - 15550; })
         .attr("font-family", "'Montserrat', sans-serif")
@@ -134,7 +129,7 @@ d3.csv("data/timeline.csv", function (data) {
         .attr("description", function (d) { return d.description })
         .style("cursor", "pointer")
         .attr('class', 'description')
-
+        // Show description in popup 
         .on("mouseover", function () {
             let text = d3.select(this).attr("description")
             if (text !== '') {
@@ -148,15 +143,21 @@ d3.csv("data/timeline.csv", function (data) {
             }
             d3.select(this).classed("active", true);
         })
-        .on("mouseout", function () {
+        .on("mouseout", function () { // Hide description popup 
             tooltipDiv.transition()
                 .duration(500)
                 .style("opacity", 0)
-                d3.select(this).classed("active", false);
+            d3.select(this).classed("active", false);
         })
 })
-// function in fill attribute returns 'state' object with a key = selected year 
-// mouse over updates state, mouseout returns 
+////////////////////////
+
+//Create OED 100 most frequent words visualization in center column. 
+//Three bands indicate frequency of word 
+// Color ordinal scale for OED 100 words and category visualization
+var color = d3.scaleOrdinal()
+    .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
+    .range(["goldenrod", "lightsalmon", "olive", "plum", "CornflowerBlue", "teal", "DarkSeaGreen", "indigo", "Chocolate", "DarkTurquoise", "rgb(100,100,100)"]);
 
 // Create OED words SVG
 var svg = d3.select("word-div").append("svg")
@@ -192,7 +193,7 @@ svg.append("line")
     .style("stroke-dasharray", "5,5")
     .style("stroke", "lightgrey");
 
-// Append chart text 
+// Append chart header text  
 svg.append('text')
     .attr("x", 140)
     .attr("y", 10)
@@ -232,22 +233,15 @@ svg.append('text')
     .style("fill", "rgb(75, 75, 75)")
     .text("5")
 
-// Append Div for tooltip to SVG
+// Append div for timeline and OED tooltips to SVG
 var tooltipDiv = d3.select("body")
     .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-// Append div for NYT hover
-var card = d3.select("body")
-    .append("div")
-    .attr("class", "card")
-    .style("opacity", 0);
-
 // Load words csv
 d3.csv("data/100-frequent-words.csv", function (data) {
-    // console.log(data);
-    // to get frequency: data[i].Frequency;
+
     svg.selectAll(".oedtext")
         .data(data)
         .enter()
@@ -257,16 +251,15 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .attr("x", function (d, i) { return d.Frequency * 110 - 300; })// xpos based on frequency
         .attr("y", function (d, i) { return i * 46 + 80; })
         .attr("font-family", "'Montserrat', sans-serif")
-        .attr("font-weight", function (d, i) { return d.Frequency * 200 - 100; })//font weight based on frequency
+        .attr("font-weight", function (d, i) { return d.Frequency * 200 - 100; })// font weight based on frequency
         .attr("font-size", function (d, i) { return d.Frequency * 5; })// font size based on frequency
         .style("cursor", "pointer")
-        // .attr("fill", "#7D1829")
         .style("fill", function (d, i) {
-            // console.log(d.Category) 
-            { return color(d.Category); }//color based on category 
+
+            { return color(d.Category); }// color based on category 
         })
-        .text(function (d, i) { return d.Loanword; })//print loanword 
-        // Show word meaning on mouseover 
+        .text(function (d, i) { return d.Loanword; })// print loanword 
+        // Show data from OED words on mouseover: meaning, Japanese writing, category and stage 
         .on("mouseover", function (d) {
             // var citation = d.Citation; // year of first citation 
             var tipText = `${d.Meaning} <br> Japanese: ${d.Japanese} <br> Category: ${d.Category} <br> ${d.Stage} `;// <br> First Citation: ${d.Citation}
@@ -280,7 +273,7 @@ d3.csv("data/100-frequent-words.csv", function (data) {
             d3.select(this).classed("active", true);
         })
 
-        // fade tooltip on mouseout               
+        // Fade tooltip on mouseout               
         .on("mouseout", function (d) {
             tooltipDiv.transition()
                 .duration(500)
@@ -292,7 +285,6 @@ d3.csv("data/100-frequent-words.csv", function (data) {
 
     /* Audio function -- for each Loanword click loop through audio folder, find src locator matching word and play the corresponding audio file */
     function mouseClick(item) {
-        // console.log(item.Loanword);
         var pronunciation = document.getElementById('audioElement');
         var url = `https://dangrunebaum.github.io/thesis/turning-japanese/data/audio/${item.Loanword.toLowerCase()}--_us_1.mp3`
         console.log(url);
@@ -300,8 +292,10 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         pronunciation.play()
     }
 })
+/////////////////////
 
-// Visualizations: language frequency bar chart 
+// OED Asian language frequency bar chart 
+// Initialize Vue app
 var app = new Vue({
     // ID of referenced div-element
     el: '#bars',
@@ -330,63 +324,42 @@ var app = new Vue({
         height() {
             return this.svgHeight - this.margin.top - this.margin.bottom;
         },
-        // scale = {
-        //   x: () => {
-        //     do something
-        //     return x
-        // }
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions
         scale() {
             const x = d3
                 .scaleBand()
                 .domain(this.data.map(x => x.name))
-                // https://github.com/d3/d3-scale/blob/master/README.md#band_rangeRound
                 .rangeRound([0, this.width])
-                .padding(0.15); // There is also paddingInner and paddingOuter if preferred
+                .padding(0.15); // 
             const y = d3
                 .scaleLinear()
-                // The spread operator ... can be used to convert an array
-                // in places where a list of parameters is expected.
-                // Because we are using a method here, Math.max(1, 2, 3) is expected.
-                // The new mapped array is transformed with ...
-                // so it can be interpreted by Math.max()
                 .domain([0, Math.max(...this.data.map(x => x.val))])
-                .rangeRound([this.height, 0]); // Already flipped
+                .rangeRound([this.height, 0]);
             const z = this.data.val + "";
-            return { x, y, z };
+            return { x, y, z };// x and y are scales, z is original unscaled value for label  
         }
     },
     methods: {
-        myFill(index) {
-            if (index === 1) {
-                return "#D90404"
-            } else return "#3C8A9E" // "#96B83D"
+        // use different fill color for Japan 
+        myFill(index) { // index 1 indicates Japan 
+            return index === 1 ? "#D90404" : "#3C8A9E";
         }
     },
+
     directives: {
+        // Support vertical and horizontal axes for bar chart 
         axis(el, binding) {
-            // console.log(el); // this is the g
-            // console.log(binding); // the scale object
             const axis = binding.arg; // x or y
-            // Line below defines an object and immediately calls
-            // only the property for x or y
-            // it’s basically like a ternary expression
             const axisMethod = { x: "axisBottom", y: "axisLeft" }[axis];
-            // The line below assigns the x or y function of the scale object
+
             const methodArg = binding.value[axis];
-            // The variable assignments above are a very concise way to
-            // guarantee that d3 can select *this* element and call
-            // the axis method on it
-            // with the right argument
-            // so it ends up equivalent to the expression
-            // d3.axisBottom(scale.x)
             d3.select(el).call(d3[axisMethod](methodArg));
         }
     }
 })
+///////////////////////////
 
-// Data for category bubble chart 
-dataset = {
+// Data for OED word category bubble chart 
+const dataset = {
     "children": [
         {
             "Tag": "housing",
@@ -431,13 +404,13 @@ dataset = {
     ]
 };
 
-var diameter = 600;
-
+// Diameter of invisible enclosing circle of OED word categories
+const diameter = 600;
 
 var bubble = d3.pack(dataset)
     .size([diameter, diameter])
     .padding(1.5);
-
+// Enclosing circle
 var CategoriesSvg = d3.select("div#bubbleChart")
     .append("svg")
     .attr("width", diameter)
@@ -458,12 +431,7 @@ var node = CategoriesSvg.selectAll(".node")
     .attr("transform", function (d) {
         return "translate(" + d.x + "," + d.y + ")";
     });
-
-// node.append("title")
-//     .text(function (d) {
-//         return d.Tag + ": " + d.Count;
-//     });
-
+//size and color of bubbles 
 node.append("circle")
     .attr("r", function (d) {
         return d.r;
@@ -473,8 +441,8 @@ node.append("circle")
         return color(d.data.Tag);
     })
 
- 
 
+// Bubble text is category tag 
 node.append("text")
     .attr("dy", ".05em")
     .style("text-anchor", "middle")
@@ -486,11 +454,11 @@ node.append("text")
         return d.r / 4;
     })
     .attr("fill", "white")
-    .attr('category', function (d) { return d.data.Tag})
+    .attr('category', function (d) { return d.data.Tag })
     .attr("class", "category")
     .on('mouseover', catOver)
-    .on('mouseout', catOut);;
-
+    .on('mouseout', catOut);
+//text for category counts 
 node.append("text")
     .attr("dy", "1.0em")
     .style("text-anchor", "middle")
@@ -505,17 +473,17 @@ node.append("text")
 
 d3.select("center").style("background-color", "white");
 
+// Functions for mouseover and mouseout for category bubbles 
 function catOver(e) {
-    let thisCat = d3.select(this).attr('category')
     d3.select(this).classed("active", true)
-            // console.log(thisCat);
 }
-
 function catOut() {
     d3.select(this).classed("active", false)
 }
+/////////////////////
 
 //Loanword histogram 
+//New Vue instance in variable app2 
 var app2 = new Vue({
     // ID of referenced div-element
     el: '#histogram',
@@ -710,34 +678,22 @@ var app2 = new Vue({
         height() {
             return this.svgHeight - this.margin.top - this.margin.bottom;
         },
-        // scale = {
-        //   x: () => {
-        //     do something
-        //     return x
-        // }
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions
         scale() {
             const x = d3
                 .scaleBand()
                 .domain(this.data.map(x => x.decade))
-                // https://github.com/d3/d3-scale/blob/master/README.md#band_rangeRound
                 .rangeRound([0, this.width])
-                .padding(0.15); // There is also paddingInner and paddingOuter if preferred
+                .padding(0.15);
             const y = d3
                 .scaleLinear()
-                // The spread operator ... can be used to convert an array
-                // in places where a list of parameters is expected.
-                // Because we are using a method here, Math.max(1, 2, 3) is expected.
-                // The new mapped array is transformed with ...
-                // so it can be interpreted by Math.max()
                 .domain([0, Math.max(...this.data.map(x => x.val))])
-                .rangeRound([this.height, 0]); // Already flipped
+                .rangeRound([this.height, 0]);
             return { x, y };
         }
     },
     methods: {
         myFill(index) { return "#3C8A9E" },
-        barover(e) {
+        barover(e) { // create labels for tops of bars showing value 
             let bar = e.target;
             let rect = d3.select(bar);
             let x = rect.attr("x"), y = rect.attr("y"), value = rect.attr("value");
@@ -748,10 +704,9 @@ var app2 = new Vue({
                 .html(value.length === 1 ? "&nbsp;" + value : value)
             console.log(x, y, value)
             bar.style.fill = "#D90404"
-            // "#1C4C61"
-            // "rgb(125, 24, 41)"
+
         },
-        barleave(e) {
+        barleave(e) { // hide labels 
             let bar = e.target;
             let g = d3.select(bar.parentNode);
             g.select("text").remove()
@@ -761,43 +716,20 @@ var app2 = new Vue({
 
     directives: {
         axis(el, binding) {
-            // console.log(el); // this is the g
-            // console.log(binding); // the scale object
             const axis = binding.arg; // x or y
-            // Line below defines an object and immediately calls
-            // only the property for x or y
-            // it’s basically like a ternary expression
             const axisMethod = {
                 x: "axisBottom",
                 y: "axisLeft"
             }
             [axis];
-            // The line below assigns the x or y function of the scale object
             const methodArg = binding.value[axis];
-            // The variable assignments above are a very concise way to
-            // guarantee that d3 can select *this* element and call
-            // the axis method on it
-            // with the right argument
-            // so it ends up equivalent to the expression
-            // d3.axisBottom(scale.x)
             if (axis === "y")
                 d3.select(el)
                     .call(d3[axisMethod](methodArg));
             else {
                 d3.select(el)
-                    // .append("svg")
-                    // .append("g")
-                    // .append("text")
-                    // .attr("class", "axis")
-                    // .attr("transform", "translate(0," + height + ")")
-                    // // .call(d3.axisBottom(x).ticks(10))
-                    // .selectAll("text")
-                    // .style("text-anchor", "end")
-                    // .attr("dx", "-.8em")
-                    // .attr("dy", ".15em")
-                    // .attr("transform", "rotate(-65)");
                     .call(d3[axisMethod](methodArg));
-                // console.log(el);
+                // Rotate bar labels beneath x axis 
                 d3.select(el)
                     .selectAll("text")
                     .style("font-size", "10px")
@@ -807,7 +739,7 @@ var app2 = new Vue({
                     .attr("dy", "-5px")
                     .attr("transform", "rotate(-75)")
 
-                d3.select(el)
+                d3.select(el) // tick marks 
                     .selectAll("line")
                     .attr("x1", "-3px")
                     .attr("x2", "-3px")
@@ -816,18 +748,21 @@ var app2 = new Vue({
         }
     }
 })
+////////////////////////
 
-// var g = svg.append("g")
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+// Create NYT small multiple line charts 
+// Append div for NYT hovers over word labels for line charts 
+var card = d3.select("body")
+    .append("div")
+    .attr("class", "card")
+    .style("opacity", 0);
 
-// NYT small multiples 
-
-// set the dimensions and margins of the graph
+// Set the dimensions and margins of the graph
 var margin = { top: 20, right: 20, bottom: 20, left: 30 },
     width = 250 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom;
 
-//Read the data
+// Read the NYT data on word frequency over time taken from NYT Article API 
 d3.csv("data/nyt-multiples.csv",
 
     // Format variables:
@@ -836,16 +771,16 @@ d3.csv("data/nyt-multiples.csv",
     },
 
     function (data) {
-        // console.log(data);
-        // group the data: I want to draw one line per group
+        // Group the data to draw one line per group
         var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
             .key(function (d) { return d.topic; })
             .entries(data);
 
-        // What is the list of groups?
+        // List groups
         allKeys = sumstat.map(function (d) { return d.key })
 
-        // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
+        // Add an svg element for each group 
+        // Charts are next to each other and go to the next row when no more room is available
         var nytSvg = d3.select("#small_multiples")
             .selectAll("uniqueChart")
             .data(sumstat)
@@ -865,21 +800,18 @@ d3.csv("data/nyt-multiples.csv",
             .append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).ticks(5));
-        // console.log(data.length, d3.max(data, function (d) { return +d.interest; }))
-        //Add Y axis
+        // Add Y axis
         var y = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) { return +d.interest; })])
             .range([height, 0]);
         nytSvg.append("g")
             .call(d3.axisLeft(y).ticks(5));
-
-        // color palette
+        // Color palette is ordinal scale 
         var color = d3.scaleOrdinal()
             .domain(allKeys)
             .range(["plum", "lightsalmon", "teal", "plum", "goldenrod", "goldenrod", "DarkSeaGreen", "goldenrod", "teal", "goldenrod", "teal", "DarkSeaGreen"]);
-        //     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
 
-        // Draw the line
+        // Draw line
         nytSvg.append("path")
             .attr("fill", "none")
             .attr("stroke", function (d) { return color(d.key) })
@@ -892,47 +824,7 @@ d3.csv("data/nyt-multiples.csv",
             })
 
 
-        //Append rollover materials 
-        // Find the closest X index of the mouse:
-        var bisect = d3.bisector(function (d) { return d.date; }).left;
-
-        // Create circle that travels along the curve of chart
-        var focus = nytSvg
-            .append('g')
-            .append('circle')
-            .style("fill", "none")
-            .attr("stroke", "black")
-            .attr('r', 5)
-            .style("opacity", 0)
-
-        // Create text that travels along the curve of chart
-        var focusText = nytSvg
-            .append('g')
-            .append('text')
-            .style("opacity", 0)
-            .attr("text-anchor", "left")
-            .attr("alignment-baseline", "middle")
-
-        // Create a rect on top of the svg area that rectangle recovers mouse position
-        nytSvg
-            .append('rect')
-            .style("fill", "none")
-            .style("pointer-events", "all")
-            .attr('width', width)
-            .attr('height', height)
-            // .on('mouseover', mouseover)
-            // .on('mousemove', mousemove)
-            // .on('mouseout', mouseout)
-            .append('text')
-        // .attr('word', function (d) { return d.key });//add word attr for topic
-
-        // What happens when the mouse move -> show the annotations at the right positions.
-        // function mouseover() {
-        //     focus.style("opacity", 1)
-        //     focusText.style("opacity", 1)
-        // }
-
-        // Add titles
+        // Add titles for each of 12 charts showing frequency of selected word over time  
         nytSvg.append("text")
             .attr("text-anchor", "start")
             .attr("y", -5)
@@ -945,81 +837,27 @@ d3.csv("data/nyt-multiples.csv",
             .attr("class", "nyt-word")
             .on('mouseover', wordOver)
             .on('mouseout', mouseout);
-
+        // Card popup for each word
+        // Use to backup data to populate headline, abstract, pubDate and image URL  
         function wordOver(e) {
             const { pageX, pageY } = d3.event;
-            let thisWord = d3.select(this).attr('word')
+            const thisWord = d3.select(this).attr('word')
             d3.select(this).classed("active", true)
-            console.log(thisWord);
 
-            // const urlParams = new URLSearchParams(window.location.search);
-            // let w1 = urlParams.get(thisWord);
-            const nytTerm = thisWord || 'geisha'//word variable 
+            const { url, headline, abstract, pubDate } = backupData[thisWord];
+            const nytImageUrl = url;
+            card.transition()
+                .duration(100)
+                .style("opacity", .95);
 
-            //API call 
-            // var request = new XMLHttpRequest()
-
-
-            // request.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${nytTerm}&api-key=8A8qBswiq0XnSX221vWlreyWRcAvhMbf`, true)
-            // request.onload = function () 
-
-
-
-
-            // console.log(data.response.docs[0].abstract)
-
-            // if (request.status >= 200 && request.status < 400) {
-            //     //access JSON data 
-            //     var data = JSON.parse(this.response)
-
-            //     const doc = data.response.docs.find(
-            //         (doc) => doc.multimedia.length !== 0);
-            //     const nytImageUrl = doc.multimedia[0].url
-
-            //     console.log(nytTerm, nytImageUrl);
-
-            //     // [0].multimedia[0].url;//image url 
-            //     // nytImage.src = `https://static01.nyt.com/${nytImageUrl}`//image url string 
-
-            //     const headline = doc.headline.main;//article headline  
-            //     const abstract = doc.abstract;//article abstract
-            //     const pubDate = doc.pub_date.substring(0, 7);
-            //     console.log(headline, abstract, pubDate);
-
-            //     card.transition()
-            //         .duration(200)
-            //         .style("opacity", .95);
-            //     // div.text
-            //     // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
-            //     card.html(
-            //         `<img class="card-img" src="https://static01.nyt.com/${nytImageUrl}">
-            //         <div class="card-headline">${headline}</div><br>
-            //         <div class="card-abstract">${abstract}</div>
-            //         <div class="card-pubDate">NYT ${pubDate}</div>`
-            //     )
-            //         .style("left", (pageX - 360) + "px")
-            //         .style("top", (pageY - 255) + "px")
-
-            // } else 
-            {
-                const { url, headline, abstract, pubDate } = backupData[nytTerm];
-                const nytImageUrl = url;
-                card.transition()
-                    .duration(100)
-                    .style("opacity", .95);
-                // div.text
-                // card.html(`<img class="card" src="${backupUrls[nytImageUrl]}">`)
-                card.html(
-                    `<img class="card-img" src="${nytImageUrl}">
+            card.html(
+                `<img class="card-img" src="${nytImageUrl}">
                     <div class="card-headline">${headline}</div>
                     <div class="card-abstract">${abstract}</div>
                     <div class="card-pubDate"> NYT ${pubDate}</div>`
-                )
-                    .style("left", (pageX - 360) + "px")
-                    .style("top", (pageY - 255) + "px")
-            }
-
-            request.send()
+            )
+                .style("left", (pageX - 360) + "px")
+                .style("top", (pageY - 255) + "px")
         }
 
         function mouseout() {
@@ -1034,12 +872,15 @@ function closeCard() {
         .duration(100)
         .style("opacity", 0);
 }
+// Add method for closing popup cards with click anywhere on page 
+d3.select('body').on('click', closeCard);
+////////////////////
 
+// Open page for single word Google Search interest frequency and map in new tab  
 function openSingle() {
     window.open("index1.html", "_blank");
 }
-
+// Open page for word pairs' Google Search interest frequency and map in new tab  
 function openPairs() {
     window.open("index2.html", "_blank");
 }
-d3.select('body').on('click', closeCard);
