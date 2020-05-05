@@ -76,8 +76,8 @@ select {
 
 .yearcount {
     position: absolute;
-    left: 100px;
-    top: 200px;
+    left: 107px;
+    top: 210px;
     z-index: 10;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
