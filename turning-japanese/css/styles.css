@@ -56,6 +56,7 @@ p {
     font-size: 40px;
     font-weight: 300;
     opacity: 0.2;
+    font-family: "Sawarabi Mincho"; 
 }
 
 .title {
@@ -79,7 +80,7 @@ p {
 .flag {
     position: relative;
     top: 420px;
-    width: 8%;
+    width: 10%;
     display: block;
     margin-left: auto;
     margin-right: auto;
