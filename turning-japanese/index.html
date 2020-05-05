@@ -15,23 +15,10 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
-
-    <!-- <figure>
-        <figcaption>Hear Michiyo Yagi's 'Mornin Dew (Asatsuyu)'</figcaption>
-        <audio
-        controls
-        src="./michiyo.mp3">
-            Your browser does not support the
-            <code>audio</code> element.
-    </audio>
-    </figure> -->
     
     <div class="top-container">
         <h1 class='japanese'>日本語のグローバリゼーション</h1>
@@ -48,7 +35,6 @@
     </div>
 
     <div class="header" id="myHeader">
-        <!-- <h2>My Header</h2> -->
         <span class="left">Japan History Timeline</span>
         <span class="center">Oxford English Dictionary</span>
         <span class="right">Visualizations</span>
@@ -58,24 +44,14 @@
 
         <timeline-div class="left-col">
 
-            <!-- <h2>Japan History Timeline</h2> -->
-
-            <!-- <div id="center-text"></div> -->
-
             <p id="sourcing">Timeline data: Japan Ministry of Foreign Affairs, Japan Guide, World Bank, BBC, Wikipedia and SEDAC</p>
 
         </timeline-div>
 
         <word-div class="center-col">
-            <!-- <h2>100 Most Frequent Japanese Loanwords in the Oxford English Dictionary</h2> -->
 
             <audio id="audioElement" src=""></audio>
-            <!-- <div>
-  <button onclick="document.getElementById('audioElement').play()">Play tatami</button>
-</div> -->
-            <!-- <div>
-    <p onclick="document.getElementById('audioElement').play()">Play tatami</p>
-  </div> -->
+
             <p id="sourcing">100 more frequent out of 530 total Japanese loanwords in the online edition of the <a
                     href="http://oed.com">Oxford English Dictionary</a>. On a 1-8 scale, Band 3 contains words which
                 occur
@@ -86,7 +62,6 @@
         </word-div>
 
         <div id="right-col">
-            <!-- <h2>Visualizations</h2> -->
 
             <div id="bubbleChart">
                 <h3 class="categories">TOP TEN CATEGORIES OF JAPANESE LOANWORDS IN THE OED</h3>
@@ -113,11 +88,7 @@
 
                 <div id="bars">
                     <h3>{{ chartTitle }}</h3>
-                    <!-- <div>
-                    <p>Our inputs here</p>
-                    <input class="pink" type="number" placeholder="Edit me" v-model="data[0].val" />
-                    <input type="string" placeholder="Edit me" v-model="data[0].name" />
-                </div> -->
+
                     <svg :width="svgWidth" :height="svgHeight">
                         <g :transform="'translate(' + margin.left + ',' + margin.top + ')'">
                             <g v-for="(element, index) in data">
@@ -178,11 +149,10 @@
                     Japan' boom. Spikes in interest can be observed, such as one for 'geisha' in the 2000s following the
                     release of
                     the book and film Memoirs of a Geisha.
-                    <!-- Compare five words representing older waves of Japanophilia (above) to five words representing
-                    the current wave of Japanophilia (below), in the New York Times from 1851 to the present. -->
+
                 </p>
                 <h3>ANIMATED WORD MAPS</h3>
-                <!-- <a onclick="openSingle()" target="_blank"> -->
+
                 <img src="images/cosplay.gif" alt="Word Maps" class="word-map-img">
                 <p>View the rise and fall of Japanese loanwords geographically over time by Google Search interest.
                     Single Words represent contemporary Japan; Word Pairs show the changing interest in words
@@ -190,42 +160,12 @@
                 <button onclick="openSingle()">Single Words</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <button onclick="openPairs()">Word Pairs</button>
-                <!-- </a> -->
-                <!-- <div>
-                    <h3>FIVE NEW JAPANESE LOANWORDS VISUALIZED BY GOOGLE SEARCH INTEREST</h3>
-                    <p>
-                        Where do recent Japanese loanwords first find interest, and how do they spread over time? Using
-                        Google Search data from 2006-2014, map the global diffusion of five terms representing the
-                        latest wave of Japanophilia.
-                    </p>
-                </div>
-                <div>
-                    <h3>TRADITIONAL VS CONTEMPORARY JAPANOPHILIA</h3>
-                    <p>
-                        As new Japanese loanwords find global currency, how do terms signifying traditional views of
-                        Japan hold up? Five word-pairs map worldwide search interest in loanwords representing older and
-                        contemporary waves of Japanophilia.
-                    </p>
-                </div> -->
 
             </container>
         </div>
 
 
     </div>
-
-    <!-- <map-div>
-        <div>
-            <h1 class="word-maps">WORD MAPS</h1>
-            <img src="./images/ramen.png" alt="Loanword Naturalization Stages">
-        </div>
-
-        <div>
-            <a href="index1.html">
-                <img src="./images/kanji-vs-emoji.png" alt="Loanword Naturalization Stages">
-            </a>
-        </div>
-    </map-div> -->
 
     <div class="footer">
         <!-- <p>&copy;All Rights Reserved.</p> -->
