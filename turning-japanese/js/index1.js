@@ -1,13 +1,13 @@
 /*
 COMPUTE INTEREST OVER TIME AGAINST INTEREST BY REGION  
-convert csv to json that includes only the january 1 figure between 2006-2020
+convert CSV to JSON that includes only the January 1 figure between 2006-2020
 multiply each january 1 figure against each year's annual figure in the main results json  
 use final to create color 
 */
-//examine url to check for new query params 
+// Examine url to check for new query params 
 const urlParams = new URLSearchParams(window.location.search)
 let path, svg, projection;
-//w1 is the word that drives this display, default is cosplay 
+// w1 is the word that drives this display, default is cosplay 
 let w1 = urlParams.get('w1') || 'cosplay';
 document.title = `${w1} search interest`
 // Range of years for display 
@@ -25,12 +25,11 @@ const AXIS = (() => {
 })();
 // Asynchronous function that redraws map with values for each year
 // Invoked by click on play button   
-const playYears = async function (v) {
+const playYears = async function (v) {//v is a Vue instance 
     for (let i = YEARS.min; i <= YEARS.max; i++) {
         v.value = i;
         colorByYear(i);
-        await sleep(500);
-
+        await sleep(500);// Pause .5 sec 
     }
 }
 
@@ -42,39 +41,37 @@ function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 const GREYVALUE = -1;
 const GREYCOLOR = 'rgb(225,225,225)';
 
-//tooltip shows country and search interest for each word pair
+// Tooltip shows country and search interest for each word pair
 let tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function (d) {
         return "<span class='details'>" + d.properties.ADMIN + "<br></span>" + "<span>Search Interest: </span><span class='details'>" + (d.interestOne === GREYVALUE ? "0" : d.interestOne) + "</span>";
     })
-
+// Define page layout 
 const MARGIN = { top: 0, right: 0, bottom: 0, left: 0 },
     MAPWIDTH = 1440 - MARGIN.left - MARGIN.right,
     MAPHEIGHT = 750 - MARGIN.top - MARGIN.bottom;
 
-const colorRange = [1, .9, .8, .7, .6, .5, .4, .3, .2, .1].map(
-    (x) => {
-        val = 225 * x;
-        return `rgb(${0},${val},${0})`
-    }
-)
+// Perceptually appropriate green values from 
+// https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3 
 const cbArray = ['rgb(225,225,225)', 'rgb(229,245,249)', 'rgb(204,236,230)', 'rgb(153,216,201)', 'rgb(102,194,164)', 'rgb(65,174,118)', 'rgb(35,139,69)', 'rgb(0,109,44)', 'rgb(0,68,27)'];
 
-const colorArray = ['rgb(225,225,225)', 'rgb(224,236,244)', 'rgb(191,211,230)', 'rgb(158,188,218)', 'rgb(140,150,198)', 'rgb(140,107,177)', 'rgb(136,65,157)', 'rgb(129,15,124)', 'rgb(77,0,75)'];
-
-function color(interest1, year) { //interest1 is 0-1 scaled relative value of first word in pair
+function color(interest1, year) { // Interest1 is 0-1 scaled relative value of word
     if (interest1 === undefined || interest1 === GREYVALUE) {
-        return GREYCOLOR;
+        return GREYCOLOR;// If value unknown make grey 
     }
+    // Year interest is Google search interest relative to the highest point
+    // in time for a specific year
     let yearInterest = scaledInterestByYear[wordOne][year]
-    //scale values by years total interest and up .25 to access full color range 
+    // Interest1 is the regional year interest.
+    // Interest1 is scaled by year interest and scaled down by 0.35 
+    // to create optimum perceptual color range. 
     interest1 = Math.round(interest1 * yearInterest * 0.35);
     if (interest1 >= cbArray.length) interest1 = cbArray.length - 1
     return cbArray[interest1]
 }
-
+// Draw page 
 function main(w1) {
     myVue = new Vue({
         el: '#app',
@@ -83,8 +80,7 @@ function main(w1) {
                 value: 0,
                 yearInterest: '',
                 wordOne: w1,
-                // wordTwo: w2,
-                options: {
+                options: { // Layout and features for slider 
                     dotSize: 14,
                     width: '50%',
                     height: 6,
@@ -126,43 +122,41 @@ function main(w1) {
         },
         computed: {
             titleWord: function () {
-                return this.wordOne.replace('-', ' ')//remove dash from hello kitty
+                return this.wordOne.replace('-', ' ')// Remove dash from hello kitty
             }
         },
         methods: {
-            update: () => {//color by year 
+            update: () => { // Color by year when year selected on slider  
                 void colorByYear(myVue.value)
             },
-            play: () => {
+            play: () => { // Play button handler 
                 playYears(myVue)
             },
-            wordchoice: () => {//handle dropdown 
+            wordchoice: () => { // Handle change of selection in word dropdown 
 
                 let wordOne = document.getElementsByClassName('wordchoice')[0].value;
                 let url = window.location.href.split('?');
-
+                // Reload page with new URL 
                 window.location.href =
                     `${url[0]}?w1=${wordOne}`
             }
         },
-        mounted() {
-        },
+        // Year slider for controlling which year is mapped 
         components: {
             'vueSlider': window['vue-slider-component'],
         }
     })
     wordOne = w1;
-    // wordTwo = w2;
     myVue.wordOne = w1;
-    // myVue.wordTwo = w2;
 
+    // Create svg into which map is drawn  
     svg = d3.select("map")
         .append("svg")
         .attr("width", MAPWIDTH)
         .attr("height", MAPHEIGHT)
         .append('g')
         .attr('class', 'map');
-
+    // Use Mercator projection, scale and position map 
     projection = d3.geoMercator()
         .scale(162)
         .translate([MAPWIDTH / 2, MAPHEIGHT / 1.5]);
@@ -170,14 +164,14 @@ function main(w1) {
     path = d3.geoPath().projection(projection);
 
     svg.call(tip);
-
+    // Queue up data sources; when available call ready function 
     queue()
         .defer(d3.json, "data/resources1/countries.geojson") // data (geojson)
         .defer(d3.json, `data/resources1/results/${w1}.json`) // interest (pair json file)
         .await(ready);
+    // Set select dropdown value to match word from URL 
     if (urlParams.get('w1')) {
-        document.getElementsByClassName('wordchoice')[0].value =
-            `${w1}`
+        document.getElementsByClassName('wordchoice')[0].value = w1;
     }
 }
 let globalInterest;
@@ -188,15 +182,15 @@ let toCode;
 function createToCode(geodata) {
     const to3 = [];
 
-    // console.log(geodata);
     geodata.features.forEach(
         (feature) => {
             to3.push([feature.properties.ADMIN, feature.properties.ISO_A3]);
         }
     );
-
+    // Create a single js map between country names and country codes
+    // This is needed because Google data uses country names and JSON data uses country codes
+    // Some need to be edited for match to succeed
     const toCode = new Map(to3);
-    // updates for Google country names
     toCode.set('United States', 'USA')
     toCode.set('Myanmar (Burma)', 'MMR')
     toCode.set('Tanzania', 'TZA')
@@ -214,14 +208,14 @@ function createToCode(geodata) {
     toCode.set('eSwatini', 'SWZ')
     return toCode
 }
-
+// Draw map after data is loaded 
 function ready(error, data, interest) {
     myVue.wordOne = wordOne;
-    // myVue.wordTwo = wordTwo;
     globalInterest = interest;
     myData = data;
     toCode = createToCode(data);
-    // document.querySelector("g.map").remove();
+    // Initialize interest values for every region to GREYVALUE, 
+    // so missing values are treated as zero when coloring regions 
     data.features.forEach(function (d) { d.interestOne = GREYVALUE });
     svg.append("g")
         .attr("class", "countries")
@@ -235,7 +229,7 @@ function ready(error, data, interest) {
         .style('stroke', 'white')
         .style('stroke-width', 1.5)
         .style("opacity", 0.8)
-        // tooltips
+        // tooltip
         .style("stroke", "white")
         .style('stroke-width', 0.3)
         .on('mouseover', function (d) {
@@ -258,23 +252,23 @@ function ready(error, data, interest) {
         });
         d3.select('.loading')
         .remove()
-    svg.append("path")//check this later 
+    svg.append("path") 
         .datum(topojson.mesh(data.features,
             function (a, b) { return a.id !== b.id; }))
         .attr("class", "names")
         .attr("d", path);
 }
 
-// assign color based on keys in globalInterest 
+// Assign color based on keys in globalInterest 
 function colorByYear(year) {
+    // Show interest out of 100
     myVue.yearInterest = Math.round(scaledInterestByYear[wordOne][year]) + ' out of 100'
     const interestOneByISO = {};
     const yrstr = year + '';
     Object.keys(globalInterest).forEach(
         countryName => {
             if (globalInterest[countryName].words[wordOne][yrstr] === 0)
-            // && // check if both values are 0, if so set to GREYVALUE
-            // globalInterest[countryName].words[wordTwo][yrstr] === 0) 
+            // Check if both values are 0, if so set to GREYVALUE
             {
                 interestOneByISO[toCode.get(countryName)] = GREYVALUE
             } else {
@@ -283,28 +277,29 @@ function colorByYear(year) {
             }
         }
     )
+    // Set interestOne property according to relative interest by year 
     myData.features.forEach(function (d) { d.interestOne = interestOneByISO[d.properties.ISO_A3] });
 
     d3.selectAll('.countries > path') // already drawn so select paths and set style depending on data values
+    // 
         .transition()
         .duration(1000)
         .style("fill", function (d) {
             if (d.interestOne === GREYVALUE) { // are both values zero?
-                // console.log(year);
                 return GREYCOLOR // when both values zero 
             }
             return color(d.interestOne, year); // otherwise
         })
 }
-
+// Global interest by year 
 let scaledInterestByYear;
-
+// Use local file with global interest data to initialize scaledInterestByYear
 fetch('data/resources1/results/wordscales.json', { mode: 'no-cors' })
     .then(result => result.json())
     .then(
         (data) => {
             scaledInterestByYear = data
-            main(w1)
+            main(w1) // Display page 
         }
     )
     .catch((error) => console.log(error)) 

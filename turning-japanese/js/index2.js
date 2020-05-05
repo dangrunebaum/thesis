@@ -1,16 +1,22 @@
-//get search location 
+/*
+COMPUTE INTEREST OVER TIME BY REGION  
+Convert CSV to JSON that includes only the January 1 figure between 2006-2020.
+Compute colors according to the value for each word by year. */
+// Examine URL to check for new query params 
 const urlParams = new URLSearchParams(window.location.search);
-const hasw1 =urlParams.get('w1');
+const hasw1 = urlParams.get('w1');
 let path, svg, projection;
+// w1 and w2 are the words that drive display, defaults are kanji and emoji  
 let w1 = hasw1 || 'kanji';
 let w2 = urlParams.get('w2') || 'emoji';
 document.title = `${w1} vs ${w2}`
-// set selector's current value
 
+// Range of years for display 
 const YEARS = {
     min: 2006,
     max: 2020
 }
+// Axis is an array of year values in order  
 const AXIS = (() => {
     const arr = [];
     for (let y = YEARS.min; y <= YEARS.max; y++) {
@@ -18,7 +24,9 @@ const AXIS = (() => {
     }
     return arr;
 })();
-const expt = async function (v) {
+// Asynchronous function that redraws map with values for each year
+// Invoked by click on play button 
+const playYears = async function (v) {
     for (let i = YEARS.min; i <= YEARS.max; i++) {
         v.value = i;
         colorByYear(i);
@@ -29,6 +37,7 @@ const expt = async function (v) {
 let myVue;
 // Vue instance 
 
+// Provide for pausing as slider moves to new years 
 function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 const GREYVALUE = -1;
@@ -42,12 +51,12 @@ let tip = d3.tip()
     .html(function (d) {
         return "<span class='details'>" + d.properties.ADMIN + "<br></span>" + "<span>Search Interest: </span><span class='details'>" + (d.interestOne === GREYVALUE ? "0, 0" : `${d.interestOne}, ${1 - d.interestOne}`) + "</span>";
     })
-
+// Define page layout 
 const MARGIN = { top: 0, right: 0, bottom: 0, left: 0 },
     MAPWIDTH = 1440 - MARGIN.left - MARGIN.right,
     MAPHEIGHT = 750 - MARGIN.top - MARGIN.bottom;
 
-
+// Color function defines red and blue values for each word 
 function color(interest1) { //interest1 is 0-1 scaled relative value of first word in pair
     if (interest1 === undefined || interest1 === GREYVALUE) {
         return GREYCOLOR;
@@ -56,7 +65,7 @@ function color(interest1) { //interest1 is 0-1 scaled relative value of first wo
     let blue = 255 * (1 - interest1);
     return `rgb(${red}, 25, ${blue})` //backtick means string, ${} interpolates rgb values 
 }
-
+// Draw page 
 function main(w1, w2) {
     myVue = new Vue({
         el: '#app',
@@ -65,7 +74,7 @@ function main(w1, w2) {
                 value: 0,
                 wordOne: w1,
                 wordTwo: w2,
-                options: {
+                options: { // Layout and features for slider 
                     dotSize: 14,
                     width: '50%',
                     height: 6,
@@ -106,25 +115,23 @@ function main(w1, w2) {
             }
         },
         methods: {
-            update: () => {
-                console.log(myVue.value)
+            update: () => { // Color by year when year selected on slider  
                 void colorByYear(myVue.value)
             },
-            play: () => {
-                expt(myVue)
+            play: () => { // Play button handler 
+                playYears(myVue)
             },
-            wordchoice: () => {
+            wordchoice: () => { // Handle change of selection in word dropdown 
 
                 let choice = document.getElementsByClassName('wordchoice')[0].value;
                 [wordOne, wordTwo] = choice.split(" vs ") //split words 
                 let url = window.location.href.split('?');
-                
+                // Reload page with new URL
                 window.location.href =
                     `${url[0]}?w1=${wordOne}&w2=${wordTwo}`
             }
         },
-        mounted() {
-        },
+        // Year slider for controlling which year is mapped 
         components: {
             'vueSlider': window['vue-slider-component'],
         }
@@ -134,13 +141,14 @@ function main(w1, w2) {
     myVue.wordOne = w1;
     myVue.wordTwo = w2;
 
+    // Create svg into which map is drawn  
     svg = d3.select("map")
         .append("svg")
         .attr("width", MAPWIDTH)
         .attr("height", MAPHEIGHT)
         .append('g')
         .attr('class', 'map');
-
+    // Use Mercator projection, scale and position map 
     projection = d3.geoMercator()
         .scale(162)
         .translate([MAPWIDTH / 2, MAPHEIGHT / 1.5]);
@@ -148,11 +156,12 @@ function main(w1, w2) {
     path = d3.geoPath().projection(projection);
 
     svg.call(tip);
-
+    // Queue up data sources; when available call ready function 
     queue()
         .defer(d3.json, "./data/resources2/countries.geojson") // data (geojson)
         .defer(d3.json, `./data/resources2/results/${w1}-${w2}.json`) // interest (pair json file)
         .await(ready);
+    // Set select dropdown value to match words from URL 
     if (urlParams.get('w1')) {
         document.getElementsByClassName('wordchoice')[0].value =
             `${w1} vs ${w2}`
@@ -166,13 +175,16 @@ let toCode;
 function createToCode(geodata) {
     const to3 = [];
 
-    // console.log(geodata);
+
     geodata.features.forEach(
         (feature) => {
             to3.push([feature.properties.ADMIN, feature.properties.ISO_A3]);
         }
     );
 
+    // Create a single js map between country names and country codes
+    // This is needed because Google data uses country names and JSON data uses country codes
+    // Some need to be edited for match to succeed
     const toCode = new Map(to3);
     // updates for Google country names
     toCode.set('United States', 'USA')
@@ -192,14 +204,15 @@ function createToCode(geodata) {
     toCode.set('eSwatini', 'SWZ')
     return toCode
 }
-
+// Draw map after data is loaded 
 function ready(error, data, interest) {
     myVue.wordOne = wordOne;
     myVue.wordTwo = wordTwo;
     globalInterest = interest;
     myData = data;
     toCode = createToCode(data);
-    // document.querySelector("g.map").remove();
+    // Initialize interest values for every region to GREYVALUE, 
+    // so missing values are treated as zero when coloring regions 
     data.features.forEach(function (d) { d.interestOne = GREYVALUE });
     svg.append("g")
         .attr("class", "countries")
@@ -213,7 +226,7 @@ function ready(error, data, interest) {
         .style('stroke', 'white')
         .style('stroke-width', 1.5)
         .style("opacity", 0.8)
-        // tooltips
+        // tooltip
         .style("stroke", "white")
         .style('stroke-width', 0.3)
         .on('mouseover', function (d) {
@@ -235,17 +248,17 @@ function ready(error, data, interest) {
                 .style("stroke-width", 0.3);
         });
 
-        d3.select('.loading')//remove loading element 
+    d3.select('.loading')//remove loading element 
         .remove()
 
-    svg.append("path")//check this later 
+    svg.append("path")
         .datum(topojson.mesh(data.features,
             function (a, b) { return a.id !== b.id; }))
         .attr("class", "names")
         .attr("d", path);
 }
 
-// assign color based on keys in globalInterest 
+// Assign color based on keys in globalInterest 
 function colorByYear(year) {
     const interestOneByISO = {};
     const yrstr = year + '';
@@ -267,7 +280,6 @@ function colorByYear(year) {
         .duration(2000)
         .style("fill", function (d) {
             if (d.interestOne === GREYVALUE) { // are both values zero?
-                // console.log(year);
                 return GREYCOLOR // when both values zero 
             }
             return color(d.interestOne); // otherwise
