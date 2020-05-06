@@ -26,5 +26,5 @@ In August 1945, Japan lay a smoldering ruin, its military defeated, and great ci
 * TopoJSON
 
 ## Acknowledgements
-This thesis would not have been possible without the enthusiastic guidance of the Parsons MSDV faculty. Special thanks are due to Daniel Sauter, Aaron Hill, Richard The, Alec Barrett, Alvin Chang, Jonathan Thirkield and Christian Swinehart. In addition, invaluable technical assistance was provided by Robert Abarbanel, and linguistic expertise by Schun Doi. Finally, I am grateful to the Parsons MSDV classes 2019 and 2020 for their encouragement and intellectual exchange, and to my family for their unwavering support. 
+This thesis would not have been possible without the enthusiastic and mindful guidance of the Parsons MSDV faculty. Special thanks are due to Daniel Sauter, Aaron Hill, Richard The, Alec Barrett, Alvin Chang, Jonathan Thirkield and Christian Swinehart. In addition, invaluable technical assistance was provided by Robert Abarbanel, and linguistic data by Schun Doi. Finally, I am grateful to the Parsons MSDV classes 2019 and 2020 for their encouragement and intellectual exchange, to my journalist-colleagues in Japan for their feedback and expertise, and to my family for their unwavering support.
 
