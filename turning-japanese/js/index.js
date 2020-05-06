@@ -70,10 +70,10 @@ const backupData = {
         pubDate: '2010-10'
     },
     anime: {
-        url: 'https://static01.nyt.com/images/2009/03/13/arts/design/MangaPROMO12.jpg',
-        headline: 'Anime House',
-        abstract: 'Fashion glossies may be in the doldrums, but you’d never know it at the Magazine Alive shop.',
-        pubDate: '2009-06'
+        url: 'https://static01.nyt.com/images/2017/09/22/arts/television/22yukio3/22yukio3-articleLarge.jpg',
+        headline: 'Review: An Anime New York in Netflix’s ‘Neo Yokio’',
+        abstract: 'An affectionate satire of life among the city’s elite is the brainchild of Ezra Koenig, the Vampire Weekend singer and guitarist.',
+        pubDate: '2017-09'
     },
     umami: {
         url: 'https://static01.nyt.com/images/2019/03/20/dining/15appe5/15appe5-articleLarge.jpg',
@@ -83,9 +83,9 @@ const backupData = {
     },
     'hello kitty': {
         url: 'https://static01.nyt.com/images/2015/06/27/travel/27intransit-kittyphoto/27intransit-kittyphoto-watch308-v2.jpg',
-        headline: 'Hello Kitty and Barbie, Round 1',
-        abstract: 'Hello Kitty is taking on Barbie for the title of most fashionable plaything.',
-        pubDate: '2009-02'
+        headline: 'Taking Tea in Hong Kong With Hello Kitty',
+        abstract: 'Restaurants in Hong Kong and Kyoto let diners have dumplings and parfaits with a Hello Kitty touch.',
+        pubDate: '2015-06'
     },
     emoji: {
         url: 'https://static01.nyt.com/images/2017/01/20/technology/personaltech/20techtipwebART/20techtipwebART-square320-v2.jpg',
