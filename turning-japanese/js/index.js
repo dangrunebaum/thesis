@@ -1,10 +1,10 @@
-//Make top container transparent on scroll (contains title, subtitle etc.)
+// Make top container transparent on scroll (contains title, subtitle etc.)
 $(window).scroll(function () {
     $(".top-container").css("opacity", 1 - $(window).scrollTop() / 500);
 });
 ////////////////////////
 
-//Column headers stay atop page on scroll 
+// Column headers stay atop page on scroll 
 window.onscroll = function () { myFunction() };
 
 const header = document.getElementById("myHeader");
@@ -19,7 +19,7 @@ function myFunction() {
 }
 ////////////////////////
 
-//Data to populate hovers for NYT keywords 
+// Data to populate hovers for NYT keywords 
 const backupData = {
     geisha: {
         url: 'https://static01.nyt.com/images/2018/04/02/opinion/maureen-dowd/maureen-dowd-articleLarge.png',
@@ -152,8 +152,8 @@ d3.csv("data/timeline.csv", function (data) {
 })
 ////////////////////////
 
-//Create OED 100 most frequent words visualization in center column. 
-//Three bands indicate frequency of word 
+// Create OED 100 most frequent words visualization in center column 
+// Three bands indicate frequency of word 
 // Color ordinal scale for OED 100 words and category visualization
 var color = d3.scaleOrdinal()
     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
@@ -339,7 +339,7 @@ var app = new Vue({
         }
     },
     methods: {
-        // use different fill color for Japan 
+        // Use different fill color for Japan 
         myFill(index) { // index 1 indicates Japan 
             return index === 1 ? "#D90404" : "#3C8A9E";
         }
@@ -431,13 +431,12 @@ var node = CategoriesSvg.selectAll(".node")
     .attr("transform", function (d) {
         return "translate(" + d.x + "," + d.y + ")";
     });
-//size and color of bubbles 
+// Size and color of bubbles 
 node.append("circle")
     .attr("r", function (d) {
         return d.r;
     })
     .style("fill", function (d) {
-        // console.log(d)
         return color(d.data.Tag);
     })
 
@@ -458,7 +457,7 @@ node.append("text")
     .attr("class", "category")
     .on('mouseover', catOver)
     .on('mouseout', catOut);
-//text for category counts 
+// Text for category counts 
 node.append("text")
     .attr("dy", "1.0em")
     .style("text-anchor", "middle")
@@ -482,8 +481,8 @@ function catOut() {
 }
 /////////////////////
 
-//Loanword histogram 
-//New Vue instance in variable app2 
+// Loanword histogram 
+// New Vue instance in variable app2 
 var app2 = new Vue({
     // ID of referenced div-element
     el: '#histogram',
@@ -492,6 +491,7 @@ var app2 = new Vue({
         svgHeight: 400,
         svgWidth: 750,
         margin: { top: 25, left: 25, bottom: 50, right: 25 },
+        // Data for word date histogram 
         data: [
             {
                 decade: "1570",
@@ -693,7 +693,7 @@ var app2 = new Vue({
     },
     methods: {
         myFill(index) { return "#3C8A9E" },
-        barover(e) { // create labels for tops of bars showing value 
+        barover(e) { // Create labels for tops of bars showing value 
             let bar = e.target;
             let rect = d3.select(bar);
             let x = rect.attr("x"), y = rect.attr("y"), value = rect.attr("value");
@@ -706,7 +706,7 @@ var app2 = new Vue({
             bar.style.fill = "#D90404"
 
         },
-        barleave(e) { // hide labels 
+        barleave(e) { // Hide labels 
             let bar = e.target;
             let g = d3.select(bar.parentNode);
             g.select("text").remove()
@@ -772,7 +772,7 @@ d3.csv("data/nyt-multiples.csv",
 
     function (data) {
         // Group the data to draw one line per group
-        var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+        var sumstat = d3.nest() // Nest function allows to group the calculation per level of a factor
             .key(function (d) { return d.topic; })
             .entries(data);
 
@@ -838,7 +838,7 @@ d3.csv("data/nyt-multiples.csv",
             .on('mouseover', wordOver)
             .on('mouseout', mouseout);
         // Card popup for each word
-        // Use to backup data to populate headline, abstract, pubDate and image URL  
+        // Use backupData to populate headline, abstract, pubDate and image URL  
         function wordOver(e) {
             const { pageX, pageY } = d3.event;
             const thisWord = d3.select(this).attr('word')
