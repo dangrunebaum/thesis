@@ -158,6 +158,8 @@ d3.csv("data/timeline.csv", function (data) {
 var color = d3.scaleOrdinal()
     .domain(["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing", "other"])
     .range(["goldenrod", "lightsalmon", "olive", "plum", "CornflowerBlue", "teal", "DarkSeaGreen", "indigo", "Chocolate", "DarkTurquoise", "rgb(100,100,100)"]);
+// Array for color sorting in OED words
+const colorCategories = ["food & drink", "martial arts", "arts & crafts", "jobs & status", "religion", "entertainment", "culture", "business", "botany", "housing"];
 
 // Create OED words SVG
 var svg = d3.select("word-div").append("svg")
@@ -254,10 +256,16 @@ d3.csv("data/100-frequent-words.csv", function (data) {
         .attr("font-weight", function (d, i) { return d.Frequency * 200 - 100; })// font weight based on frequency
         .attr("font-size", function (d, i) { return d.Frequency * 5; })// font size based on frequency
         .style("cursor", "pointer")
-        .style("fill", function (d, i) {
+        // .style("fill", function (d, i) {
+        //     { return color(d.Category); }// color based on category 
+        // })
 
-            { return color(d.Category); }// color based on category 
+        .style("fill", function myColor(d, i) {
+            if (colorCategories.includes(d.Category))
+                return color(d.Category)
+            else { return "rgb(75, 75,75)" };
         })
+
         .text(function (d, i) { return d.Loanword; })// print loanword 
         // Show data from OED words on mouseover: meaning, Japanese writing, category and stage 
         .on("mouseover", function (d) {
