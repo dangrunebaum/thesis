@@ -84,14 +84,11 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /* opacity: 0.1; */
 }
 
 .blurb {
     position: absolute;
     top: 580px;
-    /* width: 100%; */
-    /* top: 50px; */
     color: #D90404;
     font-family: 'Taviraj', serif;
     font-size: 32px;
@@ -112,7 +109,6 @@ p {
 }
 
 /* sticky header */
-
 .sticky {
     position: fixed;
     top: 0;
@@ -147,86 +143,42 @@ span.right {
 
 .content {
     padding: 16px;
-    /* text-align: center; */
 }
 
 .left-col {
     position: relative;
-    /* color: #7D1829; */
     width: 25%;
     float: left;
-    /* box-shadow: 8px 0px 6px -6px lightgray; */
     height: 5200px;
 }
 
 #sourcing {
     position: absolute;
-    top: 4835px;
+    top: 4820px;
     font-family: 'Montserrat', sans-serif;
-    /*   right: 0; */
 }
 
 .center-col {
     position: relative;
-    /* color: #7D1829; */
     width: 25%;
     float: left;
-    /* box-shadow: 0px 0px 10px 0px lightgray; */
     height: 5200px;
     box-shadow: 8px 0px 6px -6px lightgray;
-    /* border-left: 1px solid black; */
-    /* position: absolute; */
 }
 
-/* #center-text {
-    position: relative;
-    font-family: 'Taviraj', serif;
-    margin-left: 30px;
-    margin-right: 20px;
-} */
-
 #right-col {
-    /* color: #7D1829; */
     height: 5200px;
     width: 50%;
-    /* margin: 0 auto; */
     float: left;
-    /* font-family: 'Taviraj', serif; */
     font-weight: 700;
     text-align: center;
     font-size: 15px;
-    /* box-shadow: 8px 0px 6px -6px lightgray; */
-    /* box-shadow: 0 8px 6px -6px black; */
-    /* height: 100%; */
-    /* overflow: scroll; */
-    /* border-left: 1px solid black; */
 }
 
 svg {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
-
-/* svg.timeline {
-    position: relative;
-    top: -100px;
-}
-
-svg.word {
-    position: relative;
-    top: -100px;
-} */
-
-/* display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto; */
-
-/* svg:hover {
-    box-shadow: 0px 0px 10px 0px lightgray;
-    border-radius: 5px;
-    transition: all .5s;
-} */
 
 #viz-container {
     position: relative;
@@ -237,7 +189,6 @@ svg.word {
     height: auto;
     max-width: 700px;
     margin-left: 30px;
-    /* max-height: 300px; */
 }
 
 .bubble-text {
@@ -248,8 +199,6 @@ svg.word {
 .footer {
     clear: both;
     font-family: 'Montserrat', sans-serif;
-    /* background-color: rgb(216, 221, 222); */
-    /* background-color: lightgray; */
     color: #D90404;
     text-align: center;
     height: 100px;
@@ -258,24 +207,18 @@ svg.word {
 }
 
 a {
-    /* font-family: 'Taviraj', serif; */
     color: #D90404;
 }
 
 .oedtext {
-    /* fill: #7D1829; */
     shape-rendering: crispEdges;
 }
 
 .oedtext.active {
     fill: black !important;
-    /* text-decoration: underline; */
-    /* text-shadow: 1px 1px 5px gray;
-    color: rgb(75, 75, 75); */
 }
 
 .nyt-word.active {
-    /* text-shadow: 1px 1px 5px gray; */
     fill: black !important;
 }
 
@@ -290,10 +233,6 @@ div.tooltip {
     font-size: 18px;
     background: white;
     color: black;
-    /* color: rgb(100, 100, 100); */
-    /* color: rgb(125, 24, 41); */
-    /* border: .5px solid black; */
-    /* border-radius: 4px; */
     pointer-events: none;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, .1);
     border-radius: 12px;
@@ -306,7 +245,6 @@ div.tooltip {
 }
 
 #bubbleChart {
-    /* margin-top: 1.5%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -322,11 +260,9 @@ div.tooltip {
 .word-map-img {
     max-width: 700px;
     box-shadow: 0px 0px 10px 0px lightgray;
-    /* border: 1px solid lightgray; */
 }
 
 button {
-    /* margin-left: -100px; */
     font-size: 25px;
     position: relative;
     top: -18px;
@@ -334,12 +270,9 @@ button {
     margin: 50px;
     font-family: 'Montserrat', sans-serif;
     color: rgb(rgb(75, 75, 75))
-    /* color: rgb(125, 24, 41); */
 }
 
 button:hover {
-    /* box-shadow: 0px 0px 10px 0px lightgray; */
-    /* color: #D90404; */
     box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
     transform: translate3D(0, -2px, 0);
 }
@@ -404,21 +337,10 @@ div.card {
     margin: 0;
 }
 
-#ground {
-    fill: lightgreen;
-}
-
 .category.active {
     font-weight: bold !important;
 }
 
 .description.active {
     fill: black !important;
-}
-
-figure {
-    margin: 0;
-    font-family: 'Taviraj', serif;
-    background-color: rgb(253, 251, 246);
-    color: #D90404;
 }
