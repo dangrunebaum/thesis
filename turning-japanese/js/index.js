@@ -1,6 +1,6 @@
 // Make top container transparent on scroll (contains title, subtitle etc.)
 $(window).scroll(function () {
-    $(".top-container").css("opacity", 1 - $(window).scrollTop() / 500);
+    $(".top-container").css("opacity", 1 - $(window).scrollTop() / 750);
 });
 ////////////////////////
 

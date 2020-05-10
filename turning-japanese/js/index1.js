@@ -1,8 +1,8 @@
 /*
 COMPUTE INTEREST OVER TIME AGAINST INTEREST BY REGION  
-convert CSV to JSON that includes only the January 1 figure between 2006-2020
-multiply each january 1 figure against each year's annual figure in the main results json  
-use final to create color 
+Convert CSV to JSON that includes only the January 1 figure between 2006-2020.
+Multiply each january 1 figure against each year's annual figure in the main results JSON  
+use final to create color. 
 */
 // Examine url to check for new query params 
 const urlParams = new URLSearchParams(window.location.search)
@@ -64,9 +64,9 @@ function color(interest1, year) { // Interest1 is 0-1 scaled relative value of w
     // Year interest is Google search interest relative to the highest point
     // in time for a specific year
     let yearInterest = scaledInterestByYear[wordOne][year]
-    // Interest1 is the regional year interest.
-    // Interest1 is scaled by year interest and scaled down by 0.35 
-    // to create optimum perceptual color range. 
+    // Interest1 is the regional year interest
+    // Interest1 is scaled up by year interest then adjusted down by 0.35 
+    // to create optimum perceptual color range
     interest1 = Math.round(interest1 * yearInterest * 0.35);
     if (interest1 >= cbArray.length) interest1 = cbArray.length - 1
     return cbArray[interest1]
@@ -217,7 +217,7 @@ function ready(error, data, interest) {
     // Initialize interest values for every region to GREYVALUE, 
     // so missing values are treated as zero when coloring regions 
     data.features.forEach(function (d) { d.interestOne = GREYVALUE });
-    svg.append("g")
+    svg.append("g") // Create and draw map 
         .attr("class", "countries")
         .selectAll("path")
         .data(data.features)
