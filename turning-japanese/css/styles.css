@@ -373,3 +373,8 @@ div.card {
         top: 485px;
      }
  }
+
+ .google-blurb {
+     position: relative;
+     top: 23px;
+ }
