@@ -25,7 +25,6 @@ In August 1945, Japan lay a smoldering ruin, its military defeated, and great ci
 * JQuery
 * TopoJSON
 
-### "Turning Japanese" flowchart
 ![](https://github.com/dangrunebaum/thesis/blob/master/documentation/flowchart.png)
 
 ## Acknowledgements
